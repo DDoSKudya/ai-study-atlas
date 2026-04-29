@@ -1,6 +1,6 @@
 # Часть 34. Современные направления (Edge, Serverless, Server Components, гибриды, offline-first, плагины, multi-tenancy) — индекс
 
-[← Назад к глобальному плану](../../architects_mastery_plan.md)
+[← Назад к глобальному плану](../../mastery_plan.md)
 
 ---
 

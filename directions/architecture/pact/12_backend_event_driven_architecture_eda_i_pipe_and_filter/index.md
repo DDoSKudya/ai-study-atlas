@@ -1,6 +1,6 @@
 # Часть 12. Бекенд: Event‑Driven Architecture (EDA), сообщения, Pipe‑and‑Filter — индекс
 
-[← Назад к глобальному плану](../../architects_mastery_plan.md)
+[← Назад к глобальному плану](../../mastery_plan.md)
 
 ---
 

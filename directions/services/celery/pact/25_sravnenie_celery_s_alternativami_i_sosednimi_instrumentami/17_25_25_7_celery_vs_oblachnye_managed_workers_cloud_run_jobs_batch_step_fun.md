@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../celery_mastery_plan.md)
+[↑ К глобальному плану](../mastery_plan.md)
 
 ## 25.7 Celery vs облачные managed workers (Cloud Run Jobs, Batch, Step Functions)
 

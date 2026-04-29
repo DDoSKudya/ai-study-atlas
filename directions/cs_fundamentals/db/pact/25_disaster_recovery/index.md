@@ -1,6 +1,6 @@
 # Часть 25. Disaster Recovery — индекс
 
-[← Назад к глобальному DB-плану](../../db_mastery_plan.md)
+[← Назад к глобальному DB-плану](../../mastery_plan.md)
 
 ---
 

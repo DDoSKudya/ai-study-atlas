@@ -1,6 +1,6 @@
 # Часть 47. Big Data и SQL над Data Lake — индекс
 
-[← Назад к глобальному DB-плану](../../db_mastery_plan.md)
+[← Назад к глобальному DB-плану](../../mastery_plan.md)
 
 ---
 

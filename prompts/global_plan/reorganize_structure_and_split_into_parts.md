@@ -1,7 +1,7 @@
 # Reorganize Structure And Split Into Parts
 
 ## Входные данные
-- GLOBAL_PLAN: <полный путь к файлу глобального плана, например: /path/to/training/topic/topic_mastery_plan.md>
+- GLOBAL_PLAN: <полный путь к файлу глобального плана, например: /path/to/training/topic/mastery_plan.md>
 
 Обозначения (ниже в тексте используй только их, а не явные пути):
 - ROOT_DIR  = каталог, в котором лежит GLOBAL_PLAN

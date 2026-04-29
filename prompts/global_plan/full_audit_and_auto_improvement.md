@@ -1,7 +1,7 @@
 # Full Audit And Auto Improvement
 
 ## Входные данные
-- GLOBAL_PLAN: <полный путь к файлу глобального плана, например: /path/to/training/topic/topic_mastery_plan.md>
+- GLOBAL_PLAN: <полный путь к файлу глобального плана, например: /path/to/training/topic/mastery_plan.md>
 
 Принятые обозначения (НЕ меняй ниже):
 - ROOT_DIR  = каталог, в котором лежит GLOBAL_PLAN

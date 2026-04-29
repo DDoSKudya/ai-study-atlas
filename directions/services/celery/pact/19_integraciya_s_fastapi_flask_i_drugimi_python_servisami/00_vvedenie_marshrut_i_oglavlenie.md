@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../celery_mastery_plan.md)
+[↑ К глобальному плану](../mastery_plan.md)
 
 # Часть 19. Интеграция Celery с FastAPI, Flask и другими Python-сервисами
 

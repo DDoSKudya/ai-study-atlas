@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../celery_mastery_plan.md)
+[↑ К глобальному плану](../mastery_plan.md)
 
 ## Справочник по части
 
@@ -11,7 +11,7 @@
 | 42.3 | **8 модулей** одного мини-продукта; порядок см. **граф зависимостей**. |
 | 42.4 | Якоря: **delay/apply_async**, **ack timeline** (+ `worker_lost`), **prefetch**; не путать **expires** и **time limits**; визуал «кто держит сообщения» — [#prefetch-ownership](#prefetch-ownership). |
 | 42.3 визуалы | Топология: [#exam-module1-topology](#exam-module1-topology); routing: [#exam-module3-routing-visual](#exam-module3-routing-visual); `cid`: [#exam-correlation-visual](#exam-correlation-visual); beat: [#exam-beat-topology](#exam-beat-topology); инцидент: [#exam-incident-loop](#exam-incident-loop). |
-| План `42.x` | Все буллеты из `celery_mastery_plan.md` для части 42 закрыты этим файлом. |
+| План `42.x` | Все буллеты из `mastery_plan.md` для части 42 закрыты этим файлом. |
 | **Сверка с планом** | Блок [«Сверка с формулировками плана»](#plan-42-sverka) — построчное соответствие `42.1–42.4`. |
 
 #### Проверь себя: справочник по части

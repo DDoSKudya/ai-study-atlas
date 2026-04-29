@@ -1,6 +1,6 @@
 # Часть 8. Бекенд: SOA (Service-Oriented Architecture) — индекс
 
-[← Назад к глобальному плану](../../architects_mastery_plan.md)
+[← Назад к глобальному плану](../../mastery_plan.md)
 
 ---
 

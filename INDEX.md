@@ -16,20 +16,19 @@ AI Study Atlas — база для самостоятельного изучен
 Ниже — рабочая таблица, которую удобно расширять по мере роста базы.
 Один ряд = один трек.
 
-| Направление     | Трек              | Путь                             | План              | Контент | Статус      |
-| --------------- | ----------------- | -------------------------------- | ----------------- | ------- | ----------- |
-| Architecture    | Core Architecture | `directions/architecture/`       | `mastery_plan.md` | `pact/` | in progress |
-| Backend         | Python            | `directions/backend/python/`     | `mastery_plan.md` | `pact/` | in progress |
-| CS Fundamentals | Databases         | `directions/cs_fundamentals/db/` | `mastery_plan.md` | `pact/` | in progress |
-| Services        | Celery            | `directions/services/celery/`    | `mastery_plan.md` | `pact/` | in progress |
+| Направление     | Трек              | Путь                             | План |
+| --------------- | ----------------- | -------------------------------- | ---- |
+| Architecture    | Core Architecture | `directions/architecture/`       | [`mastery_plan.md`](directions/architecture/mastery_plan.md) |
+| Backend         | Python            | `directions/backend/python/`     | [`mastery_plan.md`](directions/backend/python/mastery_plan.md) |
+| CS Fundamentals | Databases         | `directions/cs_fundamentals/db/` | [`mastery_plan.md`](directions/cs_fundamentals/db/mastery_plan.md) |
+| CS Fundamentals | Clean Code        | `directions/cs_fundamentals/clean_code/` | [`mastery_plan.md`](directions/cs_fundamentals/clean_code/mastery_plan.md) |
+| Services        | Celery            | `directions/services/celery/`    | [`mastery_plan.md`](directions/services/celery/mastery_plan.md) |
 
 ### Шаблон новой строки
 
 Скопируйте строку ниже и заполните поля:
 
-`| <Direction> | <Track> | directions/<direction_slug>/<track_slug>/ | mastery_plan.md | pact/ | planned |`
-
-Рекомендуемые значения для `Статус`: `planned`, `in progress`, `active`, `review`, `archived`.
+`| <Direction> | <Track> | directions/<direction_slug>/<track_slug>/ | [mastery_plan.md](directions/<direction_slug>/<track_slug>/mastery_plan.md) |`
 
 ## Как проходить любой трек
 

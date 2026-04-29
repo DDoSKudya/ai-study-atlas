@@ -1,6 +1,6 @@
 # Часть 24. Фронтенд: Islands, гидрация, PWA и JAMstack — индекс
 
-[← Назад к глобальному плану](../../architects_mastery_plan.md)
+[← Назад к глобальному плану](../../mastery_plan.md)
 
 ---
 

@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../celery_mastery_plan.md)
+[↑ К глобальному плану](../mastery_plan.md)
 
 # Часть 13. Внутреннее устройство Celery: протокол, consumer pipeline, bootsteps, signals, remote control и chord unlock
 >
