@@ -201,7 +201,7 @@
 ```mermaid
 flowchart LR
   A["Изменение в MF или Shared"] --> B["Сборка артефакта"]
-  B --> C["Contract checks\n("lifecycle/protocol/events")"]
+  B --> C["Contract checks\n('lifecycle/protocol/events')"]
   B --> D["Публикация canary артефакта"]
   D --> E["Сборка host+remotes в test env"]
   E --> F["Smoke тесты композиции"]

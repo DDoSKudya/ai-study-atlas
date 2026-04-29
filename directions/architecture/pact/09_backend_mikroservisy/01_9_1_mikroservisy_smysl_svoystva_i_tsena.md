@@ -147,7 +147,7 @@ graph LR
     UI --> OrdersM
     UI --> PaymentsM
     UI --> CatalogM
-    OrdersM --> DB["(Одна БД\n("схемы/таблицы общие"))"]
+    OrdersM --> DB["(Одна БД\n('схемы/таблицы общие'))"]
     PaymentsM --> DB
     CatalogM --> DB
   end

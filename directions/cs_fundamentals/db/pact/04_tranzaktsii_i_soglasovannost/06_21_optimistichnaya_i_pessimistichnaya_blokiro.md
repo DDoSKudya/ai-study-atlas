@@ -210,7 +210,7 @@ Lost update — когда **два человека** прочитали одн
 ```mermaid
 flowchart TB
   Client["Клиент"] -->|idempotency_key=K| API["API/Сервис"]
-  API --> DB["(idempotency_keys<br/>UNIQUE("key"))"]
+  API --> DB["(idempotency_keys<br/>UNIQUE('key'))"]
   API -->|проверить K| DB
   DB -->|нет K| API
   API --> Do["Выполнить операцию<br/>(платёж/заказ)"]

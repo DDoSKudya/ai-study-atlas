@@ -182,7 +182,7 @@ flowchart LR
   Query["Запрос"] --> QEmb["Embedding\n→ вектор запроса"]
   Emb --> VDB["(Векторное хранилище)"]
   QEmb --> VDB
-  VDB --> ANN["ANN индекс\n("HNSW/IVF/PQ")"]
+  VDB --> ANN["ANN индекс\n('HNSW/IVF/PQ')"]
   ANN --> TopK["Top-k ближайших\nпо метрике (cos/L2/dot)"]
 ```
 
@@ -236,9 +236,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  U1("(User A")) -->|FRIEND_OF| U2("(User B"))
-  U2 -->|WORKS_AT| C("(Company"))
-  U1 -->|LIVES_IN| City("(City"))
+  U1["User A"] -->|FRIEND_OF| U2["User B"]
+  U2 -->|WORKS_AT| C["Company"]
+  U1 -->|LIVES_IN| City["City"]
   U2 -->|LIVES_IN| City
 ```
 
@@ -611,9 +611,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  Events["(Event log)"] --> P1["Проекция 1\n("операционное состояние")"]
-  Events --> P2["Проекция 2\n("поиск/кэш")"]
-  Events --> P3["Проекция 3\n("аналитика")"]
+  Events["(Event log)"] --> P1["Проекция 1\n('операционное состояние')"]
+  Events --> P2["Проекция 2\n('поиск/кэш')"]
+  Events --> P3["Проекция 3\n('аналитика')"]
   P1 --> Svc["Сервисы"]
   P2 --> Search["Поиск"]
   P3 --> BI["BI/ML"]

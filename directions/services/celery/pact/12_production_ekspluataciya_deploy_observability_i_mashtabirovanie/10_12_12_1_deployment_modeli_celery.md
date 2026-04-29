@@ -118,7 +118,7 @@ flowchart LR
   end
 
   subgraph Broker["Broker"]
-    Q["Queue("s")"]
+    Q["Queue('s')"]
   end
 
   subgraph Workers["Workers"]
@@ -140,12 +140,12 @@ flowchart LR
     Traces["traces"]
   end
 
-  API -->|"publish task"| Q
-  Beat -->|"publish periodic task"| Q
-  Q -->|"consume"| W1
-  Q -->|"consume"| W2
-  W1 -->|"store state/result"| RB
-  W2 -->|"store state/result"| RB
+  API -->|'publish task'| Q
+  Beat -->|'publish periodic task'| Q
+  Q -->|'consume'| W1
+  Q -->|'consume'| W2
+  W1 -->|'store state/result'| RB
+  W2 -->|'store state/result'| RB
   API --- Logs
   W1 --- Logs
   Beat --- Logs

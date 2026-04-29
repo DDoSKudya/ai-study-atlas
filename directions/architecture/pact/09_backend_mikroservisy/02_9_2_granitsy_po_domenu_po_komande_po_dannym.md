@@ -196,7 +196,7 @@ ACL (mapper + policy)
 
 ```mermaid
 graph LR
-  O["Orders (домен)"] --> ACL["ACL / adapter\n("mapping + policy")"]
+  O["Orders (домен)"] --> ACL["ACL / adapter\n('mapping + policy')"]
   ACL --> P["Payments (внешний сервис)"]
 ```
 

@@ -135,7 +135,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  Eq["WHERE user_id = 5"] --> Stats["pg_stats("user_id")"]
+  Eq["WHERE user_id = 5"] --> Stats["pg_stats('user_id')"]
   Stats --> MCV{"5 ∈ most_common_vals?"}
   MCV -->|Да| Sel1["sel = most_common_freqs index 5"]
   MCV -->|Нет| Sel2["sel ≈ 1 / n_distinct"]

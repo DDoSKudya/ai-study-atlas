@@ -169,8 +169,8 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  PSS["(pg_stat_statements)"] --> Top1["ORDER BY total_exec_time DESC\n#quot;кто съел больше всего#quot;"]
-  PSS --> Top2["ORDER BY calls DESC\n#quot;кто самый частый#quot;"]
+  PSS["(pg_stat_statements)"] --> Top1["ORDER BY total_exec_time DESC\n'кто съел больше всего'"]
+  PSS --> Top2["ORDER BY calls DESC\n'кто самый частый'"]
   Top1 --> Pick["Выбрать кандидата"]
   Pick --> Explain["EXPLAIN (ANALYZE, BUFFERS)"]
   Explain --> Fix["Индекс/переписать запрос/настройки"]
@@ -248,7 +248,7 @@ flowchart TB
 flowchart LR
   Q["Медленный запрос"] --> Text["log_min_duration_statement\n→ текст в лог"]
   Q --> Plan["auto_explain\n→ план в лог"]
-  Plan --> Why["Понять почему медленно\n("Seq Scan/Disk/SubPlan/...")"]
+  Plan --> Why["Понять почему медленно\n('Seq Scan/Disk/SubPlan/...')"]
   Text --> Find["Найти какой именно запрос"]
 ```
 

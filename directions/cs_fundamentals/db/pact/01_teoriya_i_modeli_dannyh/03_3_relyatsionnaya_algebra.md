@@ -223,8 +223,8 @@ WHERE oi.id IS NULL;
 
 ```mermaid
 flowchart TB
-  R["R("A,B")\nкто что сделал"] --> Div["Деление: R ÷ S"]
-  S["S("B")\nобязательный набор"] --> Div
+  R["R('A,B')\nкто что сделал"] --> Div["Деление: R ÷ S"]
+  S["S('B')\nобязательный набор"] --> Div
   Div --> Aset["Результат: A\nкоторые покрыли все B из S"]
 ```
 
@@ -377,7 +377,7 @@ WHERE NOT EXISTS (
 ```mermaid
 flowchart LR
   A1["σ(cond)(R ⋈ S)"] --> Eq1["(σ(cond_R)(R)) ⋈ S\nили\nR ⋈ (σ(cond_S)(S))"]
-  A2["π(cols)(R ⋈ S)"] --> Eq2["(π(cols_R)(R)) ⋈ (π(cols_S)(S))\n("оставить колонки для ON")"]
+  A2["π(cols)(R ⋈ S)"] --> Eq2["(π(cols_R)(R)) ⋈ (π(cols_S)(S))\n('оставить колонки для ON')"]
   A3["R ⋈cond S"] --> Eq3["σcond(R × S)"]
 ```
 

@@ -231,10 +231,10 @@ Pool - это "тип бригады", которой ты выдаешь раб
 ```mermaid
 flowchart LR
   W["Queue workload"] --> C{"Task profile?"}
-  C -->|"CPU-heavy"| P["prefork worker pool"]
-  C -->|"I/O-heavy, compatible stack"| G["gevent/eventlet pool"]
-  C -->|"Moderate I/O, simpler ops"| T["threads pool"]
-  C -->|"Debug/local"| S["solo"]
+  C -->|'CPU-heavy'| P["prefork worker pool"]
+  C -->|'I/O-heavy, compatible stack'| G["gevent/eventlet pool"]
+  C -->|'Moderate I/O, simpler ops'| T["threads pool"]
+  C -->|'Debug/local'| S["solo"]
 ```
 
 ### Как запомнить

@@ -67,12 +67,12 @@ graph LR
   end
 
   Client["HTTP / API клиент"]
-    --> Svc["Order Service\n("транзакция")"]
+    --> Svc["Order Service\n('транзакция')"]
     --> DB
 
   DB -->|insert order + insert event| Outbox
 
-  subgraph Publisher["Outbox Publisher\n("фон. процесс")"]
+  subgraph Publisher["Outbox Publisher\n('фон. процесс')"]
     Outbox --> Pub["Read new events"]
     Pub --> Bus["Event Bus / Topic"]
   end

@@ -152,7 +152,7 @@ INSERT INTO contacts (phone) VALUES ('+79001234567');  -- ERROR: duplicate key
 flowchart LR
   Col["col"] --> NN2{"NOT NULL?"}
   NN2 -->|NULL| ErrNN["Ошибка"]
-  NN2 -->|не NULL| Check["CHECK("expr")"]
+  NN2 -->|не NULL| Check["CHECK('expr')"]
   Check --> Pass{"expr = FALSE?"}
   Pass -->|Да| ErrChk["Ошибка"]
   Pass -->|Нет (TRUE или NULL)| Ok["OK"]
@@ -321,7 +321,7 @@ CREATE TABLE orders (
 ```mermaid
 flowchart LR
   Parent["(users)"] -->|PK id| Child["(orders.user_id FK)"]
-  Del["DELETE users("id=1")"] --> Mode{"ON DELETE ..."}
+  Del["DELETE users('id=1')"] --> Mode{"ON DELETE ..."}
   Mode -->|RESTRICT/NO ACTION| Stop["Запретить"]
   Mode -->|CASCADE| DelC["Удалить orders"]
   Mode -->|SET NULL| NullC["orders.user_id = NULL"]

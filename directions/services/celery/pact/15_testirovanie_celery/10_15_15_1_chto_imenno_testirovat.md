@@ -104,9 +104,9 @@ Celery‑задача — это сочетание:
 flowchart LR
   A["Producer\napply_async/delay"] --> B["Broker\nqueue"]
   B --> C["Worker\nconsume"]
-  C --> D["Task wrapper\n("retry/timeouts/logging")"]
-  D --> E["Business logic\n("pure core")"]
-  D --> F["Result backend\n("optional")"]
+  C --> D["Task wrapper\n('retry/timeouts/logging')"]
+  D --> E["Business logic\n('pure core')"]
+  D --> F["Result backend\n('optional')"]
   E --> G["Side effects\nDB/HTTP/files/events"]
 ```
 

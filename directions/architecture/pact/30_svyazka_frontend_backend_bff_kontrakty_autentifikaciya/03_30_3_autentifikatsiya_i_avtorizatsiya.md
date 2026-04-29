@@ -426,7 +426,7 @@ sequenceDiagram
 ```mermaid
 flowchart LR
   Br["Browser"] -->|Cookie session| BFF["BFF"]
-  BFF -->|Service auth\n("m2m токен / mTLS")| S["Services"]
+  BFF -->|Service auth\n('m2m токен / mTLS')| S["Services"]
   Note over Br,BFF: user-context хранится в сессии\n("или извлекается BFF-ом")
   Note over BFF,S: сервисы не доверяют браузеру,\nони доверяют BFF как сервису + проверяют права
 ```

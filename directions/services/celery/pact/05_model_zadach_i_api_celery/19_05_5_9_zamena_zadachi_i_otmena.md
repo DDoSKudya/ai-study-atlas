@@ -101,7 +101,7 @@ def maybe_reschedule(self, job_id: int):
 ```mermaid
 flowchart LR
   A["Текущее выполнение задачи"]
-  R["self.replace("new_signature")"]
+  R["self.replace('new_signature')"]
   B["Новая сигнатура в очереди / планировщике"]
   A --> R --> B
 ```

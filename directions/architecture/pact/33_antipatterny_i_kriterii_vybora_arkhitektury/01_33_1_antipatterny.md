@@ -301,7 +301,7 @@ flowchart TB
   end
 
   subgraph Effects["Эффекты"]
-    R["Release train\n("релизы пачкой")"]
+    R["Release train\n('релизы пачкой')"]
     I["Cascading incidents"]
     U["Unclear ownership"]
   end

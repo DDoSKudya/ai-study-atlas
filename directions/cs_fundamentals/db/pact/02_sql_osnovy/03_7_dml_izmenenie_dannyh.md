@@ -24,8 +24,8 @@
 
 ```mermaid
 flowchart TB
-  In["INSERT"] --> Check["Проверить типы/ограничения\n("NOT NULL/UNIQUE/CHECK/FK")"]
-  Check --> Def["Подставить DEFAULT\n("если нужно")"]
+  In["INSERT"] --> Check["Проверить типы/ограничения\n('NOT NULL/UNIQUE/CHECK/FK')"]
+  Check --> Def["Подставить DEFAULT\n('если нужно')"]
   Def --> Write["Записать строку"]
   Write --> Ret{"RETURNING?"}
   Ret -->|Да| Out["Вернуть значения"]
@@ -263,7 +263,7 @@ flowchart TB
   Conflict -->|Нет| Ok["Вставлено"]
   Conflict -->|Да| Handler{"ON CONFLICT ..."}
   Handler -->|DO NOTHING| Skip["Пропустить строку"]
-  Handler -->|DO UPDATE| Upd["Обновить существующую\n("можно EXCLUDED.*")"]
+  Handler -->|DO UPDATE| Upd["Обновить существующую\n('можно EXCLUDED.*')"]
 ```
 
 **Простыми словами:** UPSERT = «если такой записи нет — вставь, если уже есть — обнови». ON CONFLICT — способ в PostgreSQL сказать: «при конфликте по уникальному ключу не падай с ошибкой, а сделай то-то (ничего или обновление)».

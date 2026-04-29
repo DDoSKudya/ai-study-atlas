@@ -179,9 +179,9 @@ Actor model традиционно ближе ко второму:
 ```mermaid
 graph TB
   Root["Root supervisor"] --> A["Service supervisor"]
-  A --> O1["OrderActor("1")"]
-  A --> O2["OrderActor("2")"]
-  A --> O3["OrderActor("3")"]
+  A --> O1["OrderActor('1')"]
+  A --> O2["OrderActor('2')"]
+  A --> O3["OrderActor('3')"]
 
   O2 -. error .-> A
   A -->|restart/stop| O2

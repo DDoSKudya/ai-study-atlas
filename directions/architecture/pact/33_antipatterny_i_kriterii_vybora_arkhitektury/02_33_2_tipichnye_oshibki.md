@@ -553,9 +553,9 @@ CREATE TABLE idempotency_keys (
 
 ```mermaid
 flowchart LR
-  A["Add: вводим новое\n("совместимо")"] --> B["Deprecate: помечаем старое\n+ migration guide"]
-  B --> C["Migrate: потребители переходят\n("видим метриками")"]
-  C --> D["Remove: удаляем старое\n("major/новая версия")"]
+  A["Add: вводим новое\n('совместимо')"] --> B["Deprecate: помечаем старое\n+ migration guide"]
+  B --> C["Migrate: потребители переходят\n('видим метриками')"]
+  C --> D["Remove: удаляем старое\n('major/новая версия')"]
 ```
 
 #### Пример 1: REST/OpenAPI — как выглядят безопасные изменения

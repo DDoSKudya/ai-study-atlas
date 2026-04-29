@@ -202,15 +202,15 @@ sequenceDiagram
 ```mermaid
 flowchart LR
   subgraph ProducerSide["Producer side"]
-    CeleryP["Celery app\n("формирует сообщение")"] --> Kombu["Kombu\n("messaging layer")"]
-    Kombu --> Transport["Transport\n("AMQP/Redis/SQS модель")"]
-    Transport --> Broker["Broker\n("очереди/хранение/routing")"]
+    CeleryP["Celery app\n('формирует сообщение')"] --> Kombu["Kombu\n('messaging layer')"]
+    Kombu --> Transport["Transport\n('AMQP/Redis/SQS модель')"]
+    Transport --> Broker["Broker\n('очереди/хранение/routing')"]
   end
 
   subgraph ConsumerSide["Worker side"]
-    Broker --> Worker["Worker\n("reserve + execute")"]
-    Worker --> Backend["Result backend\n("state/result/traceback")"]
-    Worker --> Events["Events stream\n("для наблюдателей")"]
+    Broker --> Worker["Worker\n('reserve + execute')"]
+    Worker --> Backend["Result backend\n('state/result/traceback')"]
+    Worker --> Events["Events stream\n('для наблюдателей')"]
   end
 ```
 

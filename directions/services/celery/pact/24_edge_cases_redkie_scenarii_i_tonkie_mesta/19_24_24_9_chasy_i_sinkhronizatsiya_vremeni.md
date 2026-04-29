@@ -36,7 +36,7 @@
 flowchart LR
     P["Producer clock: 10:00:00"] -->|ETA +120s| B["(Broker)"]
     B --> W["Worker clock: 09:58:50"]
-    W --> X["Task starts #quot;не по ожиданию#quot;"]
+    W --> X["Task starts 'не по ожиданию'"]
 ```
 
 ### Пошагово: time hygiene checklist

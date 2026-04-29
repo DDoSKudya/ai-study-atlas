@@ -173,8 +173,8 @@
 
 ```mermaid
 flowchart LR
-  Proto[".proto\n("IDL: messages + services")"]
-  Server["Серверный код\n("реализация бизнес-логики")"]
+  Proto[".proto\n('IDL: messages + services')"]
+  Server["Серверный код\n('реализация бизнес-логики')"]
   ClientA["Клиент A (Java)"]
   ClientB["Клиент B (Go)"]
   ClientC["Клиент C (Node.js)"]

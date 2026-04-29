@@ -101,10 +101,10 @@
 ```mermaid
 flowchart LR
   UI["Клиент/UI"] -->|Command| API["API / Command handler"]
-  API --> AGG["Aggregate\n("доменная логика")"]
+  API --> AGG["Aggregate\n('доменная логика')"]
   AGG -->|append events| ES["(Event Store)"]
   ES -->|publish events| BUS["Event bus / broker"]
-  BUS --> PRJ["Projector\n("строит read-модели")"]
+  BUS --> PRJ["Projector\n('строит read-модели')"]
   PRJ --> RM["(Read model / projection)"]
   UI -->|Query| QAPI["Query API"]
   QAPI --> RM

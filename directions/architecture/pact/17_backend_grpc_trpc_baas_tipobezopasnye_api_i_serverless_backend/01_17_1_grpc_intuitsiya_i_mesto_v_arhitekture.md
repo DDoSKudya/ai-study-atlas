@@ -80,7 +80,7 @@ flowchart LR
   end
 
   subgraph Edge["Край системы"]
-    API["API Gateway / BFF\n("HTTP/JSON, GraphQL")"]
+    API["API Gateway / BFF\n('HTTP/JSON, GraphQL')"]
   end
 
   subgraph Services["Внутренние сервисы"]

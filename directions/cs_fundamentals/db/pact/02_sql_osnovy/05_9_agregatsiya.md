@@ -30,9 +30,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  G["Одна группа"] --> C["COUNT("*")"]
-  G --> S["SUM("total_amount")"]
-  G --> A["AVG("total_amount")"]
+  G["Одна группа"] --> C["COUNT('*')"]
+  G --> S["SUM('total_amount')"]
+  G --> A["AVG('total_amount')"]
 ```
 
 **Итог:** GROUP BY превращает «много строк» в «мало строк» — по одной на каждое уникальное значение группировочного столбца (или комбинации столбцов), а агрегаты (COUNT, SUM, AVG...) дают сводные числа по каждой группе.
@@ -174,7 +174,7 @@ FROM users;
 flowchart TB
   From["FROM"] --> Where["WHERE\nфильтр строк"]
   Where --> Group["GROUP BY\nгруппы"]
-  Group --> Having["HAVING\nфильтр групп\n("агрегаты")"]
+  Group --> Having["HAVING\nфильтр групп\n('агрегаты')"]
   Having --> Out["Результат"]
 ```
 
@@ -271,10 +271,10 @@ GROUP BY status;
 
 ```mermaid
 flowchart TB
-  Group2["Одна группа (user_id=...)"] --> All["COUNT("*")\nвсе строки"]
-  Group2 --> Paid["COUNT("*") FILTER\nstatus='paid'"]
-  Group2 --> Canc["COUNT("*") FILTER\nstatus='cancelled'"]
-  Group2 --> Rev["SUM("amount") FILTER\nstatus='paid'"]
+  Group2["Одна группа (user_id=...)"] --> All["COUNT('*')\nвсе строки"]
+  Group2 --> Paid["COUNT('*') FILTER\nstatus='paid'"]
+  Group2 --> Canc["COUNT('*') FILTER\nstatus='cancelled'"]
+  Group2 --> Rev["SUM('amount') FILTER\nstatus='paid'"]
 ```
 
 ---
@@ -425,7 +425,7 @@ flowchart TB
   R1["(year, quarter, month)"] --> R2["(year, quarter)"]
   R2 --> R3["(year)"]
   R3 --> R4["()"]
-  NoteR["ROLLUP: #quot;сворачиваем#quot; справа налево"] --- R1
+  NoteR["ROLLUP: 'сворачиваем' справа налево"] --- R1
 ```
 
 ##### CUBE

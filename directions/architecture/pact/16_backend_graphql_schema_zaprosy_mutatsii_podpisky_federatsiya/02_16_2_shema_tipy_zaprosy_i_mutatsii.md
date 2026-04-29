@@ -166,7 +166,7 @@ mutation CreateOrder($input: CreateOrderInput!) {
 
 ```mermaid
 graph TD
-  Q["Query"] -->|user("id")| User
+  Q["Query"] -->|user('id')| User
   Q -->|orders| Order
   M["Mutation"] -->|createOrder| Order
   User -->|orders| Order

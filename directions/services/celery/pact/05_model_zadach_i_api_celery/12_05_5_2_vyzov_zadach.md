@@ -60,7 +60,7 @@ flowchart LR
     X["expires: после — задача «протухла» (best-effort)"]
   end
   P --> C --> R
-  P -.->|"не позже смысла"| X
+  P -.->|'не позже смысла'| X
 ```
 
 **Практика:** для «свежее 5 минут» моделируй **expires от события**, а для «ровно в 15:00» — **timezone-aware ETA** + отдельно продумай, что если очередь перегружена к этому часу (часть 11 про beat/DST — см. таймзоны).
@@ -106,14 +106,14 @@ flowchart LR
 ```mermaid
 flowchart TD
   subgraph caller["Код producer-а"]
-    DL["delay("*args, **kwargs")"]
-    AA["apply_async("args=, kwargs=, ...") + options"]
+    DL["delay('*args, **kwargs')"]
+    AA["apply_async('args=, kwargs=, ...') + options"]
     ST["send_task: billing.enqueue_invoice"]
   end
   Q["Сериализация тела + опции → сообщение"]
   B["Брокер (очередь)"]
 
-  DL -->|"обёртка"| AA0["apply_async с дефолтами"]
+  DL -->|'обёртка'| AA0["apply_async с дефолтами"]
   AA0 --> Q
   AA --> Q
   ST --> Q

@@ -32,7 +32,7 @@
 flowchart TB
   C["Canvas: chord / большой group"]
   C --> B["Брокер: N сообщений + N исполнений"]
-  C --> RB["Result backend: O("N") координации unlock"]
+  C --> RB["Result backend: O('N') координации unlock"]
   C --> CB["Callback после «все готовы»"]
   RB --> H["При большом N узкое место<br/>часто здесь, не в CPU задачи"]
 ```

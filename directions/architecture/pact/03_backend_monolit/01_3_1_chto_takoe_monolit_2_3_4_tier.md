@@ -48,8 +48,8 @@ graph LR
     App["Монолитное приложение<br/>(сервер)"]
     DB["База данных"]
 
-    Client -->|"HTTP/HTTPS"| App
-    App -->|"SQL / драйвер БД"| DB
+    Client -->|'HTTP/HTTPS'| App
+    App -->|'SQL / драйвер БД'| DB
 ```
 
 - На стороне `App` у нас:

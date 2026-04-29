@@ -51,9 +51,9 @@
 
 ```mermaid
 graph LR
-  Client -->|HTTP/gRPC| Svc["Order Service\n("микросервис")"]
-  Svc -->|route by orderId| A1["OrderActor("123")"]
-  Svc -->|route by orderId| A2["OrderActor("456")"]
+  Client -->|HTTP/gRPC| Svc["Order Service\n('микросервис')"]
+  Svc -->|route by orderId| A1["OrderActor('123')"]
+  Svc -->|route by orderId| A2["OrderActor('456')"]
   A1 --> DB["(Storage)"]
   A2 --> DB
 ```

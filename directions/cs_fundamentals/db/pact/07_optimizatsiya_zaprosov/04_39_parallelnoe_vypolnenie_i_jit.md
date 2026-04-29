@@ -178,7 +178,7 @@ flowchart LR
   Q["Запрос"] --> Cost["Посчитать total cost"]
   Cost --> Gate{"cost > jit_above_cost?\njit on"}
   Gate -->|Да| Compile["JIT: компиляция выражений\n→ машинный код"]
-  Gate -->|Нет| Interp["Обычное выполнение\n("интерпретация")"]
+  Gate -->|Нет| Interp["Обычное выполнение\n('интерпретация')"]
   Compile --> Run["Выполнение"]
   Interp --> Run
 ```

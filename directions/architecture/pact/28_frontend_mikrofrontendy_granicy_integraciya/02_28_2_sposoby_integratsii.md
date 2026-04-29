@@ -321,7 +321,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-  A["iframe"] -->|макс. изоляция\nмин. интеграция| I("("))
+  A["iframe"] -->|макс. изоляция\nмин. интеграция| I["node"]
   B["Web Components"] -->|средняя изоляция\nсредняя интеграция| I
   C["JS-bundle"] -->|низкая изоляция\nвысокая интеграция| I
   D["Module Federation"] -->|низкая/средняя изоляция\nочень высокая интеграция\n+ shared deps| I

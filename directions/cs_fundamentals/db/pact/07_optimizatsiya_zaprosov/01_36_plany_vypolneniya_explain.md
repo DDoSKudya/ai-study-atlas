@@ -133,7 +133,7 @@ flowchart LR
   end
 
   subgraph IO["Index Only Scan"]
-    IO1["Читаем только индекс"] --> IO2["Heap fetch = 0\n("если visibility map позволяет")"]
+    IO1["Читаем только индекс"] --> IO2["Heap fetch = 0\n('если visibility map позволяет')"]
   end
 
   subgraph Bm["Bitmap Scan"]

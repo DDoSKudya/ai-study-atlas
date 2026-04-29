@@ -73,9 +73,9 @@ graph LR
     A["Service A"] -->|Event1| BusB["Bus"]
     B["Service B"] -->|Event2| BusB
     C["Service C"] -->|Event3| BusB
-    BusB --> X["Service X\n("неизвестные подписчики")"]
-    BusB --> Y["Service Y\n("ещё подписчики")"]
-    BusB --> Z["Service Z\n("...")"]
+    BusB --> X["Service X\n('неизвестные подписчики')"]
+    BusB --> Y["Service Y\n('ещё подписчики')"]
+    BusB --> Z["Service Z\n('...')"]
   end
 ```
 

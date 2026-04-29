@@ -349,7 +349,7 @@ flowchart TB
 
   subgraph Provider["Провайдер"]
     BE["Backend API"]
-    PV["Provider verification\n("в CI бекенда")"]
+    PV["Provider verification\n('в CI бекенда')"]
   end
 
   FE -->|использует типы/моки| CT
@@ -407,9 +407,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  C["Consumer tests\n("frontend/BFF")"] --> P["Pact file\n("ожидания")"]
-  P --> B["Pact Broker\n("хранилище контрактов")"]
-  B --> V["Provider verification\n("CI backend")"]
+  C["Consumer tests\n('frontend/BFF')"] --> P["Pact file\n('ожидания')"]
+  P --> B["Pact Broker\n('хранилище контрактов')"]
+  B --> V["Provider verification\n('CI backend')"]
   V --> R{"Совместимо?"}
   R -->|да| OK["Deploy allowed"]
   R -->|нет| Fail["Deploy blocked"]

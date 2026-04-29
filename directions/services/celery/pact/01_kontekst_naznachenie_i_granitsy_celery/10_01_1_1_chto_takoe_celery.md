@@ -116,10 +116,10 @@ send_email.delay(42)
 
 ```mermaid
 flowchart LR
-    A["Producer\n("web app / CLI / task")"] --> B["Broker\n("RabbitMQ / Redis / SQS ...")"]
+    A["Producer\n('web app / CLI / task')"] --> B["Broker\n('RabbitMQ / Redis / SQS ...')"]
     B --> C["Worker"]
     D["Beat"] --> B
-    C --> E["Result backend\n("optional")"]
+    C --> E["Result backend\n('optional')"]
     C --> F["Logs / metrics / events / Flower"]
 ```
 

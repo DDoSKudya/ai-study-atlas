@@ -84,7 +84,7 @@ flowchart LR
   FE["Frontend"] -->|контракт| API["API/BFF"]
   API --> BE["Backend"]
 
-  FE -.ожидания.-> C["Contract\n("OpenAPI/GraphQL/proto")"]
+  FE -.ожидания.-> C["Contract\n('OpenAPI/GraphQL/proto')"]
   BE -.реализация.-> C
   C --> V["Verification/CDC"]
   V -->|OK| R["Release"]

@@ -579,9 +579,9 @@ flowchart TB
   H --> S
   H --> E
 
-  H -->|mount("container, context")| A["MF A: Catalog"]
-  H -->|mount("container, context")| B["MF B: Checkout"]
-  H -->|mount("container, context")| C["MF C: Profile"]
+  H -->|mount('container, context')| A["MF A: Catalog"]
+  H -->|mount('container, context')| B["MF B: Checkout"]
+  H -->|mount('container, context')| C["MF C: Profile"]
 
   A -->|events: mf:navigate / mf:data| H
   B -->|events: mf:navigate / mf:error| H

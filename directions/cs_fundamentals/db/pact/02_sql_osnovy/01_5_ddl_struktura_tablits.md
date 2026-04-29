@@ -23,10 +23,10 @@
 
 ```mermaid
 flowchart TB
-  Type["Тип данных"] --> Store["Как хранить\n("размер/формат")"]
+  Type["Тип данных"] --> Store["Как хранить\n('размер/формат')"]
   Type --> Ops["Какие операции\nдопустимы"]
   Type --> Valid["Какие значения\nразрешены"]
-  Valid --> Cons["Ограничения/домены\n("NOT NULL/CHECK/DOMAIN")"]
+  Valid --> Cons["Ограничения/домены\n('NOT NULL/CHECK/DOMAIN')"]
 ```
 
 ---
@@ -129,7 +129,7 @@ CREATE TABLE example (
 
 ```mermaid
 flowchart LR
-  In["Ввод: 2025-06-15 10:00 +03"] --> UTC["Хранение: 07:00 UTC\n("TIMESTAMPTZ")"]
+  In["Ввод: 2025-06-15 10:00 +03"] --> UTC["Хранение: 07:00 UTC\n('TIMESTAMPTZ')"]
   UTC --> Out1["Показ: +03 → 10:00"]
   UTC --> Out2["Показ: +10 → 17:00"]
 ```
@@ -437,8 +437,8 @@ SELECT name, (pos).x, (pos).y FROM landmarks;
 ```mermaid
 flowchart TB
   H["CREATE TABLE name"] --> Cols["Колонки:\nname type [NOT NULL"] [DEFAULT] ...]
-  Cols --> CInline["Inline constraints\n("на 1 колонку")"]
-  Cols --> CTable["Table constraints\n("PK/UNIQUE/CHECK/FK\nв конце")"]
+  Cols --> CInline["Inline constraints\n('на 1 колонку')"]
+  Cols --> CTable["Table constraints\n('PK/UNIQUE/CHECK/FK\nв конце')"]
 ```
 
 ---

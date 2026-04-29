@@ -39,7 +39,7 @@ CREATE TABLE orders_raw (
 
 ```mermaid
 flowchart TB
-  Bad["Одна таблица #quot;всё в одном#quot;"] --> U["Update anomaly\nодно и то же поле\nв 100 строках"]
+  Bad["Одна таблица 'всё в одном'"] --> U["Update anomaly\nодно и то же поле\nв 100 строках"]
   Bad --> I["Insertion anomaly\nнельзя вставить\nсущность без события"]
   Bad --> D["Deletion anomaly\nудалил событие\n→ потерял сущность"]
   Fix["Нормализация\nразделение на сущности/связи"] -->|уменьшает| U
@@ -134,9 +134,9 @@ CREATE TABLE order_items (
 
 ```mermaid
 flowchart LR
-  Raw["orders_raw.items\n\#quot;товар1:2;товар5:1;...\#quot;"] --> Split["Разбить"]
-  Split --> Orders["orders\n("order_id, user_id, ...")"]
-  Split --> Items["order_items\n("order_id, product_id, quantity")"]
+  Raw["orders_raw.items\n\'товар1:2;товар5:1;...\'"] --> Split["Разбить"]
+  Split --> Orders["orders\n('order_id, user_id, ...')"]
+  Split --> Items["order_items\n('order_id, product_id, quantity')"]
 ```
 
 Аналогично с телефонами:
@@ -553,9 +553,9 @@ GROUP BY p.id;
 
 ```mermaid
 flowchart LR
-  Truth["(Source of truth\nнормализованные таблицы)"] --> Deriv["Производные данные\n("агрегаты/MV/снэпшоты")"]
+  Truth["(Source of truth\nнормализованные таблицы)"] --> Deriv["Производные данные\n('агрегаты/MV/снэпшоты')"]
   Deriv --> Drift["Риск рассинхронизации"]
-  Update["Процесс обновления\n("trigger/job/refresh")"] --> Deriv
+  Update["Процесс обновления\n('trigger/job/refresh')"] --> Deriv
 ```
 
 **Практический алгоритм: как решать, нужна ли денормализация.**

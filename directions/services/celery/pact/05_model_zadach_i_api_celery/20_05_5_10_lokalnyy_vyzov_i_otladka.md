@@ -115,7 +115,7 @@ flowchart TB
     N1 --> N2 --> N3
   end
   subgraph local["Локально"]
-    L1["task.run("...") или eager"]
+    L1["task.run('...') или eager"]
     L2["Тот же интерпретатор"]
     L1 --> L2
   end

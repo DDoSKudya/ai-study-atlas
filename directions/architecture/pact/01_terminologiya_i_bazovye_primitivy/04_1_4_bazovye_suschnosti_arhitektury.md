@@ -116,23 +116,23 @@ graph TB
     U["Браузер / мобильное\nприложение"]
     BFF["BFF / API Gateway"]
 
-    U -->|"HTTP / HTTPS"| BFF
+    U -->|'HTTP / HTTPS'| BFF
 
     %% Бекенд‑сервисы
     subgraph BE["Бекенд‑сервисы"]
       direction LR
-      A["Сервис A\n("заказы")"]
-      B["Сервис B\n("оплата")"]
-      C["Сервис C\n("уведомления")"]
+      A["Сервис A\n('заказы')"]
+      B["Сервис B\n('оплата')"]
+      C["Сервис C\n('уведомления')"]
     end
 
-    BFF -->|"REST / gRPC"| A
-    BFF -->|"REST / gRPC"| B
-    BFF -->|"REST / gRPC"| C
+    BFF -->|'REST / gRPC'| A
+    BFF -->|'REST / gRPC'| B
+    BFF -->|'REST / gRPC'| C
 
-    A --> DBA["(#quot;БД A#quot;)"]
-    B --> DBB["(#quot;БД B#quot;)"]
-    C --> DBC["(#quot;БД C#quot;)"]
+    A --> DBA["('БД A')"]
+    B --> DBB["('БД B')"]
+    C --> DBC["('БД C')"]
 
     %% Асинхронные события
     subgraph Bus["Топик / очередь"]

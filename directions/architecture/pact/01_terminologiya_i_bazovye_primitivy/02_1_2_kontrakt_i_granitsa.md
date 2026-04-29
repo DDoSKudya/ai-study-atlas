@@ -112,8 +112,8 @@ graph TB
       direction TB
 
       G["Граница сервиса"]
-      API["REST /orders\n("контракт API")"]
-      EVT["OrderCreated\n("контракт события")"]
+      API["REST /orders\n('контракт API')"]
+      EVT["OrderCreated\n('контракт события')"]
       Impl["Внутри сервиса:\nбизнес‑логика, модели,\nБД, кэш, очереди"]
 
       G --> API

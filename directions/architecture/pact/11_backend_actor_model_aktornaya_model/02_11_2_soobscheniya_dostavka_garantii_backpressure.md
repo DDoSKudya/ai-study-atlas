@@ -292,10 +292,10 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-  Producer -->|"msg("id=42")"| Mailbox
+  Producer -->|'msg('id=42')'| Mailbox
   Mailbox --> Actor
-  Actor -->|"ack?"| Producer
-  Actor -->|"side effect"| External["Внешний эффект\n("БД/платёж/письмо")"]
+  Actor -->|'ack?'| Producer
+  Actor -->|'side effect'| External["Внешний эффект\n('БД/платёж/письмо')"]
 
   subgraph Risk["Риски"]
     R1["Дубликаты"]
