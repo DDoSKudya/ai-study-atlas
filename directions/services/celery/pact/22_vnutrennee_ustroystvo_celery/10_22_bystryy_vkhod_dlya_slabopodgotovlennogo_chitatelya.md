@@ -5,7 +5,7 @@
 
 Если текущая часть кажется слишком плотной, используй режим в 3 прохода:
 
-1. **Подготовка (15-20 минут):** сначала перечитай части [4](04_arkhitektura_celery_komponenty_i_ikh_vzaimodeystvie.md), [8](08_worker_zhiznennyy_tsikl_puly_i_ispolnenie.md), [13](13_vnutrennee_ustroystvo_celery_protokol_consumer_bootsteps_signaly_remote_control_i_chord_unlock.md).
+1. **Подготовка (15-20 минут):** сначала перечитай части [4](../04_arkhitektura_celery_komponenty_i_ikh_vzaimodeystvie/index.md), [8](../08_worker_zhiznennyy_tsikl_puly_i_ispolnenie/index.md), [13](../13_vnutrennee_ustroystvo_celery_protokol_consumer_bootsteps_signaly_remote_control_i_chord_unlock/index.md).
 2. **Базовый проход:** закрой только `22.1`, `22.2`, `22.3`, выпиши 5-7 ключевых терминов своими словами.
 3. **Углубление:** переходи к `22.4`, `22.6`, `22.7`, `22.8` только после мини-практики и самопроверки в конце части.
 

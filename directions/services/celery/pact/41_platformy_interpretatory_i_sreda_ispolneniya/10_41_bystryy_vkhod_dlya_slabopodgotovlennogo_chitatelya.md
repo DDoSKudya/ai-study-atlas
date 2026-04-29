@@ -5,7 +5,7 @@
 
 Если текущая часть кажется слишком плотной, используй режим в 3 прохода:
 
-1. **Подготовка (15-20 минут):** сначала перечитай части [21](21_ekspluataciya_v_production.md), [24](24_edge_cases_redkie_scenarii_i_tonkie_mesta.md), [32](32_nishi_specialnye_sredy_i_nestandartnye_integracii.md).
+1. **Подготовка (15-20 минут):** сначала перечитай части [21](../21_ekspluataciya_v_production/index.md), [24](../24_edge_cases_redkie_scenarii_i_tonkie_mesta/index.md), [32](../32_nishi_specialnye_sredy_i_nestandartnye_integracii/index.md).
 2. **Базовый проход:** закрой только `41.1`, `41.2`, `41.4`, выпиши 5-7 ключевых терминов своими словами.
 3. **Углубление:** переходи к `41.3`, `41.5` и platform-specific edge cases только после мини-практики и самопроверки в конце части.
 

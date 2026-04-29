@@ -5,7 +5,7 @@
 
 Если текущая часть кажется слишком плотной, используй режим в 3 прохода:
 
-1. **Подготовка (15-20 минут):** сначала перечитай части [7](07_konfiguraciya_celery_i_organizaciya_proekta.md), [21](21_ekspluataciya_v_production.md), [30](30_versioning_migracii_i_sovmestimost.md).
+1. **Подготовка (15-20 минут):** сначала перечитай части [7](../07_konfiguraciya_celery_i_organizaciya_proekta/index.md), [21](../21_ekspluataciya_v_production/index.md), [30](../30_versioning_migracii_i_sovmestimost/index.md).
 2. **Базовый проход:** закрой только `36.1`, `36.2`, `36.3`, `36.4`, `36.6`, выпиши 5-7 ключевых терминов своими словами.
 3. **Углубление:** переходи к `36.8`, `36.10`, анти-паттерны, rollback-карта только после мини-практики и самопроверки в конце части.
 
