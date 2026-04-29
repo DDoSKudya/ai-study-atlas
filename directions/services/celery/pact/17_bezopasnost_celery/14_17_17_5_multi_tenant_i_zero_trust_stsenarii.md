@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../mastery_plan.md)
+[↑ К глобальному плану](../../mastery_plan.md)
 
 ## 17.5 Multi-tenant и zero-trust сценарии
 

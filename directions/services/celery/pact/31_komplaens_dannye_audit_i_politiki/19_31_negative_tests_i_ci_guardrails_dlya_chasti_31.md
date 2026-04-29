@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../mastery_plan.md)
+[↑ К глобальному плану](../../mastery_plan.md)
 
 ## Negative tests и CI-guardrails для части 31
 

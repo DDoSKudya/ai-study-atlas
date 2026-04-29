@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../mastery_plan.md)
+[↑ К глобальному плану](../../mastery_plan.md)
 
 ## 21.2 Rolling updates и graceful shutdown
 

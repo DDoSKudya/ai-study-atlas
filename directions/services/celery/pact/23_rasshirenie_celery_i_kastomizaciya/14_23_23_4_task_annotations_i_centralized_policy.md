@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../mastery_plan.md)
+[↑ К глобальному плану](../../mastery_plan.md)
 
 ## 23.4 Task annotations и centralized policy
 

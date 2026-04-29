@@ -1,5 +1,5 @@
 [← Назад к индексу части](index.md)
-[↑ К глобальному плану](../mastery_plan.md)
+[↑ К глобальному плану](../../mastery_plan.md)
 
 ## 13.6. Remote control internals: inspect/control/broadcast
 
