@@ -233,7 +233,7 @@ export function ProductCardContainer({ productId }: { productId: string }) {
 
 ```mermaid
 flowchart LR
-  API[(API / Store)]
+  API["(API / Store)"]
   Container["ProductCardContainer<br/>(контейнер)"]
   View["ProductCardView<br/>(презентационный)"]
 

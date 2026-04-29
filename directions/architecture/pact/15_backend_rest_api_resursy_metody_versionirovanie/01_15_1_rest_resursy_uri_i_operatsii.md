@@ -120,10 +120,10 @@
 
 ```mermaid
 flowchart LR
-  C[Клиент] -->|GET /orders/ord_123| O[Ответ ресурса]
-  O -->|_links.self| R1[/GET /orders/ord_123/]
-  O -->|_links.pay| R2[/POST /orders/ord_123/pay/]
-  O -->|_links.cancel| R3[/POST /orders/ord_123/cancel/]
+  C["Клиент"] -->|GET /orders/ord_123| O["Ответ ресурса"]
+  O -->|_links.self| R1["/GET /orders/ord_123/"]
+  O -->|_links.pay| R2["/POST /orders/ord_123/pay/"]
+  O -->|_links.cancel| R3["/POST /orders/ord_123/cancel/"]
 ```
 
 На практике многие команды используют «облегчённый» HATEOAS: хотя бы ссылки пагинации (`next/prev`) и важные действия (`confirm`, `cancel`) в `_links`. Это уже заметно снижает связность клиентов с «жёстко пришитыми» URL.

@@ -20,17 +20,17 @@
 
 ```mermaid
 flowchart TB
-  R[(Отношение R)] --> Sel[σ: selection\nWHERE ...]
-  Sel --> Proj[π: projection\nSELECT cols]
-  Proj --> Out[(Результат)]
+  R["(Отношение R)"] --> Sel["σ: selection\nWHERE ..."]
+  Sel --> Proj["π: projection\nSELECT cols"]
+  Proj --> Out["(Результат)"]
 
-  R2[(R)] --> Join[⋈: join\nON ...]
-  S2[(S)] --> Join
-  Join --> Out2[(Результат JOIN)]
+  R2["(R)"] --> Join["⋈: join\nON ..."]
+  S2["(S)"] --> Join
+  Join --> Out2["(Результат JOIN)"]
 
-  R3[(R)] --> U[∪ / ∩ / −\nUNION / INTERSECT / EXCEPT]
-  S3[(S)] --> U
-  U --> Out3[(Результат множеств)]
+  R3["(R)"] --> U["∪ / ∩ / −\nUNION / INTERSECT / EXCEPT"]
+  S3["(S)"] --> U
+  U --> Out3["(Результат множеств)"]
 ```
 
 ##### Примеры соответствия SQL
@@ -124,11 +124,11 @@ JOIN groups g ON g.id = s.group_id;
 
 ```mermaid
 flowchart TB
-  From[FROM/JOIN: входные отношения] --> JoinStep[⋈: соединения]
-  JoinStep --> Where[σ: WHERE / join filters]
-  Where --> Select[π: SELECT cols / DISTINCT]
-  Select --> SetOps[∪/−/∩: UNION/EXCEPT/INTERSECT (если есть)]
-  SetOps --> Result[(Результат)]
+  From["FROM/JOIN: входные отношения"] --> JoinStep["⋈: соединения"]
+  JoinStep --> Where["σ: WHERE / join filters"]
+  Where --> Select["π: SELECT cols / DISTINCT"]
+  Select --> SetOps["∪/−/∩: UNION/EXCEPT/INTERSECT (если есть)"]
+  SetOps --> Result["(Результат)"]
 ```
 
 Разберём пример по шагам.
@@ -223,9 +223,9 @@ WHERE oi.id IS NULL;
 
 ```mermaid
 flowchart TB
-  R[R(A,B)\nкто что сделал] --> Div[Деление: R ÷ S]
-  S[S(B)\nобязательный набор] --> Div
-  Div --> Aset[Результат: A\nкоторые покрыли все B из S]
+  R["R("A,B")\nкто что сделал"] --> Div["Деление: R ÷ S"]
+  S["S("B")\nобязательный набор"] --> Div
+  Div --> Aset["Результат: A\nкоторые покрыли все B из S"]
 ```
 
 ##### Формально (но по‑простому)
@@ -376,9 +376,9 @@ WHERE NOT EXISTS (
 
 ```mermaid
 flowchart LR
-  A1[σ(cond)(R ⋈ S)] --> Eq1[(σ(cond_R)(R)) ⋈ S\nили\nR ⋈ (σ(cond_S)(S))]
-  A2[π(cols)(R ⋈ S)] --> Eq2[(π(cols_R)(R)) ⋈ (π(cols_S)(S))\n(оставить колонки для ON)]
-  A3[R ⋈cond S] --> Eq3[σcond(R × S)]
+  A1["σ(cond)(R ⋈ S)"] --> Eq1["(σ(cond_R)(R)) ⋈ S\nили\nR ⋈ (σ(cond_S)(S))"]
+  A2["π(cols)(R ⋈ S)"] --> Eq2["(π(cols_R)(R)) ⋈ (π(cols_S)(S))\n("оставить колонки для ON")"]
+  A3["R ⋈cond S"] --> Eq3["σcond(R × S)"]
 ```
 
 Эти законы используются оптимизатором СУБД автоматически, но полезно **держать их в голове** при написании запросов.

@@ -39,10 +39,10 @@ CREATE TABLE orders_raw (
 
 ```mermaid
 flowchart TB
-  Bad[Одна таблица "всё в одном"] --> U[Update anomaly\nодно и то же поле\nв 100 строках]
-  Bad --> I[Insertion anomaly\nнельзя вставить\nсущность без события]
-  Bad --> D[Deletion anomaly\nудалил событие\n→ потерял сущность]
-  Fix[Нормализация\nразделение на сущности/связи] -->|уменьшает| U
+  Bad["Одна таблица #quot;всё в одном#quot;"] --> U["Update anomaly\nодно и то же поле\nв 100 строках"]
+  Bad --> I["Insertion anomaly\nнельзя вставить\nсущность без события"]
+  Bad --> D["Deletion anomaly\nудалил событие\n→ потерял сущность"]
+  Fix["Нормализация\nразделение на сущности/связи"] -->|уменьшает| U
   Fix -->|уменьшает| I
   Fix -->|уменьшает| D
 ```
@@ -63,9 +63,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  A[A] -->|функционально определяет| B[B]
+  A["A"] -->|функционально определяет| B["B"]
   Note1["A → B:\nодно A → одно B"] --- A
-  A2[A] -->|многозначно| B2[B...]
+  A2["A"] -->|многозначно| B2["B..."]
   Note2["A →→ B:\nдля одного A\nможет быть много B,\nнезависимо от других атрибутов"] --- A2
 ```
 
@@ -134,9 +134,9 @@ CREATE TABLE order_items (
 
 ```mermaid
 flowchart LR
-  Raw[orders_raw.items\n\"товар1:2;товар5:1;...\"] --> Split[Разбить]
-  Split --> Orders[orders\n(order_id, user_id, ...)]
-  Split --> Items[order_items\n(order_id, product_id, quantity)]
+  Raw["orders_raw.items\n\#quot;товар1:2;товар5:1;...\#quot;"] --> Split["Разбить"]
+  Split --> Orders["orders\n("order_id, user_id, ...")"]
+  Split --> Items["order_items\n("order_id, product_id, quantity")"]
 ```
 
 Аналогично с телефонами:
@@ -186,9 +186,9 @@ CREATE TABLE enrollment (
 
 ```mermaid
 flowchart TB
-  Key[(student_id, course_id)] --> Grade[grade]
-  Course[course_id] --> CName[course_name]
-  Note1[Нарушение 2NF:\nнеключевой атрибут зависит\nот части составного ключа] --- CName
+  Key["(student_id, course_id)"] --> Grade["grade"]
+  Course["course_id"] --> CName["course_name"]
+  Note1["Нарушение 2NF:\nнеключевой атрибут зависит\nот части составного ключа"] --- CName
 ```
 
 Аномалия:
@@ -254,8 +254,8 @@ CREATE TABLE employees (
 
 ```mermaid
 flowchart LR
-  Key[id (PK)] --> DeptId[dept_id]
-  DeptId --> DeptName[dept_name]
+  Key["id (PK)"] --> DeptId["dept_id"]
+  DeptId --> DeptName["dept_name"]
   Key -. транзитивно .-> DeptName
 ```
 
@@ -322,9 +322,9 @@ BCNF усиливает требование:
 
 ```mermaid
 flowchart LR
-  FD[X → Y] --> Rule{X суперключ?}
-  Rule -->|Да| OK[BCNF ок]
-  Rule -->|Нет| Split[Нарушение BCNF\n→ декомпозиция]
+  FD["X → Y"] --> Rule{"X суперключ?"}
+  Rule -->|Да| OK["BCNF ок"]
+  Rule -->|Нет| Split["Нарушение BCNF\n→ декомпозиция"]
 ```
 
 BCNF устраняет более тонкие аномалии, но иногда требует разбиений, которые неудобны в практике; поэтому 3NF и BCNF часто обсуждают вместе и выбирают компромисс.
@@ -404,9 +404,9 @@ CREATE TABLE person_profile (
 
 ```mermaid
 flowchart TB
-  P[person_id] --> L[language (множество)]
-  P --> S[skill (множество)]
-  L --> X[Комбинации\nlanguage × skill\nв одной таблице]
+  P["person_id"] --> L["language (множество)"]
+  P --> S["skill (множество)"]
+  L --> X["Комбинации\nlanguage × skill\nв одной таблице"]
   S --> X
 ```
 
@@ -553,9 +553,9 @@ GROUP BY p.id;
 
 ```mermaid
 flowchart LR
-  Truth[(Source of truth\nнормализованные таблицы)] --> Deriv[Производные данные\n(агрегаты/MV/снэпшоты)]
-  Deriv --> Drift[Риск рассинхронизации]
-  Update[Процесс обновления\n(trigger/job/refresh)] --> Deriv
+  Truth["(Source of truth\nнормализованные таблицы)"] --> Deriv["Производные данные\n("агрегаты/MV/снэпшоты")"]
+  Deriv --> Drift["Риск рассинхронизации"]
+  Update["Процесс обновления\n("trigger/job/refresh")"] --> Deriv
 ```
 
 **Практический алгоритм: как решать, нужна ли денормализация.**

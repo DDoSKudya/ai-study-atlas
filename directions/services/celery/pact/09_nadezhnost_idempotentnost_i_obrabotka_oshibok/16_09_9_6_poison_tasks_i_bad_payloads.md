@@ -54,14 +54,14 @@ Main queue -> Worker -> FAIL -> Retry(1..N) -> still FAIL -> Parking queue -> Ma
 
 ```mermaid
 flowchart TD
-    A[Task упала] --> B{Ошибка повторяется на том же payload?}
-    B -- Нет --> C[Обычный transient retry policy]
-    B -- Да --> D{Достигнут max_retries?}
-    D -- Нет --> E[Ограниченный retry с наблюдением]
-    D -- Да --> F[Parking/Quarantine]
-    F --> G[Sanitized контекст + тикет]
-    G --> H[Fix причины]
-    H --> I[Controlled re-drive]
+    A["Task упала"] --> B{"Ошибка повторяется на том же payload?"}
+    B -- Нет --> C["Обычный transient retry policy"]
+    B -- Да --> D{"Достигнут max_retries?"}
+    D -- Нет --> E["Ограниченный retry с наблюдением"]
+    D -- Да --> F["Parking/Quarantine"]
+    F --> G["Sanitized контекст + тикет"]
+    G --> H["Fix причины"]
+    H --> I["Controlled re-drive"]
 ```
 
 ### Как запомнить

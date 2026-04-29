@@ -24,12 +24,12 @@
 
 ```mermaid
 flowchart TB
-  In[INSERT] --> Check[Проверить типы/ограничения\n(NOT NULL/UNIQUE/CHECK/FK)]
-  Check --> Def[Подставить DEFAULT\n(если нужно)]
-  Def --> Write[Записать строку]
-  Write --> Ret{RETURNING?}
-  Ret -->|Да| Out[Вернуть значения]
-  Ret -->|Нет| Done[Готово]
+  In["INSERT"] --> Check["Проверить типы/ограничения\n("NOT NULL/UNIQUE/CHECK/FK")"]
+  Check --> Def["Подставить DEFAULT\n("если нужно")"]
+  Def --> Write["Записать строку"]
+  Write --> Ret{"RETURNING?"}
+  Ret -->|Да| Out["Вернуть значения"]
+  Ret -->|Нет| Done["Готово"]
   Out --> Done
 ```
 
@@ -197,10 +197,10 @@ RETURNING id, email;
 
 ```mermaid
 flowchart TB
-  Plan[Хочу UPDATE/DELETE] --> Probe[Сначала SELECT с тем же WHERE]
-  Probe --> Review{Результат правильный?}
-  Review -->|Нет| Stop[Стоп: исправить WHERE]
-  Review -->|Да| Apply[Выполнить UPDATE/DELETE]
+  Plan["Хочу UPDATE/DELETE"] --> Probe["Сначала SELECT с тем же WHERE"]
+  Probe --> Review{"Результат правильный?"}
+  Review -->|Нет| Stop["Стоп: исправить WHERE"]
+  Review -->|Да| Apply["Выполнить UPDATE/DELETE"]
 ```
   ```sql
   -- Сначала проверь, что вернёт SELECT с этим же WHERE:
@@ -258,12 +258,12 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  Ins[INSERT ...] --> Try[Попытка вставки]
-  Try --> Conflict{Конфликт UNIQUE/PK?}
-  Conflict -->|Нет| Ok[Вставлено]
-  Conflict -->|Да| Handler{ON CONFLICT ...}
-  Handler -->|DO NOTHING| Skip[Пропустить строку]
-  Handler -->|DO UPDATE| Upd[Обновить существующую\n(можно EXCLUDED.*)]
+  Ins["INSERT ..."] --> Try["Попытка вставки"]
+  Try --> Conflict{"Конфликт UNIQUE/PK?"}
+  Conflict -->|Нет| Ok["Вставлено"]
+  Conflict -->|Да| Handler{"ON CONFLICT ..."}
+  Handler -->|DO NOTHING| Skip["Пропустить строку"]
+  Handler -->|DO UPDATE| Upd["Обновить существующую\n("можно EXCLUDED.*")"]
 ```
 
 **Простыми словами:** UPSERT = «если такой записи нет — вставь, если уже есть — обнови». ON CONFLICT — способ в PostgreSQL сказать: «при конфликте по уникальному ключу не падай с ошибкой, а сделай то-то (ничего или обновление)».
@@ -375,10 +375,10 @@ WHEN NOT MATCHED THEN
 
 ```mermaid
 flowchart LR
-  Src[CSV/TSV/поток] --> Copy[COPY / \\COPY]
-  Copy --> Stg[(Таблица)]
-  Stg --> Use[Дальше запросы/ETL]
-  Note[COPY быстрее INSERT\nдля миллионов строк] --- Copy
+  Src["CSV/TSV/поток"] --> Copy["COPY / \\COPY"]
+  Copy --> Stg["(Таблица)"]
+  Stg --> Use["Дальше запросы/ETL"]
+  Note["COPY быстрее INSERT\nдля миллионов строк"] --- Copy
 ```
 
 ---

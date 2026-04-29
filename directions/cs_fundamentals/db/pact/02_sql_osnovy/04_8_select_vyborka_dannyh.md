@@ -46,13 +46,13 @@
 
 ```mermaid
 flowchart LR
-  F[FROM / JOIN] --> W[WHERE (σ)]
-  W --> G[GROUP BY]
-  G --> H[HAVING]
-  H --> S[SELECT (π) + aliases]
-  S --> D[DISTINCT]
-  D --> O[ORDER BY]
-  O --> L[LIMIT / OFFSET]
+  F["FROM / JOIN"] --> W["WHERE (σ)"]
+  W --> G["GROUP BY"]
+  G --> H["HAVING"]
+  H --> S["SELECT (π) + aliases"]
+  S --> D["DISTINCT"]
+  D --> O["ORDER BY"]
+  O --> L["LIMIT / OFFSET"]
 ```
 
 **Почему нельзя использовать псевдоним из SELECT в WHERE:** на шаге 2 (WHERE) псевдонимы из шага 5 (SELECT) ещё не определены. Поэтому в WHERE нужно писать исходное выражение или имя столбца из таблицы, а не алиас.
@@ -141,10 +141,10 @@ SELECT id, name FROM users ORDER BY id LIMIT 10 OFFSET 20;  -- страница 
 
 ```mermaid
 flowchart TB
-  Off[OFFSET-пагинация\nOFFSET N LIMIT K] --> Work[БД всё равно\nобрабатывает N+K строк]
-  Work --> Slow[Чем больше N\nтем медленнее]
-  Keyset[keyset-пагинация\nWHERE id > last\nORDER BY id LIMIT K] --> Index[Идём по индексу\nс места остановки]
-  Index --> Fast[Стабильнее и быстрее\nна больших N]
+  Off["OFFSET-пагинация\nOFFSET N LIMIT K"] --> Work["БД всё равно\nобрабатывает N+K строк"]
+  Work --> Slow["Чем больше N\nтем медленнее"]
+  Keyset["keyset-пагинация\nWHERE id > last\nORDER BY id LIMIT K"] --> Index["Идём по индексу\nс места остановки"]
+  Index --> Fast["Стабильнее и быстрее\nна больших N"]
 ```
 - **`BETWEEN` и даты:** `BETWEEN '2024-01-01' AND '2024-12-31'` для TIMESTAMP включает `2024-12-31 00:00:00`, но не `2024-12-31 23:59:59`. Используй `>= '2024-01-01' AND < '2025-01-01'` для полного диапазона.
 

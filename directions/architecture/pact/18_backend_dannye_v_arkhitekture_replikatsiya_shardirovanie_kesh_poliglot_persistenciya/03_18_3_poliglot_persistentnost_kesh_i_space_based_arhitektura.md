@@ -146,9 +146,9 @@ Space‑based подход:
 
 ```mermaid
 flowchart LR
-  Client[Клиенты] --> App[Приложения]
-  App --> Grid[In-memory Data Grid]
-  Grid --> DB[(DB / Event Store)]
+  Client["Клиенты"] --> App["Приложения"]
+  App --> Grid["In-memory Data Grid"]
+  Grid --> DB["(DB / Event Store)"]
 ```
 
 Плюсы:
@@ -256,22 +256,22 @@ flowchart LR
 ```mermaid
 flowchart LR
   subgraph Core["Продовая БД (OLTP)"]
-    DB1[(PostgreSQL)]
+    DB1["(PostgreSQL)"]
   end
 
   subgraph Cache["Кэш / Data Grid"]
-    Redis[(Redis/IG)]
+    Redis["(Redis/IG)"]
   end
 
   subgraph Analytics["Аналитика (OLAP)"]
-    DWH[(ClickHouse / BigQuery)]
+    DWH["(ClickHouse / BigQuery)"]
   end
 
   subgraph Search["Поиск"]
-    ES[(Elasticsearch)]
+    ES["(Elasticsearch)"]
   end
 
-  App[Приложения] -->|чтение/запись| DB1
+  App["Приложения"] -->|чтение/запись| DB1
   App -->|чтение| Redis
   DB1 -->|ETL/CDC| DWH
   DB1 -->|индексация| ES

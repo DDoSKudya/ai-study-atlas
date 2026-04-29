@@ -11,12 +11,12 @@
 
 ```mermaid
 flowchart TB
-  SortHash[Sort / Hash узел] --> WM[work_mem (лимит на операцию)]
-  WM --> Fit{Данные помещаются?}
-  Fit -->|Да| Mem[В памяти\nquicksort / hash]
-  Fit -->|Нет| Disk[Temp files\nexternal merge / spill]
-  Disk --> Slow[Медленнее из-за I/O]
-  ECS[effective_cache_size] -. подсказка планировщику .-> Plan[Выбор Seq vs Index Scan]
+  SortHash["Sort / Hash узел"] --> WM["work_mem (лимит на операцию)"]
+  WM --> Fit{"Данные помещаются?"}
+  Fit -->|Да| Mem["В памяти\nquicksort / hash"]
+  Fit -->|Нет| Disk["Temp files\nexternal merge / spill"]
+  Disk --> Slow["Медленнее из-за I/O"]
+  ECS["effective_cache_size"] -. подсказка планировщику .-> Plan["Выбор Seq vs Index Scan"]
 ```
 
 #### Термины (расшифровка)
@@ -95,10 +95,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Q1[Запрос A\nWorkers Planned=4] --> Pool[(max_parallel_workers общий пул)]
-  Q2[Запрос B\nWorkers Planned=4] --> Pool
-  Q3[Запрос C\nWorkers Planned=2] --> Pool
-  Pool --> L0[Если пул занят\n→ Workers Launched: 0]
+  Q1["Запрос A\nWorkers Planned=4"] --> Pool["(max_parallel_workers общий пул)"]
+  Q2["Запрос B\nWorkers Planned=4"] --> Pool
+  Q3["Запрос C\nWorkers Planned=2"] --> Pool
+  Pool --> L0["Если пул занят\n→ Workers Launched: 0"]
 ```
 
 #### Термины (расшифровка)
@@ -169,11 +169,11 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  PSS[(pg_stat_statements)] --> Top1[ORDER BY total_exec_time DESC\n"кто съел больше всего"]
-  PSS --> Top2[ORDER BY calls DESC\n"кто самый частый"]
-  Top1 --> Pick[Выбрать кандидата]
-  Pick --> Explain[EXPLAIN (ANALYZE, BUFFERS)]
-  Explain --> Fix[Индекс/переписать запрос/настройки]
+  PSS["(pg_stat_statements)"] --> Top1["ORDER BY total_exec_time DESC\n#quot;кто съел больше всего#quot;"]
+  PSS --> Top2["ORDER BY calls DESC\n#quot;кто самый частый#quot;"]
+  Top1 --> Pick["Выбрать кандидата"]
+  Pick --> Explain["EXPLAIN (ANALYZE, BUFFERS)"]
+  Explain --> Fix["Индекс/переписать запрос/настройки"]
 ```
 
 #### Термины (расшифровка)
@@ -246,10 +246,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Q[Медленный запрос] --> Text[log_min_duration_statement\n→ текст в лог]
-  Q --> Plan[auto_explain\n→ план в лог]
-  Plan --> Why[Понять почему медленно\n(Seq Scan/Disk/SubPlan/...)]
-  Text --> Find[Найти какой именно запрос]
+  Q["Медленный запрос"] --> Text["log_min_duration_statement\n→ текст в лог"]
+  Q --> Plan["auto_explain\n→ план в лог"]
+  Plan --> Why["Понять почему медленно\n("Seq Scan/Disk/SubPlan/...")"]
+  Text --> Find["Найти какой именно запрос"]
 ```
 
 #### Термины (расшифровка)

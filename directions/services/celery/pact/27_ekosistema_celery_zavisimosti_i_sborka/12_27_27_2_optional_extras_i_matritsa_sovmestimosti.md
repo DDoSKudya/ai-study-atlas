@@ -132,13 +132,13 @@ Use-case, integration-тест под нужный transport, определён
 
 ```mermaid
 flowchart TD
-    A[После обновления есть сбои] --> B{Сбой на import этапе?}
-    B -->|Да| C[Проверить matrix Python/framework/Celery pins]
-    B -->|Нет| D{Сбой только в worker runtime?}
-    D -->|Да| E[Проверить transport deps and pool behavior]
-    D -->|Нет| F{Сбой только в CI/стейджинге?}
-    F -->|Да| G[Проверить lock source of truth and build parity]
-    F -->|Нет| H[Проверить бизнес-логику и payload contracts]
+    A["После обновления есть сбои"] --> B{"Сбой на import этапе?"}
+    B -->|Да| C["Проверить matrix Python/framework/Celery pins"]
+    B -->|Нет| D{"Сбой только в worker runtime?"}
+    D -->|Да| E["Проверить transport deps and pool behavior"]
+    D -->|Нет| F{"Сбой только в CI/стейджинге?"}
+    F -->|Да| G["Проверить lock source of truth and build parity"]
+    F -->|Нет| H["Проверить бизнес-логику и payload contracts"]
 ```
 
 Эта схема нужна для быстрой локализации: она уменьшает риск "чинить не тот слой".
@@ -269,12 +269,12 @@ Dependency change:
 
 ```mermaid
 flowchart LR
-    A[Dependabot or Renovate PR] --> B[Resolve lockfile]
-    B --> C[Run tests and integration]
-    C --> D[Run celery smoke worker/beat]
-    D --> E{Pass?}
-    E -->|Yes| F[Merge and deploy canary]
-    E -->|No| G[Pin or rollback version]
+    A["Dependabot or Renovate PR"] --> B["Resolve lockfile"]
+    B --> C["Run tests and integration"]
+    C --> D["Run celery smoke worker/beat"]
+    D --> E{"Pass?"}
+    E -->|Yes| F["Merge and deploy canary"]
+    E -->|No| G["Pin or rollback version"]
 ```
 
 ### Что будет, если...

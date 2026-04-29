@@ -55,17 +55,17 @@ Worker — **не продолжение** того же Python‑процесс
 ```mermaid
 flowchart TB
   subgraph master["Master process Celery"]
-    M[Импорт Django / celery.py]
-    M -->|fork| C1[Child worker 1]
-    M -->|fork| C2[Child worker 2]
+    M["Импорт Django / celery.py"]
+    M -->|fork| C1["Child worker 1"]
+    M -->|fork| C2["Child worker 2"]
   end
   subgraph risk["Риск при открытом соединении до fork"]
-    SOCK[Один TCP к Postgres]
+    SOCK["Один TCP к Postgres"]
   end
   M -.->|наследуется| SOCK
   C1 -.->|нельзя безопасно делить| SOCK
   C2 -.->|нельзя безопасно делить| SOCK
-  FIX[close_old_connections / CONN_MAX_AGE=0] --> C1
+  FIX["close_old_connections / CONN_MAX_AGE=0"] --> C1
   FIX --> C2
 ```
 

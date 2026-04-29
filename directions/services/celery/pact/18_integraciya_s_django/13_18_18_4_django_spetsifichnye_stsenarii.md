@@ -394,14 +394,14 @@ def schedule_shop_recalc(shop_id: int) -> None:
 ```mermaid
 flowchart LR
   subgraph web["Django web"]
-    UP[Upload / save to storage]
-    J[Создать FileJob PENDING]
+    UP["Upload / save to storage"]
+    J["Создать FileJob PENDING"]
   end
-  BR[(Broker)]
+  BR["(Broker)"]
   subgraph celery_w["Worker: очередь files / scan"]
-    DL[Временный путь]
-    SC[Антивирус / парсинг / resize]
-    MK[Статус + метаданные]
+    DL["Временный путь"]
+    SC["Антивирус / парсинг / resize"]
+    MK["Статус + метаданные"]
   end
   UP --> J
   J -->|on_commit delay| BR

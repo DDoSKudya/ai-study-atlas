@@ -139,15 +139,15 @@ Traceback часто содержит **код, пути, SQL, repr объект
 ```mermaid
 flowchart TB
   subgraph flight["Сообщение и исполнение"]
-    BR[(Брокер: тело сообщения)]
-    W[Worker: память / стек]
+    BR["(Брокер: тело сообщения)"]
+    W["Worker: память / стек"]
   end
   subgraph stored["Долгоживущие копии"]
-    RB[(Result backend)]
-    LOG[Логи / трейсы / SIEM]
+    RB["(Result backend)"]
+    LOG["Логи / трейсы / SIEM"]
   end
   subgraph cold["Реже вспоминают при модели угроз"]
-    SNAP[Снимки диска / бэкапы / реплики]
+    SNAP["Снимки диска / бэкапы / реплики"]
   end
   BR --> W
   W --> RB

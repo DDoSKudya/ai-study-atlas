@@ -48,10 +48,10 @@
 
 ```mermaid
 flowchart LR
-    A[Logical job key] --> B{Статус в БД}
-    B -- done --> C[return already_done]
-    B -- in_progress --> D[skip/requeue by policy]
-    B -- absent --> E[mark in_progress -> execute -> mark done]
+    A["Logical job key"] --> B{"Статус в БД"}
+    B -- done --> C["return already_done"]
+    B -- in_progress --> D["skip/requeue by policy"]
+    B -- absent --> E["mark in_progress -> execute -> mark done"]
 ```
 
 ```mermaid

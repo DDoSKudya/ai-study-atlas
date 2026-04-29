@@ -85,12 +85,12 @@ DATABASES["default"].update(
 ```mermaid
 flowchart TB
   subgraph http["Процесс web"]
-    MW[Middleware: Auth, CSRF, Locale…]
-    V[Views]
+    MW["Middleware: Auth, CSRF, Locale…"]
+    V["Views"]
     MW --> V
   end
   subgraph celery_p["Процесс Celery worker"]
-    T[Task functions]
+    T["Task functions"]
   end
   http -->|нет автоматического прохода| celery_p
 ```
@@ -151,11 +151,11 @@ async def checkout_view(request):
 
 ```mermaid
 flowchart LR
-  AV[async view]
-  SA[sync_to_async]
-  SVC[sync сервис]
-  AT[transaction.atomic + on_commit]
-  BR[(Broker)]
+  AV["async view"]
+  SA["sync_to_async"]
+  SVC["sync сервис"]
+  AT["transaction.atomic + on_commit"]
+  BR["(Broker)"]
   AV --> SA --> SVC --> AT --> BR
 ```
 

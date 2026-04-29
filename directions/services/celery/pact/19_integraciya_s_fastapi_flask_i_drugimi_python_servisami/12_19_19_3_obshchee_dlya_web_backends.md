@@ -56,17 +56,17 @@
 ```mermaid
 flowchart TB
   subgraph web["Web слой (FastAPI/Flask)"]
-    EP[Endpoint]
-    VAL[Validation/Auth]
+    EP["Endpoint"]
+    VAL["Validation/Auth"]
   end
   subgraph app["Application слой"]
-    UC[Use case / service]
-    PUB[Publish adapter]
+    UC["Use case / service"]
+    PUB["Publish adapter"]
   end
   subgraph async["Async слой"]
-    BR[(Broker)]
-    WK[Celery worker]
-    EX[External systems / DB]
+    BR["(Broker)"]
+    WK["Celery worker"]
+    EX["External systems / DB"]
   end
   EP --> VAL --> UC --> PUB --> BR --> WK --> EX
 ```

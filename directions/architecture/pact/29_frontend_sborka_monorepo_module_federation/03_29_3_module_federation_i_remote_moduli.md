@@ -165,17 +165,17 @@ const Widget = factory();
 ```mermaid
 flowchart TD
   subgraph Версия host
-    H1[Host v1] -->|ожидает| P1[protocol v1]
-    H2[Host v2] -->|ожидает| P2[protocol v2]
+    H1["Host v1"] -->|ожидает| P1["protocol v1"]
+    H2["Host v2"] -->|ожидает| P2["protocol v2"]
   end
 
   subgraph Версия remote
-    R1[Remote v1] --> P1
-    R2[Remote v2] --> P2
+    R1["Remote v1"] --> P1
+    R2["Remote v2"] --> P2
   end
 
-  U[Пользователь] -->|кэш/порядок обновления| Mix[может получить H2 + R1]
-  Mix --> Fail[несовместимость -> fallback/ошибка]
+  U["Пользователь"] -->|кэш/порядок обновления| Mix["может получить H2 + R1"]
+  Mix --> Fail["несовместимость -> fallback/ошибка"]
 ```
 
 Практические правила:
@@ -294,14 +294,14 @@ export async function loadRemoteEntry(opts: LoadRemoteOpts): Promise<void> {
 
 ```mermaid
 flowchart TD
-  Start[Переход/нужен remote] --> Fetch[Загрузить remoteEntry]
-  Fetch -->|ok| Negotiate[Проверить протокол/версии shared]
-  Fetch -->|timeout/error| FallbackUI[Fallback UI + reportError]
-  Negotiate -->|ok| Import[Импорт exposed модуля]
-  Negotiate -->|incompatible| FallbackCompat[Fallback по несовместимости + reportError]
-  Import -->|ok| Mount[Mount в слот]
+  Start["Переход/нужен remote"] --> Fetch["Загрузить remoteEntry"]
+  Fetch -->|ok| Negotiate["Проверить протокол/версии shared"]
+  Fetch -->|timeout/error| FallbackUI["Fallback UI + reportError"]
+  Negotiate -->|ok| Import["Импорт exposed модуля"]
+  Negotiate -->|incompatible| FallbackCompat["Fallback по несовместимости + reportError"]
+  Import -->|ok| Mount["Mount в слот"]
   Import -->|error| FallbackUI
-  Mount --> Done[UI работает]
+  Mount --> Done["UI работает"]
 ```
 
 ##### Граничный случай: “загрузилось, но не исполнилось” (CSP)

@@ -237,10 +237,10 @@ sequenceDiagram
 
 ```mermaid
 flowchart TB
-    PG[Postgres: advisory или DB lease]
-    RD[Redis: SET NX EX + Lua release + renew]
-    HB[HA beat: 1 replica / Lease API / etcd]
-    INV[Идемпотентность и watermark на границах]
+    PG["Postgres: advisory или DB lease"]
+    RD["Redis: SET NX EX + Lua release + renew"]
+    HB["HA beat: 1 replica / Lease API / etcd"]
+    INV["Идемпотентность и watermark на границах"]
     PG --> INV
     RD --> INV
     HB --> INV
@@ -280,13 +280,13 @@ flowchart TB
 ```mermaid
 flowchart TB
     subgraph sched["Кто публикует периодику"]
-        A[Один beat или координируемые beat]
+        A["Один beat или координируемые beat"]
     end
     subgraph exec["Кто гарантирует один прогон логики"]
-        B[Lock / lease в задаче]
+        B["Lock / lease в задаче"]
     end
-    A --> Q[Broker]
-    Q --> W[Workers]
+    A --> Q["Broker"]
+    Q --> W["Workers"]
     W --> B
 ```
 
@@ -296,11 +296,11 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    S[Проектирование отказоустойчивости beat] --> M[Минимум: один Deployment / один процесс, replicas=1]
-    M --> Q{Нужна явная координация лидера при failover?}
-    Q -->|часто нет| OK[Оркестратор перезапускает pod — без второго beat]
-    Q -->|да| L[Lease API / etcd / Consul: beat только у лидера]
-    Q -->|стек Django| D[DatabaseScheduler: см. changelog координации]
+    S["Проектирование отказоустойчивости beat"] --> M["Минимум: один Deployment / один процесс, replicas=1"]
+    M --> Q{"Нужна явная координация лидера при failover?"}
+    Q -->|часто нет| OK["Оркестратор перезапускает pod — без второго beat"]
+    Q -->|да| L["Lease API / etcd / Consul: beat только у лидера"]
+    Q -->|стек Django| D["DatabaseScheduler: см. changelog координации"]
     L --> OK
     D --> OK
 ```

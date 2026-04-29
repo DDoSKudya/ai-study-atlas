@@ -30,13 +30,13 @@
 
 ```mermaid
 flowchart LR
-    U[Пользователь/клиент] --> API[Backend API/BFF]
-    API --> DB[(Основная БД)]
-    API --> P[Producer layer]
-    P --> Q[(Broker/Queue)]
-    Q --> W[Celery Workers]
-    W --> EXT[Внешние сервисы/API]
-    W --> RB[(Result backend/статусы)]
+    U["Пользователь/клиент"] --> API["Backend API/BFF"]
+    API --> DB["(Основная БД)"]
+    API --> P["Producer layer"]
+    P --> Q["(Broker/Queue)"]
+    Q --> W["Celery Workers"]
+    W --> EXT["Внешние сервисы/API"]
+    W --> RB["(Result backend/статусы)"]
     RB --> API
 ```
 
@@ -105,14 +105,14 @@ Option B (Managed + serverless):
 
 ```mermaid
 flowchart TD
-    A[Требования к SLA и нагрузке] --> B{Нужен глубокий runtime-контроль?}
-    B -- Да --> C[Celery на VM/K8s]
-    B -- Нет --> D{Минимизируем ops-overhead?}
-    D -- Да --> E[Managed queue + serverless]
+    A["Требования к SLA и нагрузке"] --> B{"Нужен глубокий runtime-контроль?"}
+    B -- Да --> C["Celery на VM/K8s"]
+    B -- Нет --> D{"Минимизируем ops-overhead?"}
+    D -- Да --> E["Managed queue + serverless"]
     D -- Нет --> C
-    C --> F[Проверка TCO и зрелости on-call]
+    C --> F["Проверка TCO и зрелости on-call"]
     E --> F
-    F --> G[Пилот и измерение фактической стоимости]
+    F --> G["Пилот и измерение фактической стоимости"]
 ```
 
 ### Простыми словами

@@ -5,14 +5,14 @@
 
 ```mermaid
 flowchart LR
-    A[HTTP/API инициатор] --> B[Producer]
-    B --> C[(Broker)]
-    C --> D[Worker]
-    D --> E[(Result backend)]
-    D --> F[(Audit log immutable)]
-    B --> G[(Policy engine)]
+    A["HTTP/API инициатор"] --> B["Producer"]
+    B --> C["(Broker)"]
+    C --> D["Worker"]
+    D --> E["(Result backend)"]
+    D --> F["(Audit log immutable)"]
+    B --> G["(Policy engine)"]
     G --> B
-    H[Security/Compliance team] --> G
+    H["Security/Compliance team"] --> G
     H --> F
 ```
 

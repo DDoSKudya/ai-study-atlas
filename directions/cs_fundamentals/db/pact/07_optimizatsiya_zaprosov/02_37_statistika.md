@@ -11,17 +11,17 @@
 
 ```mermaid
 flowchart TB
-  Data[Данные в таблицах] -->|ANALYZE| Stats[Статистика (pg_stats)]
-  Stats --> Sel[Селективность предикатов]
-  Sel --> Rows[Оценка rows (cardinality)]
-  Rows --> Cost[Оценка cost]
-  Cost --> Plan[Выбор плана]
-  Plan --> Run[Выполнение]
-  Run --> EA[EXPLAIN ANALYZE: actual rows/time]
-  EA --> Drift{rows сильно != actual rows?}
-  Drift -->|Да| Fix[ANALYZE / SET STATISTICS / переписать запрос]
+  Data["Данные в таблицах"] -->|ANALYZE| Stats["Статистика (pg_stats)"]
+  Stats --> Sel["Селективность предикатов"]
+  Sel --> Rows["Оценка rows (cardinality)"]
+  Rows --> Cost["Оценка cost"]
+  Cost --> Plan["Выбор плана"]
+  Plan --> Run["Выполнение"]
+  Run --> EA["EXPLAIN ANALYZE: actual rows/time"]
+  EA --> Drift{"rows сильно != actual rows?"}
+  Drift -->|Да| Fix["ANALYZE / SET STATISTICS / переписать запрос"]
   Fix --> Stats
-  Drift -->|Нет| Ok[Оценки ок]
+  Drift -->|Нет| Ok["Оценки ок"]
 ```
 
 #### Термины (расшифровка)
@@ -119,12 +119,12 @@ flowchart TB
 ```mermaid
 flowchart LR
   subgraph Hi["correlation ≈ 1"]
-    A[Index Scan по диапазону] --> B[Heap чтение ближе к последовательному]
-    B --> C[cost ближе к seq_page_cost]
+    A["Index Scan по диапазону"] --> B["Heap чтение ближе к последовательному"]
+    B --> C["cost ближе к seq_page_cost"]
   end
   subgraph Lo["correlation ≈ 0"]
-    D[Index Scan по диапазону] --> E[Heap чтение ближе к случайному]
-    E --> F[cost ближе к random_page_cost]
+    D["Index Scan по диапазону"] --> E["Heap чтение ближе к случайному"]
+    E --> F["cost ближе к random_page_cost"]
   end
 ```
 
@@ -135,11 +135,11 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  Eq[WHERE user_id = 5] --> Stats[pg_stats(user_id)]
-  Stats --> MCV{5 ∈ most_common_vals?}
-  MCV -->|Да| Sel1[sel = most_common_freqs[5]]
-  MCV -->|Нет| Sel2[sel ≈ 1 / n_distinct]
-  Sel1 --> Rows[rows ≈ sel * reltuples]
+  Eq["WHERE user_id = 5"] --> Stats["pg_stats("user_id")"]
+  Stats --> MCV{"5 ∈ most_common_vals?"}
+  MCV -->|Да| Sel1["sel = most_common_freqs index 5"]
+  MCV -->|Нет| Sel2["sel ≈ 1 / n_distinct"]
+  Sel1 --> Rows["rows ≈ sel * reltuples"]
   Sel2 --> Rows
 ```
 
@@ -148,10 +148,10 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  Rg[WHERE created_at BETWEEN a AND b] --> Hist[histogram_bounds]
-  Hist --> Buckets[Доля корзин в [a,b]]
-  Buckets --> Sel[sel ≈ доля]
-  Sel --> Rows2[rows ≈ sel * reltuples]
+  Rg["WHERE created_at BETWEEN a AND b"] --> Hist["histogram_bounds"]
+  Hist --> Buckets["Доля корзин в [a,b"]]
+  Buckets --> Sel["sel ≈ доля"]
+  Sel --> Rows2["rows ≈ sel * reltuples"]
 ```
 
 #### Что будет, если не смотреть pg_stats при «плохих» оценках rows

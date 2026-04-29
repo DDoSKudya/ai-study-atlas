@@ -22,12 +22,12 @@
 
 ```mermaid
 flowchart LR
-    A[CI/CD pipeline] --> B[Render config + env + secrets]
-    B --> C[Process manager\nsystemd/supervisord/circus]
-    C --> D[Celery CLI start\nworker/beat]
-    D --> E[Runtime\nbroker/worker/backend]
-    E --> F[inspect/report/control]
-    F --> G[Runbook + postmortem updates]
+    A["CI/CD pipeline"] --> B["Render config + env + secrets"]
+    B --> C["Process manager\nsystemd/supervisord/circus"]
+    C --> D["Celery CLI start\nworker/beat"]
+    D --> E["Runtime\nbroker/worker/backend"]
+    E --> F["inspect/report/control"]
+    F --> G["Runbook + postmortem updates"]
     G --> A
 ```
 

@@ -106,15 +106,15 @@ Cost per Successful Task = 0.00060 USD
 
 ```mermaid
 flowchart TD
-    A[Рост cost per successful task] --> B{Что изменилось?}
-    B --> C[Больше retries/duplicates]
-    B --> D[Дороже compute]
-    B --> E[Рост observability данных]
-    B --> F[Больше ops-time]
-    C --> C1[Проверить idempotency и timeout]
-    D --> D1[Проверить autoscaling и queue split]
-    E --> E1[Снизить cardinality и sampling]
-    F --> F1[Улучшить runbook и ownership]
+    A["Рост cost per successful task"] --> B{"Что изменилось?"}
+    B --> C["Больше retries/duplicates"]
+    B --> D["Дороже compute"]
+    B --> E["Рост observability данных"]
+    B --> F["Больше ops-time"]
+    C --> C1["Проверить idempotency и timeout"]
+    D --> D1["Проверить autoscaling и queue split"]
+    E --> E1["Снизить cardinality и sampling"]
+    F --> F1["Улучшить runbook и ownership"]
 ```
 
 ### Простыми словами

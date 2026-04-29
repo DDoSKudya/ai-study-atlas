@@ -84,14 +84,14 @@ L3 (платформа/архитектор): меняет топологию, t
 
 ```mermaid
 flowchart LR
-    A[Новая задача/очередь] --> B[Contract review]
-    B --> C[Policy approval]
-    C --> D[Deploy]
-    D --> E[Metrics + SLO tracking]
-    E --> F{Error budget ок?}
-    F -- Да --> G[Плановое развитие]
-    F -- Нет --> H[Stabilization mode]
-    H --> I[RCA + corrective actions]
+    A["Новая задача/очередь"] --> B["Contract review"]
+    B --> C["Policy approval"]
+    C --> D["Deploy"]
+    D --> E["Metrics + SLO tracking"]
+    E --> F{"Error budget ок?"}
+    F -- Да --> G["Плановое развитие"]
+    F -- Нет --> H["Stabilization mode"]
+    H --> I["RCA + corrective actions"]
     I --> E
 ```
 

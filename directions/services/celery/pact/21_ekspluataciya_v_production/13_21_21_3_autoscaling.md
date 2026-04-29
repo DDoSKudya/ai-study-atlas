@@ -78,11 +78,11 @@
 
 ```mermaid
 flowchart LR
-  Q[Queue depth / lag] --> E[Scaler decision]
-  R[Retry/error rate] --> E
-  E -->|scale out| W1[More worker pods]
-  E -->|scale in| W2[Fewer worker pods]
-  W1 --> M[Observe downstream pressure]
+  Q["Queue depth / lag"] --> E["Scaler decision"]
+  R["Retry/error rate"] --> E
+  E -->|scale out| W1["More worker pods"]
+  E -->|scale in| W2["Fewer worker pods"]
+  W1 --> M["Observe downstream pressure"]
   M --> E
 ```
 

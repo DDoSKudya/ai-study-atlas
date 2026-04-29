@@ -169,23 +169,23 @@ Detect -> Scope -> Isolate -> Stabilize -> Diagnose -> Recover -> Postmortem
 ```mermaid
 flowchart TB
   subgraph Product["Продуктовый слой"]
-    API[API / UI contract]
-    JOB[Job model / business statuses]
+    API["API / UI contract"]
+    JOB["Job model / business statuses"]
   end
   subgraph Messaging["Слой доставки"]
-    PROD[Producer]
-    BR[(Broker/Queues)]
-    WORK[Workers]
+    PROD["Producer"]
+    BR["(Broker/Queues)"]
+    WORK["Workers"]
   end
   subgraph Reliability["Слой надежности"]
-    IDEM[Idempotency / dedup]
-    OUTIN[Outbox + Inbox]
-    RETRY[Retry policies]
+    IDEM["Idempotency / dedup"]
+    OUTIN["Outbox + Inbox"]
+    RETRY["Retry policies"]
   end
   subgraph Ops["Операционный слой"]
-    MET[Metrics + Alerts]
-    RB[Runbooks]
-    ISO[Bulkhead/Quota]
+    MET["Metrics + Alerts"]
+    RB["Runbooks"]
+    ISO["Bulkhead/Quota"]
   end
 
   API --> JOB --> PROD --> BR --> WORK

@@ -5,21 +5,21 @@
 
 ```mermaid
 flowchart LR
-    A[Producer code] --> B[before_task_publish]
-    B --> C[Broker]
-    C --> D[Worker receives message]
-    D --> E[task_received / task_unknown / task_rejected]
-    E --> F[Task execution lifecycle]
-    F --> G[task_prerun]
-    G --> H[Task body]
-    H --> I[task_success / task_failure / task_retry / task_revoked]
-    I --> J[task_postrun]
-    D --> K[Events stream task-* / worker-*]
-    L[Worker startup] --> M[worker_init]
-    M --> N[bootsteps chain]
-    N --> O[worker_ready]
-    O --> P[heartbeat_sent]
-    Q[Worker shutdown] --> R[worker_process_shutdown / worker_shutdown]
+    A["Producer code"] --> B["before_task_publish"]
+    B --> C["Broker"]
+    C --> D["Worker receives message"]
+    D --> E["task_received / task_unknown / task_rejected"]
+    E --> F["Task execution lifecycle"]
+    F --> G["task_prerun"]
+    G --> H["Task body"]
+    H --> I["task_success / task_failure / task_retry / task_revoked"]
+    I --> J["task_postrun"]
+    D --> K["Events stream task-* / worker-*"]
+    L["Worker startup"] --> M["worker_init"]
+    M --> N["bootsteps chain"]
+    N --> O["worker_ready"]
+    O --> P["heartbeat_sent"]
+    Q["Worker shutdown"] --> R["worker_process_shutdown / worker_shutdown"]
 ```
 
 ### Простыми словами

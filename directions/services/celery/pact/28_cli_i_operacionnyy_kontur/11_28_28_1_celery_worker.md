@@ -207,11 +207,11 @@ control/inspect --> main process --> child pool behavior
 
 ```mermaid
 flowchart LR
-    Q[(Queue)] --> R[Reserved by worker]
-    R --> A[Active execution]
-    A --> S{Success?}
-    S -->|yes| ACK[ACK and finalize]
-    S -->|no| RETRY[Retry / redelivery path]
+    Q["(Queue)"] --> R["Reserved by worker"]
+    R --> A["Active execution"]
+    A --> S{"Success?"}
+    S -->|yes| ACK["ACK and finalize"]
+    S -->|no| RETRY["Retry / redelivery path"]
     RETRY --> Q
 ```
 

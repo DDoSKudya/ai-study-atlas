@@ -95,13 +95,13 @@
 
 ```mermaid
 flowchart TD
-  A[Сценарий: workload + требования] --> B{Broker: delivery}
-  A --> C{Backend: видимость}
-  B -->|надежность| D[RabbitMQ/Redis/SQS выбор]
-  B -->|retry/DLQ| E[топология или очереди задержек]
-  C -->|TTL| F[Redis/SQL/cache-like]
-  C -->|chord/group| G[проверка зависимости от backend]
-  D --> H[проектируем идемпотентность + monitoring]
+  A["Сценарий: workload + требования"] --> B{"Broker: delivery"}
+  A --> C{"Backend: видимость"}
+  B -->|надежность| D["RabbitMQ/Redis/SQS выбор"]
+  B -->|retry/DLQ| E["топология или очереди задержек"]
+  C -->|TTL| F["Redis/SQL/cache-like"]
+  C -->|chord/group| G["проверка зависимости от backend"]
+  D --> H["проектируем идемпотентность + monitoring"]
   F --> H
 ```
 

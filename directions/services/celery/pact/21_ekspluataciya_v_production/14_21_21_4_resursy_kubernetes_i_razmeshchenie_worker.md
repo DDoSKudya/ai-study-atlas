@@ -42,12 +42,12 @@
 
 ```mermaid
 flowchart LR
-  Q1[critical queue] --> W1[worker-critical]
-  Q2[gpu queue] --> W2[worker-gpu]
-  Q3[io queue] --> W3[worker-io]
-  W1 --> N1[general nodes]
-  W2 --> N2[gpu nodes]
-  W3 --> N3[io-optimized nodes]
+  Q1["critical queue"] --> W1["worker-critical"]
+  Q2["gpu queue"] --> W2["worker-gpu"]
+  Q3["io queue"] --> W3["worker-io"]
+  W1 --> N1["general nodes"]
+  W2 --> N2["gpu nodes"]
+  W3 --> N3["io-optimized nodes"]
 ```
 
 #### Проверь себя (размещение worker-ов)

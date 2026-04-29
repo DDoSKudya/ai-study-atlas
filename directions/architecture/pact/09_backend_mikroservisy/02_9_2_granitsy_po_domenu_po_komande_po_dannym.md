@@ -196,8 +196,8 @@ ACL (mapper + policy)
 
 ```mermaid
 graph LR
-  O[Orders (домен)] --> ACL[ACL / adapter\n(mapping + policy)]
-  ACL --> P[Payments (внешний сервис)]
+  O["Orders (домен)"] --> ACL["ACL / adapter\n("mapping + policy")"]
+  ACL --> P["Payments (внешний сервис)"]
 ```
 
 **Типичный анти‑пример (без ACL)**:
@@ -264,17 +264,17 @@ graph LR
 
 ```mermaid
 graph TB
-  Client[Клиент (web/mobile)] --> GW[API Gateway]
+  Client["Клиент (web/mobile)"] --> GW["API Gateway"]
 
-  GW --> Catalog[Catalog service]
-  GW --> Orders[Orders service]
-  GW --> Payments[Payments service]
+  GW --> Catalog["Catalog service"]
+  GW --> Orders["Orders service"]
+  GW --> Payments["Payments service"]
 
-  Catalog --> CDB[(Catalog DB)]
-  Orders --> ODB[(Orders DB)]
-  Payments --> PDB[(Payments DB)]
+  Catalog --> CDB["(Catalog DB)"]
+  Orders --> ODB["(Orders DB)"]
+  Payments --> PDB["(Payments DB)"]
 
-  Orders -->|событие OrderCreated| Bus[(Event bus)]
+  Orders -->|событие OrderCreated| Bus["(Event bus)"]
   Payments -->|событие PaymentSucceeded| Bus
   Catalog -->|событие PriceChanged| Bus
 ```
@@ -303,10 +303,10 @@ graph TB
 
 ```mermaid
 graph LR
-  UI[UI/Client] --> APISvc[API service]
-  APISvc --> BizSvc[Business service]
-  BizSvc --> DataSvc[Data service]
-  DataSvc --> DB[(Shared DB)]
+  UI["UI/Client"] --> APISvc["API service"]
+  APISvc --> BizSvc["Business service"]
+  BizSvc --> DataSvc["Data service"]
+  DataSvc --> DB["(Shared DB)"]
 ```
 
 На бумаге это похоже на слои, но в распределённой системе это:

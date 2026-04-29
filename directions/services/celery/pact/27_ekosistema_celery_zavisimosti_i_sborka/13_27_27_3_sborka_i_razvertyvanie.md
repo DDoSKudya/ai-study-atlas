@@ -137,13 +137,13 @@ ENTRYPOINT ["./docker/entrypoint-worker.sh"]
 
 ```mermaid
 flowchart LR
-    A[Resolve lockfile] --> B[Build docker image]
-    B --> C[Generate SBOM]
-    C --> D[Run vuln and license scan]
-    D --> E{Policy passed?}
-    E -->|Yes| F[Push image]
-    E -->|No| G[Block release]
-    F --> H[Deploy worker/beat]
+    A["Resolve lockfile"] --> B["Build docker image"]
+    B --> C["Generate SBOM"]
+    C --> D["Run vuln and license scan"]
+    D --> E{"Policy passed?"}
+    E -->|Yes| F["Push image"]
+    E -->|No| G["Block release"]
+    F --> H["Deploy worker/beat"]
 ```
 
 ### Sequence: жизненный цикл релиза worker-образа

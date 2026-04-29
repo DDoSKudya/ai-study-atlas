@@ -23,10 +23,10 @@
 
 ```mermaid
 flowchart TB
-  Type[Тип данных] --> Store[Как хранить\n(размер/формат)]
-  Type --> Ops[Какие операции\nдопустимы]
-  Type --> Valid[Какие значения\nразрешены]
-  Valid --> Cons[Ограничения/домены\n(NOT NULL/CHECK/DOMAIN)]
+  Type["Тип данных"] --> Store["Как хранить\n("размер/формат")"]
+  Type --> Ops["Какие операции\nдопустимы"]
+  Type --> Valid["Какие значения\nразрешены"]
+  Valid --> Cons["Ограничения/домены\n("NOT NULL/CHECK/DOMAIN")"]
 ```
 
 ---
@@ -129,9 +129,9 @@ CREATE TABLE example (
 
 ```mermaid
 flowchart LR
-  In[Ввод: 2025-06-15 10:00 +03] --> UTC[Хранение: 07:00 UTC\n(TIMESTAMPTZ)]
-  UTC --> Out1[Показ: +03 → 10:00]
-  UTC --> Out2[Показ: +10 → 17:00]
+  In["Ввод: 2025-06-15 10:00 +03"] --> UTC["Хранение: 07:00 UTC\n("TIMESTAMPTZ")"]
+  UTC --> Out1["Показ: +03 → 10:00"]
+  UTC --> Out2["Показ: +10 → 17:00"]
 ```
 
 **Простыми словами:** DATE — «какой день» (без времени). TIMESTAMPTZ — «точный момент в времени» с учётом часовых поясов; для логов, событий, «создано в» всегда бери TIMESTAMPTZ. **INTERVAL** — это не момент времени, а **длительность** (например, «2 часа 30 минут», «1 день», «3 месяца»). Удобен для длительности события, срока подписки или для вычислений с датой: `now() - INTERVAL '7 days'` — «неделю назад». Записывается строками вроде `'2 hours'`, `'1 day 12 hours'`, `'30 minutes'`.
@@ -436,9 +436,9 @@ SELECT name, (pos).x, (pos).y FROM landmarks;
 
 ```mermaid
 flowchart TB
-  H[CREATE TABLE name] --> Cols[Колонки:\nname type [NOT NULL] [DEFAULT] ...]
-  Cols --> CInline[Inline constraints\n(на 1 колонку)]
-  Cols --> CTable[Table constraints\n(PK/UNIQUE/CHECK/FK\nв конце)]
+  H["CREATE TABLE name"] --> Cols["Колонки:\nname type [NOT NULL"] [DEFAULT] ...]
+  Cols --> CInline["Inline constraints\n("на 1 колонку")"]
+  Cols --> CTable["Table constraints\n("PK/UNIQUE/CHECK/FK\nв конце")"]
 ```
 
 ---
@@ -680,10 +680,10 @@ DROP TABLE orders CASCADE;
 
 ```mermaid
 flowchart LR
-  Need[Нужно удалить данные] --> All{Все строки?}
-  All -->|Да| Tr[TRUNCATE\nбыстро]
-  All -->|Нет| Del[DELETE ... WHERE\nпо условию]
-  Tr --> NoteT[Опционально:\nRESTART IDENTITY / CASCADE]
+  Need["Нужно удалить данные"] --> All{"Все строки?"}
+  All -->|Да| Tr["TRUNCATE\nбыстро"]
+  All -->|Нет| Del["DELETE ... WHERE\nпо условию"]
+  Tr --> NoteT["Опционально:\nRESTART IDENTITY / CASCADE"]
 ```
 
 ```sql

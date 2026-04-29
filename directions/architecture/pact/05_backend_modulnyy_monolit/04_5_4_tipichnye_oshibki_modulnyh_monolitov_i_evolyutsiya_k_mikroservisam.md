@@ -129,9 +129,9 @@
 ```mermaid
 graph LR
     MM["Модульный монолит"]
-    MM_Orders["Модуль Orders\n(внутри монолита)"]
-    MM_Users["Модуль Users\n(внутри монолита)"]
-    MM_Billing["Модуль Billing\n(внутри монолита)"]
+    MM_Orders["Модуль Orders\n("внутри монолита")"]
+    MM_Users["Модуль Users\n("внутри монолита")"]
+    MM_Billing["Модуль Billing\n("внутри монолита")"]
 
     S_Billing["Сервис Billing"]
 

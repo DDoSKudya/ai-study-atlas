@@ -77,14 +77,14 @@ Bootsteps — это как “сборка компьютера”:
 
 ```mermaid
 flowchart TD
-    A[Worker start] --> B[Loader / registry ready]
-    B --> C[Connect transport]
-    C --> D[Pool init]
-    D --> E[Consumer init]
-    E --> F[Events/Control channels]
-    F --> G[Worker ready]
+    A["Worker start"] --> B["Loader / registry ready"]
+    B --> C["Connect transport"]
+    C --> D["Pool init"]
+    D --> E["Consumer init"]
+    E --> F["Events/Control channels"]
+    F --> G["Worker ready"]
 
-    X[Custom bootstep] -. depends on .-> D
+    X["Custom bootstep"] -. depends on .-> D
     X -. runs before .-> G
 ```
 

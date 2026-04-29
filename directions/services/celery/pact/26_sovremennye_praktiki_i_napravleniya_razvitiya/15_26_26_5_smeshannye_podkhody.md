@@ -50,20 +50,20 @@
 
 ```mermaid
 flowchart TD
-    A[Новая асинхронная задача] --> B{Нужен replay потока событий?}
-    B -->|Да| C[Kafka как event bus]
-    B -->|Нет| D{Нужна долговременная process-оркестрация?}
-    D -->|Да| E[Workflow engine]
-    D -->|Нет| F[Celery task queue]
-    C --> G{Нужны side effects в Python?}
-    G -->|Да| H[Kafka + Celery]
-    G -->|Нет| I[Stream processing only]
-    E --> J{Тяжелые Python шаги?}
-    J -->|Да| K[Workflow engine + Celery execution layer]
-    J -->|Нет| L[Workflow engine only]
-    F --> M{Есть DB commit race risk?}
-    M -->|Да| N[Celery + Outbox]
-    M -->|Нет| O[Celery standalone]
+    A["Новая асинхронная задача"] --> B{"Нужен replay потока событий?"}
+    B -->|Да| C["Kafka как event bus"]
+    B -->|Нет| D{"Нужна долговременная process-оркестрация?"}
+    D -->|Да| E["Workflow engine"]
+    D -->|Нет| F["Celery task queue"]
+    C --> G{"Нужны side effects в Python?"}
+    G -->|Да| H["Kafka + Celery"]
+    G -->|Нет| I["Stream processing only"]
+    E --> J{"Тяжелые Python шаги?"}
+    J -->|Да| K["Workflow engine + Celery execution layer"]
+    J -->|Нет| L["Workflow engine only"]
+    F --> M{"Есть DB commit race risk?"}
+    M -->|Да| N["Celery + Outbox"]
+    M -->|Нет| O["Celery standalone"]
 ```
 
 ### Таблица контрактов на границах гибрида
@@ -97,13 +97,13 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    DB[(Business DB)] --> O[Outbox relay]
-    O --> K[(Kafka topic)]
-    O --> C[(Celery broker)]
-    K --> Wf[Workflow engine]
+    DB["(Business DB)"] --> O["Outbox relay"]
+    O --> K["(Kafka topic)"]
+    O --> C["(Celery broker)"]
+    K --> Wf["Workflow engine"]
     Wf --> C
-    C --> W[Celery workers]
-    W --> API[External APIs/Services]
+    C --> W["Celery workers"]
+    W --> API["External APIs/Services"]
 ```
 
 ### Пошагово: как проектировать смешанный подход

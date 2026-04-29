@@ -142,12 +142,12 @@ export default {
 
 ```mermaid
 flowchart LR
-  U[User] --> E[Edge Worker]
-  E -->|cache hit| C[(Edge Cache)]
+  U["User"] --> E["Edge Worker"]
+  E -->|cache hit| C["(Edge Cache)"]
   C --> U
-  E -->|cache miss / needs data| O[Origin / BFF / API]
-  O --> DB[(Databases)]
-  O --> S[Internal services]
+  E -->|cache miss / needs data| O["Origin / BFF / API"]
+  O --> DB["(Databases)"]
+  O --> S["Internal services"]
   O --> E
   E --> U
 ```

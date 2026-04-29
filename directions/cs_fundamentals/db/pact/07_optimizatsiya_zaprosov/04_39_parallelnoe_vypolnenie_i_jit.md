@@ -11,13 +11,13 @@
 
 ```mermaid
 flowchart TB
-  L[Leader] -->|launch| W1[Worker 1]
-  L -->|launch| W2[Worker 2]
-  L -->|launch| Wn[Worker N]
-  W1 --> G[Gather]
+  L["Leader"] -->|launch| W1["Worker 1"]
+  L -->|launch| W2["Worker 2"]
+  L -->|launch| Wn["Worker N"]
+  W1 --> G["Gather"]
   W2 --> G
   Wn --> G
-  G --> Out[Единый поток строк\nвверх по плану]
+  G --> Out["Единый поток строк\nвверх по плану"]
 ```
 
 #### Термины (расшифровка)
@@ -118,14 +118,14 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  Scan[Parallel scan] --> PA1[Partial Aggregate (worker)]
-  Scan --> PA2[Partial Aggregate (worker)]
-  Scan --> PA3[Partial Aggregate (worker)]
-  PA1 --> G[Gather]
+  Scan["Parallel scan"] --> PA1["Partial Aggregate (worker)"]
+  Scan --> PA2["Partial Aggregate (worker)"]
+  Scan --> PA3["Partial Aggregate (worker)"]
+  PA1 --> G["Gather"]
   PA2 --> G
   PA3 --> G
-  G --> FA[Finalize Aggregate (leader)]
-  FA --> Result[Итоговые группы/агрегаты]
+  G --> FA["Finalize Aggregate (leader)"]
+  FA --> Result["Итоговые группы/агрегаты"]
 ```
 
 #### Что будет, если все запросы будут параллельными с большим числом workers
@@ -175,11 +175,11 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Q[Запрос] --> Cost[Посчитать total cost]
-  Cost --> Gate{cost > jit_above_cost?\n(jit=on)}
-  Gate -->|Да| Compile[JIT: компиляция выражений\n→ машинный код]
-  Gate -->|Нет| Interp[Обычное выполнение\n(интерпретация)]
-  Compile --> Run[Выполнение]
+  Q["Запрос"] --> Cost["Посчитать total cost"]
+  Cost --> Gate{"cost > jit_above_cost?\njit on"}
+  Gate -->|Да| Compile["JIT: компиляция выражений\n→ машинный код"]
+  Gate -->|Нет| Interp["Обычное выполнение\n("интерпретация")"]
+  Compile --> Run["Выполнение"]
   Interp --> Run
 ```
 

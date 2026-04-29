@@ -88,13 +88,13 @@ celery -A app.celery_app events
 
 ```mermaid
 flowchart TD
-    I1[inspect stats] --> I2{Workers reachable?}
-    I2 -->|no| N1[Network/Broker/TLS diagnostics]
-    I2 -->|yes| I3[inspect active/reserved/scheduled]
-    I3 --> I4{Need intervention?}
-    I4 -->|no| O1[Continue observation]
-    I4 -->|yes| C1[Scoped control action]
-    C1 --> V1[Re-check via inspect]
+    I1["inspect stats"] --> I2{"Workers reachable?"}
+    I2 -->|no| N1["Network/Broker/TLS diagnostics"]
+    I2 -->|yes| I3["inspect active/reserved/scheduled"]
+    I3 --> I4{"Need intervention?"}
+    I4 -->|no| O1["Continue observation"]
+    I4 -->|yes| C1["Scoped control action"]
+    C1 --> V1["Re-check via inspect"]
 ```
 
 #### Проверь себя: подпункты 28.3

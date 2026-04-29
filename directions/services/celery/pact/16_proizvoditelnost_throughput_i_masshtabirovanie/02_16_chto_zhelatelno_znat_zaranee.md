@@ -16,17 +16,17 @@
 ```mermaid
 flowchart LR
   subgraph edge["Клиент и API"]
-    UI[UI / клиент]
-    API[Backend: apply_async / статус]
+    UI["UI / клиент"]
+    API["Backend: apply_async / статус"]
   end
   subgraph transport["Сообщения"]
-    Br[(Брокер)]
+    Br["(Брокер)"]
   end
   subgraph exec["Исполнение"]
-    W[Worker]
+    W["Worker"]
   end
   subgraph state["Состояние"]
-    RB[(Result backend)]
+    RB["(Result backend)"]
   end
   UI -->|HTTP| API
   API -->|publish| Br

@@ -41,13 +41,13 @@
 ```mermaid
 flowchart TB
     subgraph good["Centralized scheduler (норма)"]
-        B1[Один Celery Beat] --> Q1[Broker]
-        Q1 --> W1[Workers]
+        B1["Один Celery Beat"] --> Q1["Broker"]
+        Q1 --> W1["Workers"]
     end
     subgraph bad["Два независимых beat без координации"]
-        B2[Beat A] --> Q2[Broker]
-        B3[Beat B] --> Q2
-        Q2 --> W2[Workers]
+        B2["Beat A"] --> Q2["Broker"]
+        B3["Beat B"] --> Q2
+        Q2 --> W2["Workers"]
     end
 ```
 
@@ -79,16 +79,16 @@ flowchart TB
 ```mermaid
 flowchart LR
     subgraph disk["Локальный диск процесса beat"]
-        F[(celerybeat-schedule и т.п.)]
-        F --> PB[PersistentScheduler]
+        F["(celerybeat-schedule и т.п.)"]
+        F --> PB["PersistentScheduler"]
     end
     subgraph dbBacking["Общая БД"]
-        T[(Таблицы расписания / state)]
-        T --> DBB[DatabaseScheduler]
+        T["(Таблицы расписания / state)"]
+        T --> DBB["DatabaseScheduler"]
     end
-    PB --> BEAT[Процесс celery beat]
+    PB --> BEAT["Процесс celery beat"]
     DBB --> BEAT
-    BEAT --> BR[Broker]
+    BEAT --> BR["Broker"]
 ```
 
 - **Файл:** проще для «голого» Celery без Django; в k8s без volume — **сброс** last_run и сюрпризы для interval после рестарта.

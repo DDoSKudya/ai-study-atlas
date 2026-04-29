@@ -14,12 +14,12 @@
 
 ```mermaid
 flowchart TD
-    A[Есть инцидент или деградация] --> B{Проблема в каком слое?}
-    B -->|Scaling/Deploy| C[26.1 и 26.4]
-    B -->|Observability/SLO| D[26.2]
-    B -->|Broker/Failover| E[26.3]
-    B -->|Hybrid boundaries| F[26.5]
-    B -->|Командная зрелость| G[26.6]
+    A["Есть инцидент или деградация"] --> B{"Проблема в каком слое?"}
+    B -->|Scaling/Deploy| C["26.1 и 26.4"]
+    B -->|Observability/SLO| D["26.2"]
+    B -->|Broker/Failover| E["26.3"]
+    B -->|Hybrid boundaries| F["26.5"]
+    B -->|Командная зрелость| G["26.6"]
 ```
 
 #### Проверь себя: быстрый навигатор

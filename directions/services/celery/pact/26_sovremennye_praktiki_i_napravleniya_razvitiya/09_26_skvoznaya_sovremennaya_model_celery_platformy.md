@@ -21,10 +21,10 @@
 
 ```mermaid
 flowchart TB
-    A[Application: tasks/contracts] --> B[Execution: broker/workers]
-    B --> C[Platform: K8s/IaC/secrets]
-    C --> D[Observability: OTel/SLO/alerts]
-    D --> E[Evolution: hybrid patterns and roadmap]
+    A["Application: tasks/contracts"] --> B["Execution: broker/workers"]
+    B --> C["Platform: K8s/IaC/secrets"]
+    C --> D["Observability: OTel/SLO/alerts"]
+    D --> E["Evolution: hybrid patterns and roadmap"]
     E --> A
 ```
 
@@ -32,11 +32,11 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    A[Бизнес-требование] --> B[Дизайн задачи и контракта]
-    B --> C[Выбор broker и topology]
-    C --> D[Kubernetes deployment + scaling]
-    D --> E[Observability + SLO]
-    E --> F[Incident feedback и evolution]
+    A["Бизнес-требование"] --> B["Дизайн задачи и контракта"]
+    B --> C["Выбор broker и topology"]
+    C --> D["Kubernetes deployment + scaling"]
+    D --> E["Observability + SLO"]
+    E --> F["Incident feedback и evolution"]
     F --> B
 ```
 

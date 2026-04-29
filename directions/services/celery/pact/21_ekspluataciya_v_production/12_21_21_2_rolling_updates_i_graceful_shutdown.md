@@ -57,15 +57,15 @@
 
 ```mermaid
 flowchart TD
-  A[Start rollout] --> B[Check queue lag and error rate]
-  B --> C[Deploy canary workers]
-  C --> D{Metrics healthy?}
-  D -- Yes --> E[Batch rolling update]
-  D -- No --> R[Rollback and investigate]
-  E --> F[Graceful shutdown old pods]
-  F --> G{Long tasks finished or checkpointed?}
-  G -- Yes --> H[Complete rollout]
-  G -- No --> I[Apply controlled terminate policy]
+  A["Start rollout"] --> B["Check queue lag and error rate"]
+  B --> C["Deploy canary workers"]
+  C --> D{"Metrics healthy?"}
+  D -- Yes --> E["Batch rolling update"]
+  D -- No --> R["Rollback and investigate"]
+  E --> F["Graceful shutdown old pods"]
+  F --> G{"Long tasks finished or checkpointed?"}
+  G -- Yes --> H["Complete rollout"]
+  G -- No --> I["Apply controlled terminate policy"]
   I --> H
 ```
 

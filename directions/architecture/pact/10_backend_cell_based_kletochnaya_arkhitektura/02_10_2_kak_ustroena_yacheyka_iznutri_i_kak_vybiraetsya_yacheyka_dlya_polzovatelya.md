@@ -78,16 +78,16 @@
 ```mermaid
 graph TB
     subgraph Cell["Ячейка"]
-        API[API Gateway (локальный)]
+        API["API Gateway (локальный)"]
         subgraph SVC["Микросервисы"]
-            Auth[Auth Service]
-            Core[Core Domain Service]
-            Billing[Billing Service]
+            Auth["Auth Service"]
+            Core["Core Domain Service"]
+            Billing["Billing Service"]
         end
-        DB[(База данных)]
-        Cache[(Кэш)]
-        MQ[(Очередь сообщений)]
-        Mon[Мониторинг + Логи]
+        DB["(База данных)"]
+        Cache["(Кэш)"]
+        MQ["(Очередь сообщений)"]
+        Mon["Мониторинг + Логи"]
         API --> SVC
         SVC --> DB
         SVC --> Cache
@@ -99,7 +99,7 @@ graph TB
 
 ```mermaid
 graph LR
-    Client[Клиент / Браузер / Мобильное приложение]
+    Client["Клиент / Браузер / Мобильное приложение"]
     DNS["DNS / глобальный балансировщик"]
     Router["Роутер ячеек"]
     CellA["Ячейка A"]

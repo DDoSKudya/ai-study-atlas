@@ -19,13 +19,13 @@
 
 ```mermaid
 flowchart LR
-  D[Deploy completed] --> O[Observe 0-24h]
-  O --> C{Signals stable?}
-  C -->|Yes| A[Mark release as accepted]
-  C -->|No| T[Triage by 43.2 flow]
-  T --> R{Rollback needed?}
-  R -->|Yes| B[Execute rollback runbook]
-  R -->|No| F[Fix forward with controlled change]
+  D["Deploy completed"] --> O["Observe 0-24h"]
+  O --> C{"Signals stable?"}
+  C -->|Yes| A["Mark release as accepted"]
+  C -->|No| T["Triage by 43.2 flow"]
+  T --> R{"Rollback needed?"}
+  R -->|Yes| B["Execute rollback runbook"]
+  R -->|No| F["Fix forward with controlled change"]
   B --> O
   F --> O
 ```

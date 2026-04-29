@@ -5,15 +5,15 @@
 
 ```mermaid
 flowchart LR
-    A[Operator / SRE] --> B[celery CLI]
-    B --> C[worker process]
-    B --> D[beat scheduler]
-    B --> E[inspect/control channel]
-    C --> F[(Broker)]
+    A["Operator / SRE"] --> B["celery CLI"]
+    B --> C["worker process"]
+    B --> D["beat scheduler"]
+    B --> E["inspect/control channel"]
+    C --> F["(Broker)"]
     D --> F
     E --> C
-    C --> G[(Result backend)]
-    C --> H[App logs/metrics/traces]
+    C --> G["(Result backend)"]
+    C --> H["App logs/metrics/traces"]
 ```
 
 **Интуиция:** у вас есть «один терминал», но он воздействует на разные уровни системы.  

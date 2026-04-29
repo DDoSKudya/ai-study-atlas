@@ -37,10 +37,10 @@
 
 ```mermaid
 flowchart LR
-    A["Бизнес: каждый день 09:00 Europe/Berlin"] --> B[Календарный модуль]
-    B --> C[Правило DST/праздников]
-    C --> D[UTC timestamp]
-    D --> E[Celery ETA/beat]
+    A["Бизнес: каждый день 09:00 Europe/Berlin"] --> B["Календарный модуль"]
+    B --> C["Правило DST/праздников"]
+    C --> D["UTC timestamp"]
+    D --> E["Celery ETA/beat"]
 ```
 
 ### Пошагово

@@ -165,11 +165,11 @@ Pool задает тип станков, concurrency — их количеств
 
 ```mermaid
 flowchart TD
-    A[Worker process] --> B[Pool model]
-    A --> C[Queue subscriptions]
-    A --> D[Resource limits]
-    A --> E[Lifecycle files\npid/log/state]
-    B --> F[Execution behavior]
+    A["Worker process"] --> B["Pool model"]
+    A --> C["Queue subscriptions"]
+    A --> D["Resource limits"]
+    A --> E["Lifecycle files\npid/log/state"]
+    B --> F["Execution behavior"]
     C --> F
     D --> F
 ```

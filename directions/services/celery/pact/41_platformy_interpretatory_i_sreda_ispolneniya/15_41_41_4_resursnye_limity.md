@@ -86,13 +86,13 @@
 
 ```mermaid
 flowchart TD
-  subgraph Cgroup[ОС / cgroups]
-    M[Memory limit] --> O[OOMKilled / 137]
-    U[CPU quota] --> T[Throttling, рост duration]
-    P[PID cap] --> E[Cannot fork / Resource temporarily unavailable]
+  subgraph Cgroup["ОС / cgroups"]
+    M["Memory limit"] --> O["OOMKilled / 137"]
+    U["CPU quota"] --> T["Throttling, рост duration"]
+    P["PID cap"] --> E["Cannot fork / Resource temporarily unavailable"]
   end
-  subgraph CeleryConf[Celery]
-    R[worker_max_memory_per_child] --> RC[мягкая ротация child по RSS]
+  subgraph CeleryConf["Celery"]
+    R["worker_max_memory_per_child"] --> RC["мягкая ротация child по RSS"]
   end
 ```
 

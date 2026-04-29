@@ -53,16 +53,16 @@ Mermaid-вариант с явной границей юрисдикций:
 
 ```mermaid
 flowchart LR
-    subgraph EU[EU jurisdiction]
-      A[EU Producer]
-      B[(EU Broker)]
-      C[EU Worker]
-      D[(EU Backend)]
+    subgraph EU["EU jurisdiction"]
+      A["EU Producer"]
+      B["(EU Broker)"]
+      C["EU Worker"]
+      D["(EU Backend)"]
     end
-    subgraph US[US jurisdiction]
-      E[(US Broker)]
-      F[US Worker]
-      G[(US Backend)]
+    subgraph US["US jurisdiction"]
+      E["(US Broker)"]
+      F["US Worker"]
+      G["(US Backend)"]
     end
     A --> B --> C --> D
     A -. запрещенный маршрут .-> E

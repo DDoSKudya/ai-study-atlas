@@ -24,11 +24,11 @@
 
 ```mermaid
 flowchart TD
-    A[Celery defaults] --> B[celeryconfig.py]
-    B --> C[app.conf.update]
-    C --> D[Environment CELERY_*]
-    D --> E[CLI flags / entrypoint args]
-    E --> F[Effective runtime config]
+    A["Celery defaults"] --> B["celeryconfig.py"]
+    B --> C["app.conf.update"]
+    C --> D["Environment CELERY_*"]
+    D --> E["CLI flags / entrypoint args"]
+    E --> F["Effective runtime config"]
 ```
 
 ### Что будет, если этот слой игнорировать

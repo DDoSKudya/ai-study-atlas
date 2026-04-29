@@ -91,15 +91,15 @@
 
 ```mermaid
 flowchart LR
-    A[Worker emits events] --> B[Broker event exchange]
-    B --> C[Event receiver]
-    C --> D[Normalizer/Parser]
-    D --> E[Metrics store]
-    D --> F[Short-term raw store]
-    E --> G[Dashboards/Alerts]
-    F --> H[Incident replay]
+    A["Worker emits events"] --> B["Broker event exchange"]
+    B --> C["Event receiver"]
+    C --> D["Normalizer/Parser"]
+    D --> E["Metrics store"]
+    D --> F["Short-term raw store"]
+    E --> G["Dashboards/Alerts"]
+    F --> H["Incident replay"]
 
-    X[Failure points]
+    X["Failure points"]
     X --> B
     X --> C
     X --> D

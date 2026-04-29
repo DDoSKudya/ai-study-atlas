@@ -123,13 +123,13 @@ for _ in range(20):
 
 ```mermaid
 flowchart TD
-    A([Published]) --> B[PENDING]
-    B --> C[STARTED]
-    C --> D[SUCCESS]
-    C --> E[RETRY]
+    A("[Published]") --> B["PENDING"]
+    B --> C["STARTED"]
+    C --> D["SUCCESS"]
+    C --> E["RETRY"]
     E --> C
-    C --> F[FAILURE]
-    A --> G[REVOKED]
+    C --> F["FAILURE"]
+    A --> G["REVOKED"]
 ```
 
 ### Как запомнить

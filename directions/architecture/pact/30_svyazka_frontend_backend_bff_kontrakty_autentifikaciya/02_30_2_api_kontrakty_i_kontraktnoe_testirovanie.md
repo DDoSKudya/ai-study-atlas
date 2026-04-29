@@ -341,15 +341,15 @@ CDC говорит:
 
 ```mermaid
 flowchart TB
-  subgraph Consumer[Потребитель]
-    FE[Frontend]
-    BFF[BFF]
-    CT[Контракт (ожидания)\n+ генерация моков/типов]
+  subgraph Consumer["Потребитель"]
+    FE["Frontend"]
+    BFF["BFF"]
+    CT["Контракт (ожидания)\n+ генерация моков/типов"]
   end
 
-  subgraph Provider[Провайдер]
-    BE[Backend API]
-    PV[Provider verification\n(в CI бекенда)]
+  subgraph Provider["Провайдер"]
+    BE["Backend API"]
+    PV["Provider verification\n("в CI бекенда")"]
   end
 
   FE -->|использует типы/моки| CT
@@ -357,8 +357,8 @@ flowchart TB
   CT -->|публикация контрактов| PV
   PV --> BE
 
-  subgraph E2E[End-to-End]
-    E[E2E тесты]
+  subgraph E2E["End-to-End"]
+    E["E2E тесты"]
   end
   E --> FE
   E --> BFF
@@ -407,12 +407,12 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  C[Consumer tests\n(frontend/BFF)] --> P[Pact file\n(ожидания)]
-  P --> B[Pact Broker\n(хранилище контрактов)]
-  B --> V[Provider verification\n(CI backend)]
-  V --> R{Совместимо?}
-  R -->|да| OK[Deploy allowed]
-  R -->|нет| Fail[Deploy blocked]
+  C["Consumer tests\n("frontend/BFF")"] --> P["Pact file\n("ожидания")"]
+  P --> B["Pact Broker\n("хранилище контрактов")"]
+  B --> V["Provider verification\n("CI backend")"]
+  V --> R{"Совместимо?"}
+  R -->|да| OK["Deploy allowed"]
+  R -->|нет| Fail["Deploy blocked"]
 ```
 
 Ключевые детали, которые часто решают успех:

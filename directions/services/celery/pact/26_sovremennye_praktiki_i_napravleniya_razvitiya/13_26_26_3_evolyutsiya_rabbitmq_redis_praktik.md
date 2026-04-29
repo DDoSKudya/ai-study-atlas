@@ -72,13 +72,13 @@ primary down -> queue unavailable until failover/recovery
 
 ```mermaid
 flowchart LR
-    P[Producers] --> R1[(RabbitMQ node A)]
-    P --> R2[(RabbitMQ node B)]
-    P --> R3[(RabbitMQ node C)]
+    P["Producers"] --> R1["(RabbitMQ node A)"]
+    P --> R2["(RabbitMQ node B)"]
+    P --> R3["(RabbitMQ node C)"]
     R1 --- R2
     R2 --- R3
     R1 --- R3
-    R2 --> W[Celery Workers]
+    R2 --> W["Celery Workers"]
 ```
 
 ### Пошагово: обновление broker-практик

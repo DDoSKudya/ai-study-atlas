@@ -5,19 +5,19 @@
 
 ```mermaid
 flowchart LR
-    A[Producer app] -->|publish via Kombu| B[(Transport Driver)]
-    B --> C[(Broker)]
-    C -->|deliver| D[Worker Consumer]
+    A["Producer app"] -->|publish via Kombu| B["(Transport Driver)"]
+    B --> C["(Broker)"]
+    C -->|deliver| D["Worker Consumer"]
     D -->|ack/reject/requeue| C
-    D --> E[Task Execution]
-    E --> F[(Result Backend)]
+    D --> E["Task Execution"]
+    E --> F["(Result Backend)"]
 ```
 
 ### Визуальная схема границ ответственности (где искать корень проблемы)
 
 ```mermaid
 flowchart LR
-    A[Celery app layer] --> B[Kombu transport layer] --> C[Broker layer] --> D[Network/Infra layer]
+    A["Celery app layer"] --> B["Kombu transport layer"] --> C["Broker layer"] --> D["Network/Infra layer"]
     A -. task code/retry/idempotency .-> A
     B -. dialect mapping/parity .-> B
     C -. ack routing dlq semantics .-> C

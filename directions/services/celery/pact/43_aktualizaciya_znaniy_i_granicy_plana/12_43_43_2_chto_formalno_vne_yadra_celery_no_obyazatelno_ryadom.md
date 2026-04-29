@@ -101,22 +101,22 @@ Celery — дирижёр, а брокер — оркестр. Если **зал
 ```mermaid
 flowchart TB
   subgraph org["Организация и процессы"]
-    CM[Change management]
-    OC[On-call / runbooks]
+    CM["Change management"]
+    OC["On-call / runbooks"]
   end
   subgraph net["Инфраструктура"]
-    VPC[VPC / SG / routes]
-    DNS[DNS]
-    TLS[TLS / certs]
-    IAM[IAM / ACL]
+    VPC["VPC / SG / routes"]
+    DNS["DNS"]
+    TLS["TLS / certs"]
+    IAM["IAM / ACL"]
   end
   subgraph rt["Рантайм"]
-    IMG[Base image Python + libs]
+    IMG["Base image Python + libs"]
   end
   subgraph celery["Ядро Celery-контура"]
-    W[Workers]
-    B[Beat]
-    BR[Broker client + Kombu]
+    W["Workers"]
+    B["Beat"]
+    BR["Broker client + Kombu"]
   end
   org --> net
   net --> rt
@@ -186,14 +186,14 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-  S[Симптом: лаг или массовые ошибки worker] --> A{Мини-клиент брокера\nможет publish/consume?}
-  A -->|Нет| I[Проверить сеть DNS TLS IAM]
-  A -->|Да| B{Проблема только в одной задаче?}
-  B -->|Да| C[Проверить payload serialization и контракт task]
-  B -->|Нет| D{Затронуты все очереди?}
-  D -->|Да| E[Проверить broker-side лимиты и образ runtime]
-  D -->|Нет| F[Проверить routing topology и конкретный worker pool]
-  I --> G[Зафиксировать класс причины в runbook]
+  S["Симптом: лаг или массовые ошибки worker"] --> A{"Мини-клиент брокера\nможет publish/consume?"}
+  A -->|Нет| I["Проверить сеть DNS TLS IAM"]
+  A -->|Да| B{"Проблема только в одной задаче?"}
+  B -->|Да| C["Проверить payload serialization и контракт task"]
+  B -->|Нет| D{"Затронуты все очереди?"}
+  D -->|Да| E["Проверить broker-side лимиты и образ runtime"]
+  D -->|Нет| F["Проверить routing topology и конкретный worker pool"]
+  I --> G["Зафиксировать класс причины в runbook"]
   C --> G
   E --> G
   F --> G

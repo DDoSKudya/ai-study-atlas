@@ -269,7 +269,7 @@ stateDiagram-v2
 ```mermaid
 graph LR
   A["Клиенты/компоненты"] -->|messages| M["Mailbox"]
-  M -->|1-by-1| X["Actor\n(state + behavior)"]
+  M -->|1-by-1| X["Actor\n("state + behavior")"]
   X -->|messages| B["Другие акторы/сервисы"]
 ```
 

@@ -7,13 +7,13 @@
 
 ```mermaid
 flowchart LR
-    A[Symptom: task not finished] --> B{What exactly is observed?}
-    B -->|State only| C[Analyze state lifecycle and backend visibility]
-    B -->|Exception class| D[Classify exception and apply retry/fail policy]
-    B -->|Transport/runtime signals| E[Check broker, worker health, connection stability]
-    C --> F[State axis]
-    D --> G[Exception axis]
-    E --> H[Infrastructure axis]
+    A["Symptom: task not finished"] --> B{"What exactly is observed?"}
+    B -->|State only| C["Analyze state lifecycle and backend visibility"]
+    B -->|Exception class| D["Classify exception and apply retry/fail policy"]
+    B -->|Transport/runtime signals| E["Check broker, worker health, connection stability"]
+    C --> F["State axis"]
+    D --> G["Exception axis"]
+    E --> H["Infrastructure axis"]
 ```
 
 Короткое правило:

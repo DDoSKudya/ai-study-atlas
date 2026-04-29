@@ -20,11 +20,11 @@
 
 ```mermaid
 flowchart TB
-  Rel[Отношение (relation)\n= множество кортежей] --> Tup[Кортеж (tuple)\n= строка]
-  Rel --> Attr[Атрибуты (attributes)\n= столбцы]
-  Attr --> Dom[Домены (domain)\n= допустимые значения]
-  Rel --> Deg[degree = #атрибутов]
-  Rel --> Card[cardinality = #кортежей]
+  Rel["Отношение (relation)\n= множество кортежей"] --> Tup["Кортеж (tuple)\n= строка"]
+  Rel --> Attr["Атрибуты (attributes)\n= столбцы"]
+  Attr --> Dom["Домены (domain)\n= допустимые значения"]
+  Rel --> Deg["degree = #атрибутов"]
+  Rel --> Card["cardinality = #кортежей"]
 ```
 
 ##### Правила и интуиция
@@ -378,11 +378,11 @@ CREATE TABLE orders (
 
 ```mermaid
 flowchart LR
-  Del[Удаляем родителя] --> Mode{ON DELETE ...}
-  Mode -->|RESTRICT/NO ACTION| Stop[Ошибка/запрет]
-  Mode -->|CASCADE| Cascade[Удалить детей]
-  Mode -->|SET NULL| Nullify[Обнулить FK у детей]
-  Mode -->|SET DEFAULT| Def[Поставить default]
+  Del["Удаляем родителя"] --> Mode{"ON DELETE ..."}
+  Mode -->|RESTRICT/NO ACTION| Stop["Ошибка/запрет"]
+  Mode -->|CASCADE| Cascade["Удалить детей"]
+  Mode -->|SET NULL| Nullify["Обнулить FK у детей"]
+  Mode -->|SET DEFAULT| Def["Поставить default"]
 ```
 
 **Целостность по домену.**

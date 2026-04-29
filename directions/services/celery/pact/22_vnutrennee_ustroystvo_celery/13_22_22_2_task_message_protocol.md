@@ -78,14 +78,14 @@ Task message — это "посылка с бланком". Даже если с
 
 ```mermaid
 flowchart TD
-    V1P[Producer v1] --> Q[(Queue)]
-    V2P[Producer v2] --> Q
-    Q --> V1W[Worker v1]
-    Q --> V2W[Worker v2]
+    V1P["Producer v1"] --> Q["(Queue)"]
+    V2P["Producer v2"] --> Q
+    Q --> V1W["Worker v1"]
+    Q --> V2W["Worker v2"]
 
     subgraph Safe rollout
-      V2W --> C1[Понимает schema v1 и v2]
-      V1W --> C2[Понимает только schema v1]
+      V2W --> C1["Понимает schema v1 и v2"]
+      V1W --> C2["Понимает только schema v1"]
     end
 ```
 

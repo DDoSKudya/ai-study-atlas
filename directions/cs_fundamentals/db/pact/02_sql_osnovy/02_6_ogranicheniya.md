@@ -21,10 +21,10 @@
 
 ```mermaid
 flowchart LR
-  PK[PRIMARY KEY] --> NN[= NOT NULL]
-  PK --> UQ[+ UNIQUE]
-  UQ2[UNIQUE] --> Many[Можно несколько\nна таблицу]
-  PK --> One[Только один\nна таблицу]
+  PK["PRIMARY KEY"] --> NN["= NOT NULL"]
+  PK --> UQ["+ UNIQUE"]
+  UQ2["UNIQUE"] --> Many["Можно несколько\nна таблицу"]
+  PK --> One["Только один\nна таблицу"]
 ```
 
 ---
@@ -74,10 +74,10 @@ CREATE TABLE product_prices (
 
 ```mermaid
 flowchart TB
-  N1[phone=NULL] --> Ok1[OK]
-  N2[phone=NULL] --> Ok2[OK (NULL не равен NULL)]
-  V1[phone='+7...'] --> Ok3[OK]
-  V2[phone='+7...'] --> Err[ERROR duplicate key]
+  N1["phone=NULL"] --> Ok1["OK"]
+  N2["phone=NULL"] --> Ok2["OK (NULL не равен NULL)"]
+  V1["phone='+7...'"] --> Ok3["OK"]
+  V2["phone='+7...'"] --> Err["ERROR duplicate key"]
 ```
 
 ```sql
@@ -150,12 +150,12 @@ INSERT INTO contacts (phone) VALUES ('+79001234567');  -- ERROR: duplicate key
 
 ```mermaid
 flowchart LR
-  Col[col] --> NN2{NOT NULL?}
-  NN2 -->|NULL| ErrNN[Ошибка]
-  NN2 -->|не NULL| Check[CHECK(expr)]
-  Check --> Pass{expr = FALSE?}
-  Pass -->|Да| ErrChk[Ошибка]
-  Pass -->|Нет (TRUE или NULL)| Ok[OK]
+  Col["col"] --> NN2{"NOT NULL?"}
+  NN2 -->|NULL| ErrNN["Ошибка"]
+  NN2 -->|не NULL| Check["CHECK("expr")"]
+  Check --> Pass{"expr = FALSE?"}
+  Pass -->|Да| ErrChk["Ошибка"]
+  Pass -->|Нет (TRUE или NULL)| Ok["OK"]
 ```
 
 ---
@@ -320,12 +320,12 @@ CREATE TABLE orders (
 
 ```mermaid
 flowchart LR
-  Parent[(users)] -->|PK id| Child[(orders.user_id FK)]
-  Del[DELETE users(id=1)] --> Mode{ON DELETE ...}
-  Mode -->|RESTRICT/NO ACTION| Stop[Запретить]
-  Mode -->|CASCADE| DelC[Удалить orders]
-  Mode -->|SET NULL| NullC[orders.user_id = NULL]
-  Mode -->|SET DEFAULT| DefC[orders.user_id = DEFAULT]
+  Parent["(users)"] -->|PK id| Child["(orders.user_id FK)"]
+  Del["DELETE users("id=1")"] --> Mode{"ON DELETE ..."}
+  Mode -->|RESTRICT/NO ACTION| Stop["Запретить"]
+  Mode -->|CASCADE| DelC["Удалить orders"]
+  Mode -->|SET NULL| NullC["orders.user_id = NULL"]
+  Mode -->|SET DEFAULT| DefC["orders.user_id = DEFAULT"]
 ```
 
 ```sql
@@ -528,10 +528,10 @@ COMMIT;
 
 ```mermaid
 flowchart TB
-  R1[room=1\n10:00-12:00] --> Overlap{пересечение?}
-  R2[room=1\n11:00-13:00] --> Overlap
-  Overlap -->|Да| ErrEx[EXCLUDE → ошибка]
-  R3[room=2\n11:00-13:00] --> OkEx[OK (другая комната)]
+  R1["room=1\n10:00-12:00"] --> Overlap{"пересечение?"}
+  R2["room=1\n11:00-13:00"] --> Overlap
+  Overlap -->|Да| ErrEx["EXCLUDE → ошибка"]
+  R3["room=2\n11:00-13:00"] --> OkEx["OK (другая комната)"]
 ```
 
 ---

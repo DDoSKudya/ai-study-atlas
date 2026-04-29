@@ -340,13 +340,13 @@ Serverless без наблюдаемости быстро превращаетс
 ```mermaid
 flowchart TB
   subgraph Stable["Постоянные сервисы (контейнеры)"]
-    A[API service] --> DB[(DB)]
-    W[Worker] --> Q[(Queue)]
+    A["API service"] --> DB["(DB)"]
+    W["Worker"] --> Q["(Queue)"]
   end
   subgraph OnDemand["On-demand (FaaS)"]
-    F1[Webhook handler] --> Q
-    F2[Cron job] --> A
-    F3[Image resize] --> S[(Object storage)]
+    F1["Webhook handler"] --> Q
+    F2["Cron job"] --> A
+    F3["Image resize"] --> S["(Object storage)"]
   end
 ```
 

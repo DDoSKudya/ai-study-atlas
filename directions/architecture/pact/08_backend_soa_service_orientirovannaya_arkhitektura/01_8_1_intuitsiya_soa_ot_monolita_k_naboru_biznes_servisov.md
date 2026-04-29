@@ -106,13 +106,13 @@ SOA говорит:
 
 ```mermaid
 graph LR
-    A[CRM] <---> B[ERP]
-    A <---> C[Биллинг]
+    A["CRM"] <---> B["ERP"]
+    A <---> C["Биллинг"]
     B <---> C
-    A <---> D[Сайт]
+    A <---> D["Сайт"]
     C <---> D
-    B <---> E[Склад]
-    D <---> F[Мобильное приложение]
+    B <---> E["Склад"]
+    D <---> F["Мобильное приложение"]
     C <---> F
 ```
 
@@ -123,20 +123,20 @@ graph LR
 ```mermaid
 graph LR
     subgraph Core["Бизнес‑сервисы (SOA)"]
-      S1[Customer Service]
-      S2[Order Service]
-      S3[Billing Service]
-      S4[Inventory Service]
+      S1["Customer Service"]
+      S2["Order Service"]
+      S3["Billing Service"]
+      S4["Inventory Service"]
     end
 
-    CRM[CRM] --> S1
-    ERP[ERP] --> S2
+    CRM["CRM"] --> S1
+    ERP["ERP"] --> S2
     ERP --> S4
-    Billing[Биллинг] --> S3
+    Billing["Биллинг"] --> S3
 
-    Site[Сайт] --> S1
+    Site["Сайт"] --> S1
     Site --> S2
-    Mobile[Мобильное приложение] --> S1
+    Mobile["Мобильное приложение"] --> S1
     Mobile --> S2
     Mobile --> S3
 ```

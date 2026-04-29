@@ -96,13 +96,13 @@
 
 ```mermaid
 flowchart TD
-    A[Исключение в задаче] --> B{Transient?}
-    B -- Да --> C[Retry с backoff+jitter]
-    B -- Нет --> D{Ошибки данных/бизнеса?}
-    D -- Да --> E[Fail-fast + доменный статус]
-    D -- Нет --> F{Config/код?}
-    F -- Да --> G[Escalation + остановка авто-retry]
-    F -- Нет --> H[Quarantine/DLQ + triage]
+    A["Исключение в задаче"] --> B{"Transient?"}
+    B -- Да --> C["Retry с backoff+jitter"]
+    B -- Нет --> D{"Ошибки данных/бизнеса?"}
+    D -- Да --> E["Fail-fast + доменный статус"]
+    D -- Нет --> F{"Config/код?"}
+    F -- Да --> G["Escalation + остановка авто-retry"]
+    F -- Нет --> H["Quarantine/DLQ + triage"]
 ```
 
 Короткая интерпретация:

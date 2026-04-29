@@ -47,10 +47,10 @@
 
 ```mermaid
 flowchart LR
-  Client[Клиенты] --> LB[Load Balancer]
-  LB --> S1[Сервис A<br/>инстанс 1]
-  LB --> S2[Сервис A<br/>инстанс 2]
-  LB --> S3[Сервис A<br/>инстанс 3]
+  Client["Клиенты"] --> LB["Load Balancer"]
+  LB --> S1["Сервис A<br/>инстанс 1"]
+  LB --> S2["Сервис A<br/>инстанс 2"]
+  LB --> S3["Сервис A<br/>инстанс 3"]
 ```
 
 Плюсы:
@@ -257,10 +257,10 @@ flowchart LR
 ```mermaid
 flowchart LR
   subgraph Clients["Пользователи"]
-    C1(Client 1)
-    C2(Client 2)
-    C3(Client 3)
-    C4(Client 4)
+    C1("Client 1")
+    C2("Client 2")
+    C3("Client 3")
+    C4("Client 4")
   end
 
   C1 --> LB
@@ -268,7 +268,7 @@ flowchart LR
   C3 --> LB
   C4 --> LB
 
-  LB[Load Balancer<br/>L7/L4] --> S1["Сервис A<br/>инстанс 1"]
+  LB["Load Balancer<br/>L7/L4"] --> S1["Сервис A<br/>инстанс 1"]
   LB --> S2["Сервис A<br/>инстанс 2"]
   LB --> S3["Сервис A<br/>инстанс 3"]
 
@@ -280,7 +280,7 @@ flowchart LR
   S2 -- метрики --> M1
   S3 -- метрики --> M1
 
-  M1 --> AS[Auto-scaler]
+  M1 --> AS["Auto-scaler"]
   AS -->|scale up/down| S1
   AS --> S2
   AS --> S3

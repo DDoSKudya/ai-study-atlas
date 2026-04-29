@@ -68,15 +68,15 @@ celery -A proj report
 
 ```mermaid
 flowchart TD
-    S[Есть инцидент Celery] --> A{Задача попала в очередь?}
-    A -- Нет --> P[Проверить producer/publish path]
-    A -- Да --> B{Есть started/success в worker?}
-    B -- Нет --> C[Проверить consumer/pool saturation]
-    B -- Да --> D{Клиент видит корректный state/result?}
-    D -- Нет --> E[Проверить result backend и TTL]
-    D -- Да --> F{Canvas/chord завершился?}
-    F -- Нет --> G[Проверить chord unlock и backend aggregation]
-    F -- Да --> H[Вероятна доменная логика/данные]
+    S["Есть инцидент Celery"] --> A{"Задача попала в очередь?"}
+    A -- Нет --> P["Проверить producer/publish path"]
+    A -- Да --> B{"Есть started/success в worker?"}
+    B -- Нет --> C["Проверить consumer/pool saturation"]
+    B -- Да --> D{"Клиент видит корректный state/result?"}
+    D -- Нет --> E["Проверить result backend и TTL"]
+    D -- Да --> F{"Canvas/chord завершился?"}
+    F -- Нет --> G["Проверить chord unlock и backend aggregation"]
+    F -- Да --> H["Вероятна доменная логика/данные"]
 ```
 
 #### Проверь себя по decision flow

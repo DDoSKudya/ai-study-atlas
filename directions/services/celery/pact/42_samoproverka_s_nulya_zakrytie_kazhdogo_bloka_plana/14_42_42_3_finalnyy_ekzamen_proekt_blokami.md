@@ -82,20 +82,20 @@ sequenceDiagram
 
 ```mermaid
 flowchart TB
-  subgraph API[HTTP API]
-    W[Web процесс]
+  subgraph API["HTTP API"]
+    W["Web процесс"]
   end
-  subgraph Celery[Celery контур]
-    P[Producer: delay/apply_async]
-    B[Broker]
-    WK[Workers: default + heavy pool]
-    RB[Result backend]
-    BT[Beat scheduler]
+  subgraph Celery["Celery контур"]
+    P["Producer: delay/apply_async"]
+    B["Broker"]
+    WK["Workers: default + heavy pool"]
+    RB["Result backend"]
+    BT["Beat scheduler"]
   end
-  subgraph Obs[Наблюдаемость]
-    L[Структурные логи]
-    M[Метрика latency очереди]
-    T[Trace id]
+  subgraph Obs["Наблюдаемость"]
+    L["Структурные логи"]
+    M["Метрика latency очереди"]
+    T["Trace id"]
   end
   W --> P
   P --> B
@@ -178,14 +178,14 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-  M1[Модуль 1 контур]
-  M2[Модуль 2 идемпотентность]
-  M3[Модуль 3 routing]
-  M4[Модуль 4 canvas chord]
-  M5[Модуль 5 beat]
-  M6[Модуль 6 инцидент]
-  M7[Модуль 7 миграции]
-  M8[Модуль 8 observability]
+  M1["Модуль 1 контур"]
+  M2["Модуль 2 идемпотентность"]
+  M3["Модуль 3 routing"]
+  M4["Модуль 4 canvas chord"]
+  M5["Модуль 5 beat"]
+  M6["Модуль 6 инцидент"]
+  M7["Модуль 7 миграции"]
+  M8["Модуль 8 observability"]
   M1 --> M2
   M1 --> M3
   M1 --> M5
@@ -249,15 +249,15 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  subgraph P[Процесс постановки]
-    S[Shell или web]
+  subgraph P["Процесс постановки"]
+    S["Shell или web"]
   end
-  subgraph Net[Сеть Docker или localhost]
-    Br[(Broker)]
-    RB[(Result backend)]
+  subgraph Net["Сеть Docker или localhost"]
+    Br["(Broker)"]
+    RB["(Result backend)"]
   end
-  subgraph Wk[Worker]
-    WK[Celery worker]
+  subgraph Wk["Worker"]
+    WK["Celery worker"]
   end
   S -->|publish same URL| Br
   WK -->|consume same URL| Br
@@ -311,16 +311,16 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  subgraph Attempts[Попытки доставки]
-    A1[Попытка 1]
-    A2[Попытка 2]
+  subgraph Attempts["Попытки доставки"]
+    A1["Попытка 1"]
+    A2["Попытка 2"]
   end
-  subgraph Store[Хранилище]
+  subgraph Store["Хранилище"]
     U["Уникальный ключ или upsert"]
   end
   A1 --> U
   A2 --> U
-  U --> R[Один логический результат]
+  U --> R["Один логический результат"]
 ```
 
 <a id="exam-on-commit-visual"></a>
@@ -402,14 +402,14 @@ ASCII выше — про **имена** очередей; ниже — про *
 
 ```mermaid
 flowchart TB
-  P[Producer apply_async или routes]
-  Br[(Broker)]
-  subgraph Qs[Очереди]
-    Qd[default celery]
-    Qh[heavy]
+  P["Producer apply_async или routes"]
+  Br["(Broker)"]
+  subgraph Qs["Очереди"]
+    Qd["default celery"]
+    Qh["heavy"]
   end
-  WA[Worker A -Q default]
-  WB[Worker B -Q heavy]
+  WA["Worker A -Q default"]
+  WB["Worker B -Q heavy"]
   P --> Br
   Br --> Qd
   Br --> Qh
@@ -471,12 +471,12 @@ result = chord(header)(summarize.s())
 
 ```mermaid
 flowchart LR
-  T1[t1]
-  T2[t2]
-  TN[tN]
-  Broker[(Broker)]
-  RB[(Result backend)]
-  Body[Body aggregate]
+  T1["t1"]
+  T2["t2"]
+  TN["tN"]
+  Broker["(Broker)"]
+  RB["(Result backend)"]
+  Body["Body aggregate"]
   T1 --> Broker
   T2 --> Broker
   TN --> Broker
@@ -540,16 +540,16 @@ flowchart LR
 ```mermaid
 flowchart LR
   subgraph Ok["Ожидаемая топология"]
-    B1[Beat один]
-    Br1[(Broker)]
-    W1[Worker]
+    B1["Beat один"]
+    Br1["(Broker)"]
+    W1["Worker"]
     B1 -->|tick| Br1 --> W1
   end
   subgraph Bad["Анти-пример"]
-    B2[Beat A]
-    B3[Beat B]
-    Br2[(Broker)]
-    W2[Worker]
+    B2["Beat A"]
+    B3["Beat B"]
+    Br2["(Broker)"]
+    W2["Worker"]
     B2 --> Br2
     B3 --> Br2
     Br2 --> W2
@@ -609,13 +609,13 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  S[Симптом для пользователя или метрики]
-  I[Команда inspect или факт из лога]
-  O[Вывод одной строкой]
-  H[Гипотеза что сломано]
+  S["Симптом для пользователя или метрики"]
+  I["Команда inspect или факт из лога"]
+  O["Вывод одной строкой"]
+  H["Гипотеза что сломано"]
   S --> I --> O --> H
   H -->|недостаточно данных| I
-  H -->|готово к фиксу| F[Только тогда restart или патч]
+  H -->|готово к фиксу| F["Только тогда restart или патч"]
 ```
 
 **Типичная ошибка:** первая же команда «перезапустить всё» — ты закрыл симптом и **не оставил** артефакт таймлайна для DoD.
@@ -664,15 +664,15 @@ flowchart TD
 flowchart LR
   subgraph SafeA["A: сначала терпимый consumer"]
     direction LR
-    C1[Деплой worker dual-read]
-    P1[Деплой producer на v2]
+    C1["Деплой worker dual-read"]
+    P1["Деплой producer на v2"]
     C1 --> P1
   end
   subgraph SafeB["B: новая очередь и drain"]
     direction LR
-    Q2[Очередь tasks_v2]
-    C2[Воркеры на v2]
-    D1[Drain старой очереди]
+    Q2["Очередь tasks_v2"]
+    C2["Воркеры на v2"]
+    D1["Drain старой очереди"]
     Q2 --> C2
     C2 --> D1
   end

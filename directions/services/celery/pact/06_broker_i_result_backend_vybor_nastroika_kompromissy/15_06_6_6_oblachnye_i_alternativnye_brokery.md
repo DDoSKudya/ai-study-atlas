@@ -108,10 +108,10 @@ Celery можно использовать и с ними, но твои failure
 
 ```mermaid
 flowchart LR
-  P[Producer] --> X[Event/Queue Platform]
-  X --> Q[Broker-like queue for Celery]
-  Q --> W[Worker]
-  W --> RB[Result backend]
+  P["Producer"] --> X["Event/Queue Platform"]
+  X --> Q["Broker-like queue for Celery"]
+  Q --> W["Worker"]
+  W --> RB["Result backend"]
   note over X,Q: delivery semantics may be adapted by bridge
 ```
 

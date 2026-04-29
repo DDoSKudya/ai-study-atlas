@@ -78,12 +78,12 @@
 
 ```mermaid
 flowchart TD
-  A[Incident declared] --> B[Classify queues by criticality]
-  B --> C[Restore minimal infrastructure]
-  C --> D[Controlled replay]
-  D --> E[Validate business consistency]
-  E --> F[Return to normal mode]
-  F --> G[Post-incident DR improvements]
+  A["Incident declared"] --> B["Classify queues by criticality"]
+  B --> C["Restore minimal infrastructure"]
+  C --> D["Controlled replay"]
+  D --> E["Validate business consistency"]
+  E --> F["Return to normal mode"]
+  F --> G["Post-incident DR improvements"]
 ```
 
 ### ASCII-схема восстановления

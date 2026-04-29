@@ -32,31 +32,31 @@
 
 ```mermaid
 flowchart LR
-  subgraph App[Producer / Web app]
-    A[HTTP request] --> B[Publish task]
+  subgraph App["Producer / Web app"]
+    A["HTTP request"] --> B["Publish task"]
   end
 
-  subgraph Broker[Broker]
-    Q[(Queue)]
+  subgraph Broker["Broker"]
+    Q["(Queue)"]
   end
 
-  subgraph Worker[Workers]
-    C[Consume] --> D[Execute]
+  subgraph Worker["Workers"]
+    C["Consume"] --> D["Execute"]
   end
 
-  subgraph Backend[Result backend]
-    R[(State/Result)]
+  subgraph Backend["Result backend"]
+    R["(State/Result)"]
   end
 
   B --> Q --> C --> D --> R
 
-  subgraph Obs[Observability]
-    M[Metrics: Prometheus/Grafana]
-    L[Logs: ELK/Loki/Cloud logs]
-    T[Traces: OpenTelemetry/APM]
-    E[Error tracking: Sentry]
-    F[Ops UI: Flower]
-    BN[Broker-native: RabbitMQ UI / Redis INFO]
+  subgraph Obs["Observability"]
+    M["Metrics: Prometheus/Grafana"]
+    L["Logs: ELK/Loki/Cloud logs"]
+    T["Traces: OpenTelemetry/APM"]
+    E["Error tracking: Sentry"]
+    F["Ops UI: Flower"]
+    BN["Broker-native: RabbitMQ UI / Redis INFO"]
   end
 
   App -.-> L

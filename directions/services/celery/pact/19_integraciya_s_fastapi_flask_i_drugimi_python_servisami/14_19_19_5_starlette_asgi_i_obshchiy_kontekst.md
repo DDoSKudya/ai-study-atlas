@@ -109,12 +109,12 @@ Correlation id — это номер накладной. Если API и worker 
 
 ```mermaid
 flowchart LR
-  M[ASGI Middleware] --> E[Endpoint]
-  E --> P[Publish]
-  P --> B[(Broker)]
-  B --> W[Worker]
-  M --> L1[API logs corr-id]
-  W --> L2[Worker logs corr-id]
+  M["ASGI Middleware"] --> E["Endpoint"]
+  E --> P["Publish"]
+  P --> B["(Broker)"]
+  B --> W["Worker"]
+  M --> L1["API logs corr-id"]
+  W --> L2["Worker logs corr-id"]
 ```
 
 #### Жизненный цикл контекста запроса и задачи

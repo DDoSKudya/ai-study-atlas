@@ -85,11 +85,11 @@ Root cause (тех + процесс):
 
 ```mermaid
 flowchart LR
-    A[mini-RFC] --> B[Реализация и релиз]
-    B --> C[Runbook в эксплуатации]
-    C --> D[Инцидент или отклонение KPI]
-    D --> E[Postmortem]
-    E --> F[Обновление policy/RFC/runbook]
+    A["mini-RFC"] --> B["Реализация и релиз"]
+    B --> C["Runbook в эксплуатации"]
+    C --> D["Инцидент или отклонение KPI"]
+    D --> E["Postmortem"]
+    E --> F["Обновление policy/RFC/runbook"]
     F --> A
 ```
 

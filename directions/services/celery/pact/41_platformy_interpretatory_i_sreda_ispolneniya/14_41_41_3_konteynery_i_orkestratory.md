@@ -115,9 +115,9 @@ services:
 
 ```mermaid
 flowchart LR
-  A[docker stop / compose stop] --> S[SIGTERM к PID1 контейнера]
-  B[kubectl delete / rollout] --> S
-  S --> W[Celery worker: drain + exit]
+  A["docker stop / compose stop"] --> S["SIGTERM к PID1 контейнера"]
+  B["kubectl delete / rollout"] --> S
+  S --> W["Celery worker: drain + exit"]
 ```
 
 #### Проверь себя: Docker без k8s
@@ -156,11 +156,11 @@ tini -g -- celery -A app worker -l INFO
 
 ```mermaid
 flowchart TD
-    A[PID1 = celery] --> B{дочерний процесс завершился?}
-    B -- нет reaping --> C[Zombie list растет]
-    C --> D[странные задержки/FD issues/нестабильный pool]
-    B -- есть init/tini --> E[Zombie reaped]
-    E --> F[стабильный pool]
+    A["PID1 = celery"] --> B{"дочерний процесс завершился?"}
+    B -- нет reaping --> C["Zombie list растет"]
+    C --> D["странные задержки/FD issues/нестабильный pool"]
+    B -- есть init/tini --> E["Zombie reaped"]
+    E --> F["стабильный pool"]
 ```
 
 #### Проверь себя: PID1
@@ -209,9 +209,9 @@ celery -A proj beat -s /var/lib/celery/celerybeat-schedule
 
 ```mermaid
 flowchart TD
-  R[read-only rootfs / жёсткая FS-политика] --> Q{допустим writable файл на volume?}
-  Q -- да --> F[celery beat -s /var/lib/.../celerybeat-schedule]
-  Q -- нет / не хотим файлы --> D[schedule + state в БД + HA beat по правилам части 11]
+  R["read-only rootfs / жёсткая FS-политика"] --> Q{"допустим writable файл на volume?"}
+  Q -- да --> F["celery beat -s /var/lib/.../celerybeat-schedule"]
+  Q -- нет / не хотим файлы --> D["schedule + state в БД + HA beat по правилам части 11"]
 ```
 
 **ASCII-подсказка:**
@@ -253,13 +253,13 @@ readOnlyRootFS
 
 ```mermaid
 flowchart TD
-    A[Latency вырос, очередь растет] --> B{throttling?}
-    B -- да --> T[CPU request/limit, pool, внешние API]
-    B -- нет --> C{OOMKilled/Exit 137/oom_score?}
-    C -- да --> M[Memory limit / leak / batch size]
-    C -- нет --> D{WorkerLost/обрыв?}
-    D -- да --> S[grace period / signals / evicted node]
-    D -- нет --> X[код задачи / сеть / брокер]
+    A["Latency вырос, очередь растет"] --> B{"throttling?"}
+    B -- да --> T["CPU request/limit, pool, внешние API"]
+    B -- нет --> C{"OOMKilled/Exit 137/oom_score?"}
+    C -- да --> M["Memory limit / leak / batch size"]
+    C -- нет --> D{"WorkerLost/обрыв?"}
+    D -- да --> S["grace period / signals / evicted node"]
+    D -- нет --> X["код задачи / сеть / брокер"]
 ```
 
 **Ключевой вывод:** в Kubernetes "перезапуск pod" != "retry в Celery" — сравни метрику restarts, events (`kubectl describe pod`) и Celery-статусы.
@@ -296,15 +296,15 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    P[Producer] --> Q1[Queue: io]
-    P --> Q2[Queue: cpu]
-    P --> Q3[Queue: critical]
-    Q1 --> W1[Worker deployment IO]
-    Q2 --> W2[Worker deployment CPU]
-    Q3 --> W3[Worker deployment critical]
-    W1 --> S1[External APIs]
-    W2 --> S2[Compute-heavy tasks]
-    W3 --> S3[Business-critical tasks]
+    P["Producer"] --> Q1["Queue: io"]
+    P --> Q2["Queue: cpu"]
+    P --> Q3["Queue: critical"]
+    Q1 --> W1["Worker deployment IO"]
+    Q2 --> W2["Worker deployment CPU"]
+    Q3 --> W3["Worker deployment critical"]
+    W1 --> S1["External APIs"]
+    W2 --> S2["Compute-heavy tasks"]
+    W3 --> S3["Business-critical tasks"]
 ```
 
 #### Проверь себя: разделение deployment по очередям
@@ -428,9 +428,9 @@ Bad worker: "Падаю сейчас" -> retries/backlog/шум
 
 ```mermaid
 flowchart TD
-  S[runAsNonRoot + volumeMount /var/lib/celery] --> Q{process uid может писать?}
-  Q -- нет --> E[Permission denied на beat -s / логам]
-  Q -- да fsGroup/права ок --> OK[Предсказуемый file IO]
+  S["runAsNonRoot + volumeMount /var/lib/celery"] --> Q{"process uid может писать?"}
+  Q -- нет --> E["Permission denied на beat -s / логам"]
+  Q -- да fsGroup/права ок --> OK["Предсказуемый file IO"]
 ```
 
 #### Проверь себя: SecurityContext

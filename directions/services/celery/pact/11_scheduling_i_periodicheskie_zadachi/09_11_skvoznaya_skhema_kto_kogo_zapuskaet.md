@@ -6,14 +6,14 @@
 ```mermaid
 flowchart LR
     subgraph Scheduler["Планирование времени"]
-        B[Celery Beat]
+        B["Celery Beat"]
     end
     subgraph Messaging["Очередь сообщений"]
-        Q[Broker]
+        Q["Broker"]
     end
     subgraph Execution["Исполнение"]
-        W1[Worker]
-        W2[Worker]
+        W1["Worker"]
+        W2["Worker"]
     end
     B -->|"публикует сообщение задачи по расписанию"| Q
     Q -->|"доставляет сообщение"| W1

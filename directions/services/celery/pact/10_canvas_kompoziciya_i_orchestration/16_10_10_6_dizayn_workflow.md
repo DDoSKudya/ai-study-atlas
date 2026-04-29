@@ -105,12 +105,12 @@ Workflow - это не "цепочка функций", а "управление
 
 ```mermaid
 flowchart TD
-    A[Logical job created] --> B[Step 1 done]
-    B --> C[Step 2 done]
-    C --> D{Step 3 fail?}
-    D -- no --> E[Done]
-    D -- yes --> F[Retry budget]
-    F -->|exhausted| G[Compensation + manual review]
+    A["Logical job created"] --> B["Step 1 done"]
+    B --> C["Step 2 done"]
+    C --> D{"Step 3 fail?"}
+    D -- no --> E["Done"]
+    D -- yes --> F["Retry budget"]
+    F -->|exhausted| G["Compensation + manual review"]
 ```
 
 ### Как запомнить

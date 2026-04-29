@@ -70,13 +70,13 @@ Bootsteps — это не «добавил класс и забыл».
 
 ```mermaid
 flowchart TD
-    A[Build blueprint] --> B[Resolve requires]
-    B --> C[Instantiate steps]
-    C --> D[Start steps in order]
-    D --> E[Worker ready]
-    E --> F[Run loop]
-    F --> G[Stop steps reverse order]
-    G --> H[Worker shutdown complete]
+    A["Build blueprint"] --> B["Resolve requires"]
+    B --> C["Instantiate steps"]
+    C --> D["Start steps in order"]
+    D --> E["Worker ready"]
+    E --> F["Run loop"]
+    F --> G["Stop steps reverse order"]
+    G --> H["Worker shutdown complete"]
 ```
 
 ### Пошагово: внедрение custom Consumer step

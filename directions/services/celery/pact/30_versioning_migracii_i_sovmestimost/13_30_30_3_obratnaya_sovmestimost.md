@@ -109,11 +109,11 @@ Rollback-window закрывается не по времени календар
 
 ```mermaid
 flowchart LR
-    A[Old contract active] --> B[Alias period old+new]
-    B --> C{Legacy tail drained?}
+    A["Old contract active"] --> B["Alias period old+new"]
+    B --> C{"Legacy tail drained?"}
     C -- Нет --> B
-    C -- Да --> D[Close rollback window]
-    D --> E[Remove legacy handlers]
+    C -- Да --> D["Close rollback window"]
+    D --> E["Remove legacy handlers"]
 ```
 
 ### Как запомнить

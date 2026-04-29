@@ -81,11 +81,11 @@
 
 ```mermaid
 flowchart TD
-    A[Транзакция БД] --> B[Запись бизнес-данных]
-    B --> C[Запись outbox-события]
-    C --> D[COMMIT]
-    D --> E[Outbox relay публикует Celery task]
-    E --> F[Worker выполняет действие]
+    A["Транзакция БД"] --> B["Запись бизнес-данных"]
+    B --> C["Запись outbox-события"]
+    C --> D["COMMIT"]
+    D --> E["Outbox relay публикует Celery task"]
+    E --> F["Worker выполняет действие"]
 ```
 
 ### Как запомнить

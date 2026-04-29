@@ -102,10 +102,10 @@
 
 ```mermaid
 flowchart LR
-  Q[Queue] --> C1[Consumer 1] --> X[(Effect)]
-  Q --> C2[Consumer 2] --> Y[(Effect)]
+  Q["Queue"] --> C1["Consumer 1"] --> X["(Effect)"]
+  Q --> C2["Consumer 2"] --> Y["(Effect)"]
 
-  note1[Глобальный порядок не гарантирован: разные service time => разный порядок завершения]
+  note1["Глобальный порядок не гарантирован: разные service time => разный порядок завершения"]
   Q -.-> note1
 ```
 
@@ -113,10 +113,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  K[partition key] --> P1[Partition/Queue A: order_id=...]
-  K --> P2[Partition/Queue B: order_id=...]
-  P1 --> C1[Consumer A (последовательно)]
-  P2 --> C2[Consumer B (последовательно)]
+  K["partition key"] --> P1["Partition/Queue A: order_id=..."]
+  K --> P2["Partition/Queue B: order_id=..."]
+  P1 --> C1["Consumer A (последовательно)"]
+  P2 --> C2["Consumer B (последовательно)"]
 ```
 
 ### Как запомнить

@@ -139,15 +139,15 @@ Strangler Fig обычно выглядит так:
 
 ```mermaid
 flowchart LR
-  U[Пользователь/клиент] --> F[Фасад: Gateway/BFF/Router]
+  U["Пользователь/клиент"] --> F["Фасад: Gateway/BFF/Router"]
 
-  subgraph Legacy[Legacy: старая система]
-    L1[Старый модуль A]
-    L2[Старый модуль B]
+  subgraph Legacy["Legacy: старая система"]
+    L1["Старый модуль A"]
+    L2["Старый модуль B"]
   end
 
-  subgraph New[New: новая реализация]
-    N1[Новый модуль A]
+  subgraph New["New: новая реализация"]
+    N1["Новый модуль A"]
   end
 
   F -->|пока ещё| L1
@@ -375,19 +375,19 @@ Shadowing — это как **дать стажёру решать задачи 
 
 ```mermaid
 flowchart TB
-  subgraph ASIS[As-is]
-    UI1[Web UI] --> API1[Monolith API]
-    API1 --> DB1[(Shared DB)]
-    API1 --> EXT1[External Payments]
+  subgraph ASIS["As-is"]
+    UI1["Web UI"] --> API1["Monolith API"]
+    API1 --> DB1["(Shared DB)"]
+    API1 --> EXT1["External Payments"]
   end
 
-  subgraph TOBE[To-be]
-    UI2[Web UI] --> BFF[BFF/Gateway]
-    BFF --> S1[Orders Service]
-    BFF --> S2[Payments Service]
-    S1 --> DB2[(Orders DB)]
-    S2 --> DB3[(Payments DB)]
-    S2 --> EXT2[External Payments]
+  subgraph TOBE["To-be"]
+    UI2["Web UI"] --> BFF["BFF/Gateway"]
+    BFF --> S1["Orders Service"]
+    BFF --> S2["Payments Service"]
+    S1 --> DB2["(Orders DB)"]
+    S2 --> DB3["(Payments DB)"]
+    S2 --> EXT2["External Payments"]
   end
 
   ASIS -.migration steps.-> TOBE
@@ -472,14 +472,14 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  UI[UI/BFF] --> A[Module A]
-  UI --> B[Module B]
-  A --> C[Module C]
+  UI["UI/BFF"] --> A["Module A"]
+  UI --> B["Module B"]
+  A --> C["Module C"]
   B --> C
-  C --> D[(DB)]
+  C --> D["(DB)"]
 
-  subgraph Hint[Подсказка выбора]
-    X[Часто удобнее начать с A или B,\nа не с C: C в центре зависимостей]
+  subgraph Hint["Подсказка выбора"]
+    X["Часто удобнее начать с A или B,\nа не с C: C в центре зависимостей"]
   end
 ```
 
@@ -489,14 +489,14 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  U[Пользователь] --> R[Router/Gateway (rule + %)]
-  R -->|legacy path| L[Legacy]
-  R -->|new path| N[New]
+  U["Пользователь"] --> R["Router/Gateway (rule + %)"]
+  R -->|legacy path| L["Legacy"]
+  R -->|new path| N["New"]
 
-  subgraph Control[Управление]
-    F[Feature flag]
-    P[Traffic percentage]
-    K[Kill switch]
+  subgraph Control["Управление"]
+    F["Feature flag"]
+    P["Traffic percentage"]
+    K["Kill switch"]
   end
 
   Control -.меняет.-> R
@@ -655,17 +655,17 @@ Dual write означает, что одна операция пишет **и т
 
 ```mermaid
 flowchart TB
-  subgraph V1[До миграции]
-    A1[App v1] --> DB1[(DB: old_schema)]
+  subgraph V1["До миграции"]
+    A1["App v1"] --> DB1["(DB: old_schema)"]
   end
 
-  subgraph EXPAND[Expand]
-    A2[App v2 (compat read/write)] --> DB2[(DB: old + new)]
-    J[Backfill job] --> DB2
+  subgraph EXPAND["Expand"]
+    A2["App v2 (compat read/write)"] --> DB2["(DB: old + new)"]
+    J["Backfill job"] --> DB2
   end
 
-  subgraph CONTRACT[Contract]
-    A3[App v3 (new only)] --> DB3[(DB: new only)]
+  subgraph CONTRACT["Contract"]
+    A3["App v3 (new only)"] --> DB3["(DB: new only)"]
   end
 
   V1 --> EXPAND --> CONTRACT

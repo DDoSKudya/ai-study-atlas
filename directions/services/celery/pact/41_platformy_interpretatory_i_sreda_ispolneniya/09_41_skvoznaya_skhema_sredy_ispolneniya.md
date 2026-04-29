@@ -5,14 +5,14 @@
 
 ```mermaid
 flowchart LR
-    A[Producer app] --> B[Broker]
-    B --> C[Celery Worker Pod/VM]
-    C --> D[Python Interpreter]
-    D --> E[Task Runtime]
-    E --> F[(DB/API/Storage)]
-    C --> G[cgroups limits]
-    C --> H[OS signals]
-    C --> I[TZ/Locale settings]
+    A["Producer app"] --> B["Broker"]
+    B --> C["Celery Worker Pod/VM"]
+    C --> D["Python Interpreter"]
+    D --> E["Task Runtime"]
+    E --> F["(DB/API/Storage)"]
+    C --> G["cgroups limits"]
+    C --> H["OS signals"]
+    C --> I["TZ/Locale settings"]
     H --> E
     G --> E
     I --> E
@@ -33,20 +33,20 @@ Task code
 
 ```mermaid
 flowchart TB
-  subgraph App[Application layer]
-    T[Task business logic]
+  subgraph App["Application layer"]
+    T["Task business logic"]
   end
-  subgraph Celery[Celery runtime]
-    W[Worker / pool / prefetch / ack policy]
+  subgraph Celery["Celery runtime"]
+    W["Worker / pool / prefetch / ack policy"]
   end
-  subgraph Py[Python runtime]
-    I[Interpreter + stdlib + site-packages]
+  subgraph Py["Python runtime"]
+    I["Interpreter + stdlib + site-packages"]
   end
-  subgraph OS[OS / host]
-    S[Signals, ulimit, clocks, filesystem]
+  subgraph OS["OS / host"]
+    S["Signals, ulimit, clocks, filesystem"]
   end
-  subgraph Orc[Container / orchestrator]
-    C[cgroups: CPU/mem/pids + probes + rollout]
+  subgraph Orc["Container / orchestrator"]
+    C["cgroups: CPU/mem/pids + probes + rollout"]
   end
   T --> W --> I --> S
   C --> S

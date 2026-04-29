@@ -81,10 +81,10 @@
 ```mermaid
 graph LR
   Client --> Router["Shard router"]
-  Router --> N1["Node A\n(shards 0..3)"]
-  Router --> N2["Node B\n(shards 4..7)"]
-  N1 --> A1["OrderActor(123)"]
-  N2 --> A2["OrderActor(987)"]
+  Router --> N1["Node A\n("shards 0..3")"]
+  Router --> N2["Node B\n("shards 4..7")"]
+  N1 --> A1["OrderActor("123")"]
+  N2 --> A2["OrderActor("987")"]
 ```
 
 #### 4) Партиционирование сети: «кто прав?»

@@ -5,20 +5,20 @@
 
 ```mermaid
 flowchart LR
-    A[Producer / API / Notebook] --> B[Routing Policy]
-    B --> C1[Standard Queue]
-    B --> C2[GPU Queue]
-    B --> C3[Region Queue EU]
-    B --> C4[Region Queue US]
-    C1 --> D1[Standard Workers]
-    C2 --> D2[GPU Workers]
-    C3 --> D3[EU Workers]
-    C4 --> D4[US Workers]
-    D1 --> E[Result Backend]
+    A["Producer / API / Notebook"] --> B["Routing Policy"]
+    B --> C1["Standard Queue"]
+    B --> C2["GPU Queue"]
+    B --> C3["Region Queue EU"]
+    B --> C4["Region Queue US"]
+    C1 --> D1["Standard Workers"]
+    C2 --> D2["GPU Workers"]
+    C3 --> D3["EU Workers"]
+    C4 --> D4["US Workers"]
+    D1 --> E["Result Backend"]
     D2 --> E
     D3 --> E
     D4 --> E
-    D1 --> F[Observability + Audit]
+    D1 --> F["Observability + Audit"]
     D2 --> F
     D3 --> F
     D4 --> F

@@ -176,17 +176,17 @@ Multi-tenant **не работает** без ограничения noisy neigh
 ```mermaid
 flowchart TB
   subgraph tA["Tenant A"]
-    PA[Всплеск публикации]
+    PA["Всплеск публикации"]
   end
   subgraph tB["Tenant B"]
-    PB[Короткие срочные задачи]
+    PB["Короткие срочные задачи"]
   end
-  Q[(Общая очередь)]
-  W[Общий пул worker-ов]
+  Q["(Общая очередь)"]
+  W["Общий пул worker-ов"]
   PA --> Q
   PB --> Q
   Q --> W
-  X[Риск: B страдает по latency и SLO]
+  X["Риск: B страдает по latency и SLO"]
   W -.-> X
 ```
 
@@ -197,19 +197,19 @@ flowchart TB
 ```mermaid
 flowchart TB
   subgraph t0["Уровень 0: минимум изоляции"]
-    A[Общие worker + общая очередь]
+    A["Общие worker + общая очередь"]
   end
   subgraph t1["Уровень 1"]
-    B[Отдельные очереди / префиксы + ACL]
+    B["Отдельные очереди / префиксы + ACL"]
   end
   subgraph t2["Уровень 2"]
-    C[Отдельные vhost и учётки брокера]
+    C["Отдельные vhost и учётки брокера"]
   end
   subgraph t3["Уровень 3"]
-    D[Отдельные worker deployment + секреты]
+    D["Отдельные worker deployment + секреты"]
   end
   subgraph t4["Уровень 4: максимум"]
-    E[Отдельный брокер / кластер / аккаунт облака]
+    E["Отдельный брокер / кластер / аккаунт облака"]
   end
   A --> B
   B --> C

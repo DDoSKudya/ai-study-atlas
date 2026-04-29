@@ -64,16 +64,16 @@
 
 ```mermaid
 flowchart LR
-    A[Django app] --> B[Producer]
-    B --> C[(Broker)]
-    C --> D[Celery workers]
-    D --> E[(Result backend)]
-    D --> F[(Business DB)]
-    G[django-celery-beat] --> A
-    H[django-celery-results] --> E
-    I[Django admin] --> G
+    A["Django app"] --> B["Producer"]
+    B --> C["(Broker)"]
+    C --> D["Celery workers"]
+    D --> E["(Result backend)"]
+    D --> F["(Business DB)"]
+    G["django-celery-beat"] --> A
+    H["django-celery-results"] --> E
+    I["Django admin"] --> G
     I --> H
-    J[Audit log] --> I
+    J["Audit log"] --> I
 ```
 
 Ключевая мысль схемы: `django-celery-beat` и `django-celery-results` не должны становиться "центром истины" для всех operational- и бизнес-данных. Это прикладные интеграции, а не замена полноценной observability и data governance.

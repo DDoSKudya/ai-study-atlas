@@ -67,10 +67,10 @@ COMMIT;
 
 ```mermaid
 flowchart LR
-  A[BEGIN] --> B[Команды внутри транзакции<br/>(UPDATE/INSERT/DELETE/SELECT)]
-  B --> C{Завершение}
-  C -->|COMMIT| D[Изменения становятся<br/>видимыми другим и долговечными]
-  C -->|ROLLBACK / сбой| E[Откат к состоянию<br/>на момент BEGIN]
+  A["BEGIN"] --> B["Команды внутри транзакции<br/>(UPDATE/INSERT/DELETE/SELECT)"]
+  B --> C{"Завершение"}
+  C -->|COMMIT| D["Изменения становятся<br/>видимыми другим и долговечными"]
+  C -->|ROLLBACK / сбой| E["Откат к состоянию<br/>на момент BEGIN"]
 
   subgraph "Что видят другие сессии (типично)"
     B -. незакоммиченное обычно не видно .-> B
@@ -160,10 +160,10 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  T[Транзакция] --> A[Atomicity<br/>всё или ничего]
-  T --> C[Consistency<br/>инварианты и ограничения соблюдены]
-  T --> I[Isolation<br/>контроль видимости параллельных изменений]
-  T --> D[Durability<br/>после COMMIT переживает сбой]
+  T["Транзакция"] --> A["Atomicity<br/>всё или ничего"]
+  T --> C["Consistency<br/>инварианты и ограничения соблюдены"]
+  T --> I["Isolation<br/>контроль видимости параллельных изменений"]
+  T --> D["Durability<br/>после COMMIT переживает сбой"]
 ```
 
 **Картинка в голове (ACID в одном предложении на букву):**  
@@ -391,16 +391,16 @@ SAVEPOINT — это **«закладка» внутри транзакции**.
 
 ```mermaid
 flowchart TB
-  B0[BEGIN] --> S1[Шаги до SAVEPOINT]
-  S1 --> SP[SAVEPOINT after_order]
-  SP --> S2[Шаги после SAVEPOINT]
-  S2 --> X{Ок?}
-  X -->|Да| C0[COMMIT]
-  X -->|Нет| RB[ROLLBACK TO SAVEPOINT after_order]
+  B0["BEGIN"] --> S1["Шаги до SAVEPOINT"]
+  S1 --> SP["SAVEPOINT after_order"]
+  SP --> S2["Шаги после SAVEPOINT"]
+  S2 --> X{"Ок?"}
+  X -->|Да| C0["COMMIT"]
+  X -->|Нет| RB["ROLLBACK TO SAVEPOINT after_order"]
   RB --> SP
-  SP --> S3[Альтернативные шаги]
+  SP --> S3["Альтернативные шаги"]
   S3 --> C0
-  B0 -->|ROLLBACK| R0[Откат всей транзакции]
+  B0 -->|ROLLBACK| R0["Откат всей транзакции"]
 ```
 
 **Когда полезно:** сложная логика в одной транзакции, где один из шагов может «не пройти» (например, вставка в дочернюю таблицу), и ты хочешь откатить только этот шаг, а не весь BEGIN.

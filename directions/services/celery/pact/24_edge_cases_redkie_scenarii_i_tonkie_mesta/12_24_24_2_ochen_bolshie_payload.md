@@ -35,11 +35,11 @@
 
 ```mermaid
 flowchart LR
-    P[Producer] -->|upload binary| O[(Object Storage)]
-    P -->|task with object_key + schema_version| B[(Broker)]
-    B --> W[Worker]
+    P["Producer"] -->|upload binary| O["(Object Storage)"]
+    P -->|task with object_key + schema_version| B["(Broker)"]
+    B --> W["Worker"]
     W -->|download by key| O
-    W --> R[(Result Backend)]
+    W --> R["(Result Backend)"]
 ```
 
 ### Пошагово: безопасная стратегия для больших данных

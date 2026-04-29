@@ -173,10 +173,10 @@ typecheck:
 
 ```mermaid
 flowchart LR
-    A[Local profile run] --> B[Smoke task success]
-    B --> C[Pre-commit gates]
-    C --> D[CI integration]
-    D --> E[Canary confidence]
+    A["Local profile run"] --> B["Smoke task success"]
+    B --> C["Pre-commit gates"]
+    C --> D["CI integration"]
+    D --> E["Canary confidence"]
 ```
 
 ### Troubleshooting в локальном DX: быстрый маршрут
@@ -211,10 +211,10 @@ repos:
 
 ```mermaid
 flowchart LR
-    A[Developer writes task] --> B[pre-commit checks]
-    B --> C[local compose smoke run]
-    C --> D[push to CI]
-    D --> E[stable merge]
+    A["Developer writes task"] --> B["pre-commit checks"]
+    B --> C["local compose smoke run"]
+    C --> D["push to CI"]
+    D --> E["stable merge"]
 ```
 
 ### Простыми словами

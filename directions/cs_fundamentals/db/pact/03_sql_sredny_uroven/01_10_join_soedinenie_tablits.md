@@ -10,13 +10,13 @@
 
 ```mermaid
 flowchart TB
-  A[(A)] --> Inner[INNER\nтолько совпавшие пары]
-  B[(B)] --> Inner
-  A --> Left[LEFT\nвсе A + совпадения B]
+  A["(A)"] --> Inner["INNER\nтолько совпавшие пары"]
+  B["(B)"] --> Inner
+  A --> Left["LEFT\nвсе A + совпадения B"]
   B --> Left
-  A --> Full[FULL\nвсе A и B]
+  A --> Full["FULL\nвсе A и B"]
   B --> Full
-  A --> Cross[CROSS\nA × B]
+  A --> Cross["CROSS\nA × B"]
   B --> Cross
 ```
 
@@ -56,11 +56,11 @@ WHERE ...
 
 ```mermaid
 flowchart LR
-  Join[FROM + JOIN (ON)] --> Where[WHERE]
-  Where --> Group[GROUP BY/HAVING]
-  Group --> Select[SELECT/ORDER/LIMIT]
-  NoteON[ON = связь таблиц] --- Join
-  NoteW[WHERE = фильтр результата] --- Where
+  Join["FROM + JOIN (ON)"] --> Where["WHERE"]
+  Where --> Group["GROUP BY/HAVING"]
+  Group --> Select["SELECT/ORDER/LIMIT"]
+  NoteON["ON = связь таблиц"] --- Join
+  NoteW["WHERE = фильтр результата"] --- Where
 ```
 
 **Пример: заказы и клиенты**

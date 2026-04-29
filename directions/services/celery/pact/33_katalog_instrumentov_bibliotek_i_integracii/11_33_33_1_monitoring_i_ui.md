@@ -50,18 +50,18 @@ Flower — как "пульт диспетчера": видно, что прои
 ```mermaid
 flowchart TB
     subgraph Runtime
-      W[Celery workers]
-      B[(Broker queues)]
+      W["Celery workers"]
+      B["(Broker queues)"]
     end
     subgraph UI
-      F[Flower]
-      D[Custom dashboard]
+      F["Flower"]
+      D["Custom dashboard"]
     end
     subgraph Metrics
-      E1[Broker exporter]
-      E2[Celery app metrics]
-      P[Prometheus]
-      G[Grafana]
+      E1["Broker exporter"]
+      E2["Celery app metrics"]
+      P["Prometheus"]
+      G["Grafana"]
     end
     B --> E1
     W --> E2

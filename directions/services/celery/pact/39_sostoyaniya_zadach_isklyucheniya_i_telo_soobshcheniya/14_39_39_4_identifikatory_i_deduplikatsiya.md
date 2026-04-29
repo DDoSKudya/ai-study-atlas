@@ -56,12 +56,12 @@
 
 ```mermaid
 flowchart TD
-    A[At-least-once delivery] --> B{Idempotency key + atomic guard?}
-    B -->|No| C[Duplicate side effects are likely]
-    B -->|Yes| D{Business effect applied?}
-    D -->|No| E[Retry safely]
-    D -->|Yes| F[Mark completed and skip duplicates]
-    F --> G[Operationally: exactly-once business outcome]
+    A["At-least-once delivery"] --> B{"Idempotency key + atomic guard?"}
+    B -->|No| C["Duplicate side effects are likely"]
+    B -->|Yes| D{"Business effect applied?"}
+    D -->|No| E["Retry safely"]
+    D -->|Yes| F["Mark completed and skip duplicates"]
+    F --> G["Operationally: exactly-once business outcome"]
 ```
 
 ### Пошагово: минимальный pattern идемпотентности

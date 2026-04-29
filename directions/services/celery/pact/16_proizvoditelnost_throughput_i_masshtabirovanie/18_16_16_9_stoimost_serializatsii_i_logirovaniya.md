@@ -36,12 +36,12 @@
 ```mermaid
 flowchart LR
   subgraph hot["Горячий путь одной задачи"]
-    P[Producer: serialize]
-    B[Брокер: байты в транспорте]
-    W[Worker: deserialize]
-    J[Тело задачи]
+    P["Producer: serialize"]
+    B["Брокер: байты в транспорте"]
+    W["Worker: deserialize"]
+    J["Тело задачи"]
   end
-  L[Логи: ещё один поток байт]
+  L["Логи: ещё один поток байт"]
   P --> B --> W --> J
   J -.->|часто забывают замерить| L
 ```

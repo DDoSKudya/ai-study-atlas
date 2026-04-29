@@ -162,8 +162,8 @@ graph LR
   subgraph Topic["Топик с партициями"]
     P2["Producers"] --> T["Topic: orders"]
     subgraph Partitions
-      P0["Partition 0\n(orderId % 2 == 0)"]
-      P1["Partition 1\n(orderId % 2 == 1)"]
+      P0["Partition 0\n("orderId % 2 == 0")"]
+      P1["Partition 1\n("orderId % 2 == 1")"]
     end
     T --> P0
     T --> P1

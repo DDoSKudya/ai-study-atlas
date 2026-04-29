@@ -39,10 +39,10 @@ Managed-решения дают:
 
 ```mermaid
 flowchart LR
-    A[On-prem core system] --> B[Celery workers on-prem]
-    C[Cloud trigger/event] --> D[Managed job runner]
+    A["On-prem core system"] --> B["Celery workers on-prem"]
+    C["Cloud trigger/event"] --> D["Managed job runner"]
     D -->|API call| A
-    B -->|status/events| E[Unified observability]
+    B -->|status/events| E["Unified observability"]
     D -->|logs/metrics| E
 ```
 

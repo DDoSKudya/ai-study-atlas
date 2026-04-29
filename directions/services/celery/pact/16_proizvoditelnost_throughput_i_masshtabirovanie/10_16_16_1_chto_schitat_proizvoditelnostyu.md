@@ -62,9 +62,9 @@
 ```mermaid
 flowchart TB
   subgraph slot["Один занятый слот concurrency"]
-    U[Полезный код задачи]
-    IO[Ожидание внешних систем]
-    X[Налоги: deserialize, логи, GC, обвязка Celery]
+    U["Полезный код задачи"]
+    IO["Ожидание внешних систем"]
+    X["Налоги: deserialize, логи, GC, обвязка Celery"]
   end
   U --> Sum["Наблюдаемая длительность ≈ сумма вкладов"]
   IO --> Sum
@@ -118,10 +118,10 @@ sequenceDiagram
 ```mermaid
 flowchart TB
   subgraph layers["Слои «производительности»"]
-    M1[Бизнес: заказ обработан / письмо ушло]
-    M2[E2E latency / lag очереди]
-    M3[Execution time задачи]
-    M4[CPU/память процесса]
+    M1["Бизнес: заказ обработан / письмо ушло"]
+    M2["E2E latency / lag очереди"]
+    M3["Execution time задачи"]
+    M4["CPU/память процесса"]
   end
   M1 --> M2 --> M3 --> M4
 ```
@@ -191,18 +191,18 @@ flowchart TB
 ```mermaid
 flowchart LR
   subgraph ingress["Вход"]
-    P[Producer]
+    P["Producer"]
   end
   subgraph broker["Брокер"]
-    Q[(Очередь)]
+    Q["(Очередь)"]
   end
   subgraph workers["Worker-ы"]
-    W1[Worker 1]
-    W2[Worker 2]
+    W1["Worker 1"]
+    W2["Worker 2"]
   end
   subgraph down["Зависимости"]
-    DB[(БД)]
-    API[Внешний API]
+    DB["(БД)"]
+    API["Внешний API"]
   end
   P --> Q
   Q --> W1

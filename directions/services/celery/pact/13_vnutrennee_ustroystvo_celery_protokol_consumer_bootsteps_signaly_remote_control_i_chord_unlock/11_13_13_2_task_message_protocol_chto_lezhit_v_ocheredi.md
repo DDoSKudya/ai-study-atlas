@@ -322,11 +322,11 @@ Message
 
 ```mermaid
 flowchart TB
-    M[Message in broker] --> H[headers: task name, ids, eta, retries...]
-    M --> P[properties: routing, delivery mode...]
-    M --> B[body: bytes]
-    B --> CT[content-type]
-    B --> ENC[encoding/serializer]
+    M["Message in broker"] --> H["headers: task name, ids, eta, retries..."]
+    M --> P["properties: routing, delivery mode..."]
+    M --> B["body: bytes"]
+    B --> CT["content-type"]
+    B --> ENC["encoding/serializer"]
 ```
 
 ### Как запомнить

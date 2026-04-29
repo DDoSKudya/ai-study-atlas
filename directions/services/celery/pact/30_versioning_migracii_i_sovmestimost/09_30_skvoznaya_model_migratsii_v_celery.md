@@ -5,12 +5,12 @@
 
 ```mermaid
 flowchart LR
-    A[Producer old/new] --> B[(Broker queues)]
-    B --> C[Worker old]
-    B --> D[Worker new]
-    C --> E[(Result/Logs/Metrics)]
+    A["Producer old/new"] --> B["(Broker queues)"]
+    B --> C["Worker old"]
+    B --> D["Worker new"]
+    C --> E["(Result/Logs/Metrics)"]
     D --> E
-    F[Release pipeline] --> A
+    F["Release pipeline"] --> A
     F --> C
     F --> D
 ```
@@ -19,14 +19,14 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Изменили код задачи] --> B{Очередь пуста?}
-    B -- Нет --> C[Старый payload встречается новой логике]
-    B -- Да --> D[Риск ниже, но не нулевой]
-    C --> E{Есть payload_version и fallback?}
-    E -- Нет --> F[Runtime errors / unknown task / retries storm]
-    E -- Да --> G[Controlled coexistence]
-    G --> H[Canary metrics]
-    H --> I[Progressive rollout]
+    A["Изменили код задачи"] --> B{"Очередь пуста?"}
+    B -- Нет --> C["Старый payload встречается новой логике"]
+    B -- Да --> D["Риск ниже, но не нулевой"]
+    C --> E{"Есть payload_version и fallback?"}
+    E -- Нет --> F["Runtime errors / unknown task / retries storm"]
+    E -- Да --> G["Controlled coexistence"]
+    G --> H["Canary metrics"]
+    H --> I["Progressive rollout"]
 ```
 
 **Интуиция.**  

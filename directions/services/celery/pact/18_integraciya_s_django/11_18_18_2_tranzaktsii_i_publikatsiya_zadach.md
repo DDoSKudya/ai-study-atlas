@@ -384,19 +384,19 @@ def create_order_outbox(request):
 ```mermaid
 flowchart TB
   subgraph oc["Только on_commit + delay"]
-    T1[COMMIT БД — ок]
-    H[hook: delay]
-    H --> P1{publish в broker}
-    P1 -->|сбой сети| LOST[Событие может не попасть в очередь]
-    P1 -->|успех| Q1[(Broker)]
+    T1["COMMIT БД — ок"]
+    H["hook: delay"]
+    H --> P1{"publish в broker"}
+    P1 -->|сбой сети| LOST["Событие может не попасть в очередь"]
+    P1 -->|успех| Q1["(Broker)"]
   end
   subgraph ob["Outbox"]
-    T2[COMMIT БД + строка outbox — атомарно]
-    T2 --> OB[(Таблица outbox)]
-    S[Sender позже]
+    T2["COMMIT БД + строка outbox — атомарно"]
+    T2 --> OB["(Таблица outbox)"]
+    S["Sender позже"]
     OB --> S
-    S --> P2{publish}
-    P2 --> Q2[(Broker)]
+    S --> P2{"publish"}
+    P2 --> Q2["(Broker)"]
   end
 ```
 
@@ -519,13 +519,13 @@ def flush_outbox_batch() -> None:
 ```mermaid
 flowchart TB
   subgraph tx["Одна транзакция БД"]
-    B[Бизнес-запись]
-    O[INSERT outbox]
+    B["Бизнес-запись"]
+    O["INSERT outbox"]
   end
-  tx --> C[COMMIT]
-  C --> F[Sender: read outbox]
-  F --> BR[(Broker)]
-  F --> U[UPDATE processed_at]
+  tx --> C["COMMIT"]
+  C --> F["Sender: read outbox"]
+  F --> BR["(Broker)"]
+  F --> U["UPDATE processed_at"]
 ```
 
 #### Проверь себя: отправщик outbox

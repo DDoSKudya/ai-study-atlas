@@ -106,9 +106,9 @@ flowchart LR
 ```mermaid
 flowchart TD
   subgraph caller["Код producer-а"]
-    DL["delay(*args, **kwargs)"]
-    AA["apply_async(args=, kwargs=, ...) + options"]
-    ST["send_task('billing.enqueue_invoice', ...)"]
+    DL["delay("*args, **kwargs")"]
+    AA["apply_async("args=, kwargs=, ...") + options"]
+    ST["send_task: billing.enqueue_invoice"]
   end
   Q["Сериализация тела + опции → сообщение"]
   B["Брокер (очередь)"]

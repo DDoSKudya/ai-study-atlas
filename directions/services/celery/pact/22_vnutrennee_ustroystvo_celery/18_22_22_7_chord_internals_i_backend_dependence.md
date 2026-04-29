@@ -41,11 +41,11 @@
 
 ```mermaid
 flowchart LR
-  H[Group Header Tasks] --> A[Backend Aggregation]
-  A --> U{All done?}
-  U -- No --> W[Wait/Retry Unlock Check]
+  H["Group Header Tasks"] --> A["Backend Aggregation"]
+  A --> U{"All done?"}
+  U -- No --> W["Wait/Retry Unlock Check"]
   W --> A
-  U -- Yes --> B[Run Chord Callback]
+  U -- Yes --> B["Run Chord Callback"]
 ```
 
 ### Пошагово

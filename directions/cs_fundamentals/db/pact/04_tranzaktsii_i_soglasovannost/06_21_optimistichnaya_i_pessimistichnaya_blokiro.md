@@ -6,17 +6,17 @@
 
 ```mermaid
 flowchart LR
-  subgraph P[Пессимистичная (FOR UPDATE)]
-    P1[Читаем] --> P2[Сразу берём lock]
-    P2 --> P3[Обновляем]
-    P3 --> P4[COMMIT → unlock]
+  subgraph P["Пессимистичная (FOR UPDATE)"]
+    P1["Читаем"] --> P2["Сразу берём lock"]
+    P2 --> P3["Обновляем"]
+    P3 --> P4["COMMIT → unlock"]
   end
 
-  subgraph O[Оптимистичная (version)]
-    O1[Читаем без lock] --> O2[Считаем в приложении]
-    O2 --> O3[UPDATE ... WHERE version=old_version]
-    O3 -->|1 row| O4[COMMIT]
-    O3 -->|0 rows| O5[Конфликт → retry/ошибка]
+  subgraph O["Оптимистичная (version)"]
+    O1["Читаем без lock"] --> O2["Считаем в приложении"]
+    O2 --> O3["UPDATE ... WHERE version=old_version"]
+    O3 -->|1 row| O4["COMMIT"]
+    O3 -->|0 rows| O5["Конфликт → retry/ошибка"]
   end
 ```
 
@@ -209,15 +209,15 @@ Lost update — когда **два человека** прочитали одн
 
 ```mermaid
 flowchart TB
-  Client[Клиент] -->|idempotency_key=K| API[API/Сервис]
-  API --> DB[(idempotency_keys<br/>UNIQUE(key))]
+  Client["Клиент"] -->|idempotency_key=K| API["API/Сервис"]
+  API --> DB["(idempotency_keys<br/>UNIQUE("key"))"]
   API -->|проверить K| DB
   DB -->|нет K| API
-  API --> Do[Выполнить операцию<br/>(платёж/заказ)]
-  Do --> Save[Сохранить результат + K]
+  API --> Do["Выполнить операцию<br/>(платёж/заказ)"]
+  Do --> Save["Сохранить результат + K"]
   Save --> DB
-  DB -->|есть K| API2[Повторный запрос]
-  API2 --> Return[Вернуть сохранённый результат<br/>без повторного эффекта]
+  DB -->|есть K| API2["Повторный запрос"]
+  API2 --> Return["Вернуть сохранённый результат<br/>без повторного эффекта"]
 ```
 
 **Зачем:** сеть и браузеры могут отправить запрос дважды; пользователь может дважды нажать кнопку. Если операция не идемпотентна, повтор приведёт к дубликату (два списания, два заказа). Идемпотентность защищает от этого.

@@ -56,14 +56,14 @@
 
 ```mermaid
 flowchart LR
-    A[Dual mode active] --> B[Canary cutover 5-10%]
-    B --> C{Parity и error budget в норме?}
-    C -- Нет --> R[Rollback to old broker]
-    C -- Да --> D[Progressive cutover 25/50/100]
-    D --> E[Stabilization window]
-    E --> F{Incidents within threshold?}
+    A["Dual mode active"] --> B["Canary cutover 5-10%"]
+    B --> C{"Parity и error budget в норме?"}
+    C -- Нет --> R["Rollback to old broker"]
+    C -- Да --> D["Progressive cutover 25/50/100"]
+    D --> E["Stabilization window"]
+    E --> F{"Incidents within threshold?"}
     F -- Нет --> R
-    F -- Да --> G[Close rollback window]
+    F -- Да --> G["Close rollback window"]
 ```
 
 #### Проверь себя: cutover и точка возврата
@@ -92,15 +92,15 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    P[Producer] -->|old| R[(Redis)]
-    P -->|new| Q[(RabbitMQ)]
-    R --> W1[Old workers]
-    Q --> W2[Canary workers]
-    W1 --> M[Parity metrics]
+    P["Producer"] -->|old| R["(Redis)"]
+    P -->|new| Q["(RabbitMQ)"]
+    R --> W1["Old workers"]
+    Q --> W2["Canary workers"]
+    W1 --> M["Parity metrics"]
     W2 --> M
-    M --> D{Паритет достигнут?}
-    D -- Да --> C[Cutover]
-    D -- Нет --> B[Rollback / tune]
+    M --> D{"Паритет достигнут?"}
+    D -- Да --> C["Cutover"]
+    D -- Нет --> B["Rollback / tune"]
 ```
 
 ### Как запомнить

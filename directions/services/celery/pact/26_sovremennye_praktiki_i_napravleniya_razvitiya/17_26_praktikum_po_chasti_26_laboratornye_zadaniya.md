@@ -111,11 +111,11 @@
 
 ```mermaid
 flowchart LR
-    A[Celery Core] --> B[Broker and Runtime Mastery]
-    B --> C[Observability and SLO Discipline]
-    C --> D[Reliability Patterns]
-    D --> E[Hybrid Architecture Pilot]
-    E --> F[Platform-level Decisions]
+    A["Celery Core"] --> B["Broker and Runtime Mastery"]
+    B --> C["Observability and SLO Discipline"]
+    C --> D["Reliability Patterns"]
+    D --> E["Hybrid Architecture Pilot"]
+    E --> F["Platform-level Decisions"]
 ```
 
 ### Что будет, если...

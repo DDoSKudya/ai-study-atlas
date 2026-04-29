@@ -15,18 +15,18 @@
 
 ```mermaid
 flowchart TD
-    A[После rollout метрики ухудшились] --> B{Тип ухудшения}
-    B -->|Дубли/ошибки бизнеса| C[Откат delivery-semantic опций]
-    B -->|Latency/lag| D[Откат worker/runtime и routing]
-    B -->|Publish failures| E[Откат connectivity/publish policy]
-    B -->|Нет статусов/метрик| F[Откат backend/events]
-    C --> G[Проверка baseline]
+    A["После rollout метрики ухудшились"] --> B{"Тип ухудшения"}
+    B -->|Дубли/ошибки бизнеса| C["Откат delivery-semantic опций"]
+    B -->|Latency/lag| D["Откат worker/runtime и routing"]
+    B -->|Publish failures| E["Откат connectivity/publish policy"]
+    B -->|Нет статусов/метрик| F["Откат backend/events"]
+    C --> G["Проверка baseline"]
     D --> G
     E --> G
     F --> G
-    G --> H{Восстановилось?}
-    H -- Да --> I[Root cause analysis + безопасный re-rollout]
-    H -- Нет --> J[Полный rollback + инцидентный разбор]
+    G --> H{"Восстановилось?"}
+    H -- Да --> I["Root cause analysis + безопасный re-rollout"]
+    H -- Нет --> J["Полный rollback + инцидентный разбор"]
 ```
 
 ### Проверь себя: rollback

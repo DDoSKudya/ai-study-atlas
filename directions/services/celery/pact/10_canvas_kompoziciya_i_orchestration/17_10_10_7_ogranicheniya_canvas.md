@@ -58,11 +58,11 @@
 
 ```mermaid
 flowchart LR
-    A[Producer with logical_job_id] --> B[Canvas steps]
-    B --> C[Structured logs]
-    B --> D[Metrics]
-    B --> E[Tracing spans]
-    C --> F[Incident triage]
+    A["Producer with logical_job_id"] --> B["Canvas steps"]
+    B --> C["Structured logs"]
+    B --> D["Metrics"]
+    B --> E["Tracing spans"]
+    C --> F["Incident triage"]
     D --> F
     E --> F
 ```

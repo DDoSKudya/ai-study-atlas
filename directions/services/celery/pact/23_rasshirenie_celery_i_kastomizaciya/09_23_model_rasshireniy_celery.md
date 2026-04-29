@@ -5,17 +5,17 @@
 
 ```mermaid
 flowchart TB
-    A[Task code] --> B[Base Task Class]
-    A --> C[Task Annotations]
-    D[Message Contract] --> E[Serializer + Payload Schema]
-    F[Worker Runtime] --> G[Signals]
-    F --> H[Bootsteps]
-    B --> I[Execution Behavior]
+    A["Task code"] --> B["Base Task Class"]
+    A --> C["Task Annotations"]
+    D["Message Contract"] --> E["Serializer + Payload Schema"]
+    F["Worker Runtime"] --> G["Signals"]
+    F --> H["Bootsteps"]
+    B --> I["Execution Behavior"]
     C --> I
     E --> I
     G --> I
     H --> I
-    I --> J[Operational Outcome]
+    I --> J["Operational Outcome"]
 ```
 
 **Простыми словами:** у тебя есть пять крупных рычагов расширения. Если тянуть за все сразу, будет хаос. Нужен принцип: один риск — один рычаг.
@@ -24,10 +24,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    A[23.1 BaseTask] --> B[23.2 Payload contract]
-    B --> C[23.3 Runtime hooks]
-    C --> D[23.4 Central policy]
-    D --> E[23.5 Decision boundary]
+    A["23.1 BaseTask"] --> B["23.2 Payload contract"]
+    B --> C["23.3 Runtime hooks"]
+    C --> D["23.4 Central policy"]
+    D --> E["23.5 Decision boundary"]
     E --> A
 ```
 

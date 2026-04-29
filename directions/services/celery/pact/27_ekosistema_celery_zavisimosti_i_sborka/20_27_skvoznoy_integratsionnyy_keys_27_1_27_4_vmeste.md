@@ -22,13 +22,13 @@
 
 ```mermaid
 flowchart TD
-    A[Dependency update PR] --> B[Lock and build]
-    B --> C{CI and integration pass?}
-    C -->|No| D[Fix matrix or lock parity]
-    C -->|Yes| E[Canary deploy]
-    E --> F{SLO stable?}
-    F -->|No| G[Rollback + root cause by layer]
-    F -->|Yes| H[Full rollout]
+    A["Dependency update PR"] --> B["Lock and build"]
+    B --> C{"CI and integration pass?"}
+    C -->|No| D["Fix matrix or lock parity"]
+    C -->|Yes| E["Canary deploy"]
+    E --> F{"SLO stable?"}
+    F -->|No| G["Rollback + root cause by layer"]
+    F -->|Yes| H["Full rollout"]
 ```
 
 ### Ключевой вывод кейса

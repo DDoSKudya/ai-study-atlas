@@ -290,16 +290,16 @@ task_acks_late = True
 
 ```mermaid
 flowchart TD
-    A[Producer/Worker стартует] --> B[Resolve broker endpoint]
-    B --> C{DNS и сеть доступны?}
-    C -- Нет --> D[Retry с backoff]
+    A["Producer/Worker стартует"] --> B["Resolve broker endpoint"]
+    B --> C{"DNS и сеть доступны?"}
+    C -- Нет --> D["Retry с backoff"]
     D --> B
-    C -- Да --> E[Connect + TLS handshake]
-    E --> F{Connect успешен?}
-    F -- Нет --> G[Переключиться на failover URL]
+    C -- Да --> E["Connect + TLS handshake"]
+    E --> F{"Connect успешен?"}
+    F -- Нет --> G["Переключиться на failover URL"]
     G --> B
-    F -- Да --> H[Рабочее соединение]
-    H --> I{Heartbeat OK?}
+    F -- Да --> H["Рабочее соединение"]
+    H --> I{"Heartbeat OK?"}
     I -- Нет --> G
     I -- Да --> H
 ```

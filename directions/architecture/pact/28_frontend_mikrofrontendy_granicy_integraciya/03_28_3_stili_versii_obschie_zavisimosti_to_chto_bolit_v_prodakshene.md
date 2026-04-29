@@ -200,15 +200,15 @@
 
 ```mermaid
 flowchart LR
-  A[Изменение в MF или Shared] --> B[Сборка артефакта]
-  B --> C[Contract checks\n(lifecycle/protocol/events)]
-  B --> D[Публикация canary артефакта]
-  D --> E[Сборка host+remotes в test env]
-  E --> F[Smoke тесты композиции]
-  E --> G[E2E критичных потоков (минимум)]
-  F --> H[ОК -> promote]
+  A["Изменение в MF или Shared"] --> B["Сборка артефакта"]
+  B --> C["Contract checks\n("lifecycle/protocol/events")"]
+  B --> D["Публикация canary артефакта"]
+  D --> E["Сборка host+remotes в test env"]
+  E --> F["Smoke тесты композиции"]
+  E --> G["E2E критичных потоков (минимум)"]
+  F --> H["ОК -> promote"]
   G --> H
-  F --> I[Не ОК -> блок релиза]
+  F --> I["Не ОК -> блок релиза"]
   G --> I
 ```
 
@@ -301,10 +301,10 @@ function canMount(meta: { protocol: string[] }) {
 
 ```mermaid
 flowchart TB
-  U[Пользователи] --> H[Host]
-  H -->|90%| R1[Remote v1 (stable)]
-  H -->|10%| R2[Remote v2 (canary)]
-  R2 --> OBS[Ошибки/метрики]
+  U["Пользователи"] --> H["Host"]
+  H -->|90%| R1["Remote v1 (stable)"]
+  H -->|10%| R2["Remote v2 (canary)"]
+  R2 --> OBS["Ошибки/метрики"]
   OBS -->|ok| H
   OBS -->|bad| H
   H -->|rollback| R1

@@ -104,10 +104,10 @@
 
 ```mermaid
 flowchart TB
-  NoSQL[NoSQL (Not Only SQL)] --> Doc[Документные\nJSON/BSON]
-  NoSQL --> KV[Key-Value\nGET/SET]
-  NoSQL --> Wide[Wide-column\npartition/clustering key]
-  NoSQL --> Graph[Графовые\nузлы/рёбра]
+  NoSQL["NoSQL (Not Only SQL)"] --> Doc["Документные\nJSON/BSON"]
+  NoSQL --> KV["Key-Value\nGET/SET"]
+  NoSQL --> Wide["Wide-column\npartition/clustering key"]
+  NoSQL --> Graph["Графовые\nузлы/рёбра"]
 ```
 
 Общее:
@@ -178,12 +178,12 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Obj[Объект (текст/картинка)] --> Emb[Embedding модель\n→ вектор]
-  Query[Запрос] --> QEmb[Embedding\n→ вектор запроса]
-  Emb --> VDB[(Векторное хранилище)]
+  Obj["Объект (текст/картинка)"] --> Emb["Embedding модель\n→ вектор"]
+  Query["Запрос"] --> QEmb["Embedding\n→ вектор запроса"]
+  Emb --> VDB["(Векторное хранилище)"]
   QEmb --> VDB
-  VDB --> ANN[ANN индекс\n(HNSW/IVF/PQ)]
-  ANN --> TopK[Top-k ближайших\nпо метрике (cos/L2/dot)]
+  VDB --> ANN["ANN индекс\n("HNSW/IVF/PQ")"]
+  ANN --> TopK["Top-k ближайших\nпо метрике (cos/L2/dot)"]
 ```
 
 Применения:
@@ -236,9 +236,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  U1((User A)) -->|FRIEND_OF| U2((User B))
-  U2 -->|WORKS_AT| C((Company))
-  U1 -->|LIVES_IN| City((City))
+  U1("(User A")) -->|FRIEND_OF| U2("(User B"))
+  U2 -->|WORKS_AT| C("(Company"))
+  U1 -->|LIVES_IN| City("(City"))
   U2 -->|LIVES_IN| City
 ```
 
@@ -325,10 +325,10 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  Ingest[Поток метрик] --> Raw[Сырые точки (high-res)]
-  Raw -->|retention| Drop[Удаление старых]
-  Raw -->|downsampling| Agg[Rollups (1m/1h/1d)]
-  Agg --> Query[Запросы/графики]
+  Ingest["Поток метрик"] --> Raw["Сырые точки (high-res)"]
+  Raw -->|retention| Drop["Удаление старых"]
+  Raw -->|downsampling| Agg["Rollups (1m/1h/1d)"]
+  Agg --> Query["Запросы/графики"]
 ```
 
 **Простыми словами**
@@ -386,8 +386,8 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Source[(Основная БД\nsource of truth)] -->|CDC/ETL| ES[(Search index)]
-  App[Приложение] --> Source
+  Source["(Основная БД\nsource of truth)"] -->|CDC/ETL| ES["(Search index)"]
+  App["Приложение"] --> Source
   App -->|поиск| ES
 ```
 
@@ -611,12 +611,12 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  Events[(Event log)] --> P1[Проекция 1\n(операционное состояние)]
-  Events --> P2[Проекция 2\n(поиск/кэш)]
-  Events --> P3[Проекция 3\n(аналитика)]
-  P1 --> Svc[Сервисы]
-  P2 --> Search[Поиск]
-  P3 --> BI[BI/ML]
+  Events["(Event log)"] --> P1["Проекция 1\n("операционное состояние")"]
+  Events --> P2["Проекция 2\n("поиск/кэш")"]
+  Events --> P3["Проекция 3\n("аналитика")"]
+  P1 --> Svc["Сервисы"]
+  P2 --> Search["Поиск"]
+  P3 --> BI["BI/ML"]
 ```
 
 **Бытовая аналогия**

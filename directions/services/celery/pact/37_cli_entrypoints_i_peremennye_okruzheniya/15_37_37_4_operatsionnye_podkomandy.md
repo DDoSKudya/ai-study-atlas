@@ -76,23 +76,23 @@
 
 ```mermaid
 flowchart LR
-    subgraph LowRisk[Низкий риск]
-      A1[inspect]
-      A2[report]
-      A3[result]
-      A4[list bindings]
+    subgraph LowRisk["Низкий риск"]
+      A1["inspect"]
+      A2["report"]
+      A3["result"]
+      A4["list bindings"]
     end
-    subgraph MediumRisk[Средний риск]
-      B1[control: rate_limit/time_limit]
-      B2[control: add/cancel consumer]
-      B3[multi]
-      B4[shell]
+    subgraph MediumRisk["Средний риск"]
+      B1["control: rate_limit/time_limit"]
+      B2["control: add/cancel consumer"]
+      B3["multi"]
+      B4["shell"]
     end
-    subgraph HighRisk[Высокий риск]
-      C1[purge]
-      C2[migrate]
-      C3[upgrade]
-      C4[control broad-scope shutdown]
+    subgraph HighRisk["Высокий риск"]
+      C1["purge"]
+      C2["migrate"]
+      C3["upgrade"]
+      C4["control broad-scope shutdown"]
     end
 ```
 
@@ -163,15 +163,15 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Нужно действие через CLI] --> B{Нужна мутация?}
-    B -->|Нет| C[inspect/report/result/list bindings]
-    B -->|Да| D{Есть подтвержденный target?}
-    D -->|Нет| E[Остановиться и уточнить scope]
-    D -->|Да| F[control/call/purge/migrate]
-    F --> G[Оценить blast radius]
-    G --> H[Выполнить с audit trail]
-    H --> I[Проверить эффект]
-    I --> J[Постоянный фикс в конфиге/runbook]
+    A["Нужно действие через CLI"] --> B{"Нужна мутация?"}
+    B -->|Нет| C["inspect/report/result/list bindings"]
+    B -->|Да| D{"Есть подтвержденный target?"}
+    D -->|Нет| E["Остановиться и уточнить scope"]
+    D -->|Да| F["control/call/purge/migrate"]
+    F --> G["Оценить blast radius"]
+    G --> H["Выполнить с audit trail"]
+    H --> I["Проверить эффект"]
+    I --> J["Постоянный фикс в конфиге/runbook"]
 ```
 
 ### Простыми словами
@@ -184,12 +184,12 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Симптом] --> B[inspect: собрать факты]
-    B --> C{Нужна runtime-мера?}
-    C -->|Нет| D[Исправление в коде/конфиге]
-    C -->|Да| E[control: адресное действие]
-    E --> F[Проверка эффекта]
-    F --> G[Постоянный фикс + audit trail]
+    A["Симптом"] --> B["inspect: собрать факты"]
+    B --> C{"Нужна runtime-мера?"}
+    C -->|Нет| D["Исправление в коде/конфиге"]
+    C -->|Да| E["control: адресное действие"]
+    E --> F["Проверка эффекта"]
+    F --> G["Постоянный фикс + audit trail"]
 ```
 
 ### Примеры

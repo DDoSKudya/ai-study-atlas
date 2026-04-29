@@ -247,9 +247,9 @@ Bulkhead — это:
 
 ```mermaid
 flowchart LR
-  Client[Клиент] --> A[Сервис A]
+  Client["Клиент"] --> A["Сервис A"]
   A --> CB["Circuit Breaker + Retry<br/>+ Timeout"]
-  CB --> B[Сервис B]
+  CB --> B["Сервис B"]
   A --> RL["Rate Limiter"]
   RL --> A
 

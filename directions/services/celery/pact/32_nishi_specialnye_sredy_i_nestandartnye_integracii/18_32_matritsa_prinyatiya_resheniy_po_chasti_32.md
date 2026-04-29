@@ -33,24 +33,24 @@
 
 ```mermaid
 flowchart TB
-    subgraph ControlPlane[Control Plane]
-        CP1[Policies]
-        CP2[Runbooks]
-        CP3[Support Matrix]
+    subgraph ControlPlane["Control Plane"]
+        CP1["Policies"]
+        CP2["Runbooks"]
+        CP3["Support Matrix"]
     end
 
-    subgraph DataPlane[Data Plane]
-        D1[Standard Queues]
-        D2[GPU Queues]
-        D3[Ad-hoc Queues]
-        D4[Region Queues]
-        D5[Bridge Path]
+    subgraph DataPlane["Data Plane"]
+        D1["Standard Queues"]
+        D2["GPU Queues"]
+        D3["Ad-hoc Queues"]
+        D4["Region Queues"]
+        D5["Bridge Path"]
     end
 
-    subgraph Runtime[Execution Runtime]
-        R1[Linux Production Workers]
-        R2[Windows/Edge Workers]
-        R3[GPU Nodes]
+    subgraph Runtime["Execution Runtime"]
+        R1["Linux Production Workers"]
+        R2["Windows/Edge Workers"]
+        R3["GPU Nodes"]
     end
 
     CP1 --> D1

@@ -44,9 +44,9 @@
 
 ```mermaid
 flowchart LR
-  App[Приложение] -->|запись| Master[(Master DB)]
-  Master -->|репликация| R1[(Replica 1)]
-  Master -->|репликация| R2[(Replica 2)]
+  App["Приложение"] -->|запись| Master["(Master DB)"]
+  Master -->|репликация| R1["(Replica 1)"]
+  Master -->|репликация| R2["(Replica 2)"]
 
   App -->|чтение| R1
   App -->|чтение| R2

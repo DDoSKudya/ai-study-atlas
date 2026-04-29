@@ -86,21 +86,21 @@
 
 ```mermaid
 flowchart TD
-    A[CLI command request] --> B{Risk class}
-    B -->|Read-only| C[Auto execute]
-    B -->|Control| D[Runbook + approval]
-    B -->|Destructive| E[Manual approval + senior on-call + audit]
-    C --> F[Post-check]
+    A["CLI command request"] --> B{"Risk class"}
+    B -->|Read-only| C["Auto execute"]
+    B -->|Control| D["Runbook + approval"]
+    B -->|Destructive| E["Manual approval + senior on-call + audit"]
+    C --> F["Post-check"]
     D --> F
     E --> F
 ```
 
 ```mermaid
 flowchart LR
-    Dev[Developer] -->|read-only| C1[inspect/report]
-    OnCall[On-call SRE] -->|scoped control| C2[rate_limit/pool_restart]
-    Lead[Incident lead] -->|destructive + approval| C3[purge/terminate]
-    C1 --> AUD[Audit trail]
+    Dev["Developer"] -->|read-only| C1["inspect/report"]
+    OnCall["On-call SRE"] -->|scoped control| C2["rate_limit/pool_restart"]
+    Lead["Incident lead"] -->|destructive + approval| C3["purge/terminate"]
+    C1 --> AUD["Audit trail"]
     C2 --> AUD
     C3 --> AUD
 ```

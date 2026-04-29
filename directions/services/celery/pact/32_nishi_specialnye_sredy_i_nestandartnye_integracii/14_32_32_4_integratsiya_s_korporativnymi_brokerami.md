@@ -59,11 +59,11 @@
 
 ```mermaid
 flowchart LR
-    C[Celery Producer] --> K[Kombu Transport]
-    K --> X[Bridge Adapter]
-    X --> E[IBM MQ / Artemis]
-    E --> X2[Bridge Adapter]
-    X2 --> W[Celery Worker side]
+    C["Celery Producer"] --> K["Kombu Transport"]
+    K --> X["Bridge Adapter"]
+    X --> E["IBM MQ / Artemis"]
+    E --> X2["Bridge Adapter"]
+    X2 --> W["Celery Worker side"]
 ```
 
 ### Таблица "что часто теряется при мостах"
@@ -79,12 +79,12 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Нужна интеграция с enterprise broker] --> B{Требуется полная семантика Celery?}
-    B -- Да --> C{Bridge подтверждает parity тестами?}
-    C -- Да --> D[Использовать bridge + контрактные тесты]
-    C -- Нет --> E[Сужать контракт задач и адаптировать паттерны]
-    B -- Нет --> F[Проектировать упрощенный transport profile]
-    E --> G[Фиксировать ограничения в runbook и SLA]
+    A["Нужна интеграция с enterprise broker"] --> B{"Требуется полная семантика Celery?"}
+    B -- Да --> C{"Bridge подтверждает parity тестами?"}
+    C -- Да --> D["Использовать bridge + контрактные тесты"]
+    C -- Нет --> E["Сужать контракт задач и адаптировать паттерны"]
+    B -- Нет --> F["Проектировать упрощенный transport profile"]
+    E --> G["Фиксировать ограничения в runbook и SLA"]
     F --> G
 ```
 

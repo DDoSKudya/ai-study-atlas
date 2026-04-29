@@ -49,12 +49,12 @@ Server Component — это «кусок UI, который считается �
 ```mermaid
 flowchart LR
   subgraph Server["Server runtime"]
-    SC[Server Components] --> HTML[HTML + data payload]
-    DB[(DB/API)] --> SC
+    SC["Server Components"] --> HTML["HTML + data payload"]
+    DB["(DB/API)"] --> SC
   end
   subgraph Client["Browser"]
-    HTML --> CC[Client Components hydration]
-    CC --> UI[Interactive UI]
+    HTML --> CC["Client Components hydration"]
+    CC --> UI["Interactive UI"]
   end
 ```
 
@@ -178,14 +178,14 @@ Server Components — это про **осознанную границу инт
 
 ```mermaid
 flowchart TB
-  U[User] --> CDN[CDN/Edge cache]
-  CDN --> E[Edge logic (optional)]
-  E --> FE[Fullstack framework runtime]
-  FE --> SC[Server Components + SSR/streaming]
-  FE --> BFF[BFF / API routes]
-  BFF --> S[Services]
-  S --> DB[(DB)]
-  FE --> CC[Client components hydration]
+  U["User"] --> CDN["CDN/Edge cache"]
+  CDN --> E["Edge logic (optional)"]
+  E --> FE["Fullstack framework runtime"]
+  FE --> SC["Server Components + SSR/streaming"]
+  FE --> BFF["BFF / API routes"]
+  BFF --> S["Services"]
+  S --> DB["(DB)"]
+  FE --> CC["Client components hydration"]
   CC --> U
 ```
 
@@ -490,12 +490,12 @@ Offline‑first — это **архитектура синхронизации �
 
 ```mermaid
 flowchart LR
-  Core[Core / Platform] --> EP1[Extension point: UI slots]
-  Core --> EP2[Extension point: domain hooks]
-  Core --> EP3[Extension point: events bus]
-  P1[Plugin A] --> EP1
-  P2[Plugin B] --> EP2
-  P3[Plugin C] --> EP3
+  Core["Core / Platform"] --> EP1["Extension point: UI slots"]
+  Core --> EP2["Extension point: domain hooks"]
+  Core --> EP3["Extension point: events bus"]
+  P1["Plugin A"] --> EP1
+  P2["Plugin B"] --> EP2
+  P3["Plugin C"] --> EP3
 ```
 
 #### Пошагово: как спроектировать плагинность
@@ -537,8 +537,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  Core[Core] -->|stable contract| Gate[Plugin API / Gateway]
-  Gate --> P[Plugin]
+  Core["Core"] -->|stable contract| Gate["Plugin API / Gateway"]
+  Gate --> P["Plugin"]
   Gate -->|timeouts, quotas, authz| Core
   P -->|events| Gate
 ```

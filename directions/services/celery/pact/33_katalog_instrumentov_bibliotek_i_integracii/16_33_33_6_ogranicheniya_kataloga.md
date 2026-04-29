@@ -108,15 +108,15 @@
 
 ```mermaid
 flowchart LR
-    A[Инструмент предложен] --> B[Оценка риска и пользы]
-    B --> C[Назначен owner]
-    C --> D[Пилот в staging]
-    D --> E[Запись в compatibility matrix]
-    E --> F[Production rollout]
-    F --> G[Периодическая ревизия]
-    G --> H{Актуален?}
+    A["Инструмент предложен"] --> B["Оценка риска и пользы"]
+    B --> C["Назначен owner"]
+    C --> D["Пилот в staging"]
+    D --> E["Запись в compatibility matrix"]
+    E --> F["Production rollout"]
+    F --> G["Периодическая ревизия"]
+    G --> H{"Актуален?"}
     H -- Да --> G
-    H -- Нет --> I[Deprecated/Exit + миграция]
+    H -- Нет --> I["Deprecated/Exit + миграция"]
 ```
 
 ### Что будет если...

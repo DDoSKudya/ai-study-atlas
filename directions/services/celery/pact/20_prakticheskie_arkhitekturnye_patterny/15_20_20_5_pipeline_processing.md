@@ -43,10 +43,10 @@
 
 ```mermaid
 flowchart LR
-  A[Extract] --> B[Transform]
-  B --> C[Validate + Enrich]
-  C --> D[Load / Publish]
-  C -->|ошибка| E[Compensation / Retry queue]
+  A["Extract"] --> B["Transform"]
+  B --> C["Validate + Enrich"]
+  C --> D["Load / Publish"]
+  C -->|ошибка| E["Compensation / Retry queue"]
 ```
 
 ### Пошагово

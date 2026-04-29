@@ -5,15 +5,15 @@
 
 ```mermaid
 flowchart TD
-    A[Нужно расширить поведение Celery] --> B{Это про наблюдаемость?}
-    B -- Да --> C[Signals или Events]
-    B -- Нет --> D{Это политика задач?}
-    D -- Да --> E[task_annotations]
-    D -- Нет --> F{Это lifecycle конкретных задач?}
-    F -- Да --> G[Custom Task class]
-    F -- Нет --> H{Это инфраструктура worker/consumer?}
-    H -- Да --> I[Bootsteps]
-    H -- Нет --> J[Serializer/Backend/Loader]
+    A["Нужно расширить поведение Celery"] --> B{"Это про наблюдаемость?"}
+    B -- Да --> C["Signals или Events"]
+    B -- Нет --> D{"Это политика задач?"}
+    D -- Да --> E["task_annotations"]
+    D -- Нет --> F{"Это lifecycle конкретных задач?"}
+    F -- Да --> G["Custom Task class"]
+    F -- Нет --> H{"Это инфраструктура worker/consumer?"}
+    H -- Да --> I["Bootsteps"]
+    H -- Нет --> J["Serializer/Backend/Loader"]
 ```
 
 ### Простыми словами

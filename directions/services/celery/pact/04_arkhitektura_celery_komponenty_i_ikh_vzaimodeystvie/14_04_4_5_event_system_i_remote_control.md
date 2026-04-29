@@ -179,11 +179,11 @@ Remote control — это “кнопки управления”: можно с
 
 ```mermaid
 flowchart LR
-  W[Worker] -->|emit| E[(Events)]
-  E --> F[Flower / observers]
-  Admin[Admin/CLI] -->|inspect| W
+  W["Worker"] -->|emit| E["(Events)"]
+  E --> F["Flower / observers"]
+  Admin["Admin/CLI"] -->|inspect| W
   Admin -->|control commands| W
-  W --> L[Logs/Tracebacks]
+  W --> L["Logs/Tracebacks"]
 ```
 
 ### Как запомнить

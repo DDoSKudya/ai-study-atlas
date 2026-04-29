@@ -85,15 +85,15 @@ def launch_nightly_recalc(batch_id: str, chunk_size: int = 1000):
 
 ```mermaid
 flowchart TB
-  A[Start batch_run] --> B[Page dataset by seek pagination]
-  B --> C[Create chunk tasks]
-  C --> D[Execute chunk]
-  D --> E{Chunk success?}
-  E -- Yes --> F[Mark checkpoint]
-  E -- No --> G[Retry chunk only]
-  F --> H{All chunks done?}
+  A["Start batch_run"] --> B["Page dataset by seek pagination"]
+  B --> C["Create chunk tasks"]
+  C --> D["Execute chunk"]
+  D --> E{"Chunk success?"}
+  E -- Yes --> F["Mark checkpoint"]
+  E -- No --> G["Retry chunk only"]
+  F --> H{"All chunks done?"}
   G --> H
-  H -- Yes --> I[Aggregate + finalize]
+  H -- Yes --> I["Aggregate + finalize"]
   H -- No --> B
 ```
 

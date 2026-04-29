@@ -55,26 +55,26 @@
 ```mermaid
 flowchart LR
   subgraph MPA
-    A1[Запрос /page] --> B1[Сервер MVC]
-    B1 --> C1[HTML]
+    A1["Запрос /page"] --> B1["Сервер MVC"]
+    B1 --> C1["HTML"]
   end
 
   subgraph SPA
-    A2[Запрос /] --> B2[Статика: index.html+JS]
-    B2 --> C2[CSR в браузере]
-    C2 --> D2[Запросы к API]
+    A2["Запрос /"] --> B2["Статика: index.html+JS"]
+    B2 --> C2["CSR в браузере"]
+    C2 --> D2["Запросы к API"]
   end
 
   subgraph SSR
-    A3[Запрос /page] --> B3[SSR-сервер]
-    B3 --> C3[HTML + данные]
-    C3 --> D3[Гидрация и SPA-навигация]
+    A3["Запрос /page"] --> B3["SSR-сервер"]
+    B3 --> C3["HTML + данные"]
+    C3 --> D3["Гидрация и SPA-навигация"]
   end
 
   subgraph SSG
-    A4[Запрос /page] --> B4[CDN/файлы]
-    B4 --> C4[Готовый HTML]
-    C4 --> D4[SPA/минимальный JS]
+    A4["Запрос /page"] --> B4["CDN/файлы"]
+    B4 --> C4["Готовый HTML"]
+    C4 --> D4["SPA/минимальный JS"]
   end
 ```
 
@@ -124,19 +124,19 @@ flowchart LR
 ```mermaid
 flowchart TD
   subgraph SSR["SSR: печь по заказу"]
-    U1[Пользователь] -->|GET /page| RS[Render-сервер]
+    U1["Пользователь"] -->|GET /page| RS["Render-сервер"]
     RS -->|HTML| U1
   end
 
   subgraph SSG["SSG: печь заранее"]
-    Build[Билд] -->|HTML файлы| CDN1[CDN/статический хостинг]
-    U2[Пользователь] -->|GET /page| CDN1 -->|HTML| U2
+    Build["Билд"] -->|HTML файлы| CDN1["CDN/статический хостинг"]
+    U2["Пользователь"] -->|GET /page| CDN1 -->|HTML| U2
   end
 
   subgraph ISR["ISR: обновление порциями"]
-    Build2[Первичная генерация] --> CDN2[CDN/хранилище]
-    U3[Пользователь] -->|GET /page| CDN2 -->|HTML (возможно устаревший)| U3
-    CDN2 -->|триггер регенерации| RS2[SSR-генерация]
+    Build2["Первичная генерация"] --> CDN2["CDN/хранилище"]
+    U3["Пользователь"] -->|GET /page| CDN2 -->|HTML (возможно устаревший)| U3
+    CDN2 -->|триггер регенерации| RS2["SSR-генерация"]
     RS2 -->|обновлённый HTML| CDN2
   end
 ```

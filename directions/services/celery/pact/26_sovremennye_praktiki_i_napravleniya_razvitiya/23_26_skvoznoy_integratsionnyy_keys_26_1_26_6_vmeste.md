@@ -24,15 +24,15 @@
 
 ```mermaid
 flowchart LR
-    A[Checkout API] --> B[DB commit + outbox]
-    B --> C[Kafka events]
-    B --> D[Celery command queue]
-    D --> E[Critical workers in K8s]
-    E --> F[Billing API]
-    E --> G[OTel traces and SLI metrics]
-    C --> H[Analytics/stream consumers]
-    G --> I[SLO + burn-rate alerts]
-    I --> J[Runbook and improvement loop]
+    A["Checkout API"] --> B["DB commit + outbox"]
+    B --> C["Kafka events"]
+    B --> D["Celery command queue"]
+    D --> E["Critical workers in K8s"]
+    E --> F["Billing API"]
+    E --> G["OTel traces and SLI metrics"]
+    C --> H["Analytics/stream consumers"]
+    G --> I["SLO + burn-rate alerts"]
+    I --> J["Runbook and improvement loop"]
 ```
 
 ### Что будет считаться успешным результатом

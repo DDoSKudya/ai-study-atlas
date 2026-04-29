@@ -69,10 +69,10 @@ Namespace — это способ сгруппировать настройки 
 ```mermaid
 flowchart LR
   subgraph cfg["Конфигурация Celery"]
-    CF["celery_config.py\n(параметры)"]
+    CF["celery_config.py\n("параметры")"]
   end
   subgraph app["Приложение"]
-    A["celery_app = Celery(...)"]
+    A["celery_app = Celery("...")"]
     T["Доменные модули задач"]
   end
   ENV["Переменные окружения"]

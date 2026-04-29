@@ -5,15 +5,15 @@
 
 ```mermaid
 flowchart LR
-    P[Producer/API] --> B[Broker]
-    B --> C[Worker Consumer]
-    C --> D[Decode + Strategy]
-    D --> E[Pool Execute]
-    E --> R[Result Backend]
-    E --> EV[Event Stream]
-    RC[Remote Control] --> C
-    S[Signals] --> E
-    BS[Bootsteps Init] --> C
+    P["Producer/API"] --> B["Broker"]
+    B --> C["Worker Consumer"]
+    C --> D["Decode + Strategy"]
+    D --> E["Pool Execute"]
+    E --> R["Result Backend"]
+    E --> EV["Event Stream"]
+    RC["Remote Control"] --> C
+    S["Signals"] --> E
+    BS["Bootsteps Init"] --> C
     BS --> RC
 ```
 
@@ -23,15 +23,15 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    A[Celery App] --> B[Task Registry]
-    A --> C[Worker Blueprint]
-    C --> D[Bootsteps]
-    C --> E[Consumer Pipeline]
-    E --> F[Execution Pool]
-    F --> G[Task Signals]
-    E --> H[Remote Control]
-    F --> I[Result Backend]
-    F --> J[Events]
+    A["Celery App"] --> B["Task Registry"]
+    A --> C["Worker Blueprint"]
+    C --> D["Bootsteps"]
+    C --> E["Consumer Pipeline"]
+    E --> F["Execution Pool"]
+    F --> G["Task Signals"]
+    E --> H["Remote Control"]
+    F --> I["Result Backend"]
+    F --> J["Events"]
 ```
 
 Эта схема помогает понять, где что расширять:

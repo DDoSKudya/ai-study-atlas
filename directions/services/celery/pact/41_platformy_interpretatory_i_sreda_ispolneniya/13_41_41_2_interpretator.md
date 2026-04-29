@@ -204,10 +204,10 @@ python -c "import importlib.metadata as m; print(m.metadata('celery')['Requires-
 
 ```mermaid
 flowchart LR
-  M[import-time init: client/socket pool] --> P[parent worker]
-  P -->|fork| C1[child 1]
-  P -->|fork| C2[child 2]
-  C1 --> X[нестабильный I/O, TLS, FD reuse]
+  M["import-time init: client/socket pool"] --> P["parent worker"]
+  P -->|fork| C1["child 1"]
+  P -->|fork| C2["child 2"]
+  C1 --> X["нестабильный I/O, TLS, FD reuse"]
   C2 --> X
 ```
 

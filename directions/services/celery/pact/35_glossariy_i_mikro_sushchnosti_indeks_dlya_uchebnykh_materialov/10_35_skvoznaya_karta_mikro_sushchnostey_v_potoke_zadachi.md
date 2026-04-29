@@ -5,13 +5,13 @@
 
 ```mermaid
 flowchart LR
-    A[Producer code\napp.task/app.send_task] --> B[Signature/options\nargs kwargs headers]
-    B --> C[Broker layer\nExchange Queue Binding]
-    C --> D[Worker consumer\nPool Request Task]
-    D --> E[Execution\nstate retry events]
-    E --> F[Result backend\nAsyncResult GroupResult metadata]
-    G[Beat schedule] --> B
-    H[Security policy\nserializer + accept_content] --> B
+    A["Producer code\napp.task/app.send_task"] --> B["Signature/options\nargs kwargs headers"]
+    B --> C["Broker layer\nExchange Queue Binding"]
+    C --> D["Worker consumer\nPool Request Task"]
+    D --> E["Execution\nstate retry events"]
+    E --> F["Result backend\nAsyncResult GroupResult metadata"]
+    G["Beat schedule"] --> B
+    H["Security policy\nserializer + accept_content"] --> B
     H --> D
 ```
 

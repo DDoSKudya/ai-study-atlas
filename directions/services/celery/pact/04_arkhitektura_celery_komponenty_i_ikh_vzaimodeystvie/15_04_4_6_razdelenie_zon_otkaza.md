@@ -136,15 +136,15 @@
 ```mermaid
 flowchart TB
   subgraph ClientView
-    P[Producer/Client app] --> A[AsyncResult / status view]
+    P["Producer/Client app"] --> A["AsyncResult / status view"]
   end
-  P --> Q[Broker]
-  Q --> W[Worker]
-  W --> B[Result backend]
+  P --> Q["Broker"]
+  Q --> W["Worker"]
+  W --> B["Result backend"]
 
-  Q -.failure.-> QF[Delivery breaks]
-  W -.failure.-> WF[Execution stalls]
-  B -.failure.-> BF[Status visibility breaks]
+  Q -.failure.-> QF["Delivery breaks"]
+  W -.failure.-> WF["Execution stalls"]
+  B -.failure.-> BF["Status visibility breaks"]
 ```
 
 ### Как запомнить

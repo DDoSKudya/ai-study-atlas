@@ -96,7 +96,7 @@ Worker — **отдельный процесс**: без переноса иде
 ```mermaid
 flowchart TB
   subgraph pub["Публикация"]
-    H["apply_async(..., headers=...)"]
+    H["apply_async("..., headers=...")"]
   end
   subgraph msg["Сообщение в брокере"]
     MH["headers в теле/метаданных"]

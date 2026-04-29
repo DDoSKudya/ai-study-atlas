@@ -48,16 +48,16 @@ Inbox-подход у потребителя:
 ```mermaid
 flowchart LR
   subgraph ServiceA["Источник события"]
-    TX[(Business TX)]
-    OUT[(Outbox)]
-    PUB[Outbox Publisher]
+    TX["(Business TX)"]
+    OUT["(Outbox)"]
+    PUB["Outbox Publisher"]
   end
   subgraph Broker["Broker"]
-    Q[(Queue)]
+    Q["(Queue)"]
   end
   subgraph ServiceB["Потребитель"]
-    IN[(Inbox/Dedup)]
-    H[Handler Task]
+    IN["(Inbox/Dedup)"]
+    H["Handler Task"]
   end
 
   TX --> OUT --> PUB --> Q --> H --> IN

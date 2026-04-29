@@ -30,12 +30,12 @@
 
 ```mermaid
 flowchart LR
-  A[Запрос HTML] --> B[Загрузка HTML]
-  B --> C[Загрузка JS/CSS бандлов]
-  C --> D[Парсинг и выполнение JS]
-  D --> E[Запросы к API]
-  E --> F[Рендер первого экрана]
-  F --> G[Приложение интерактивно (TTI)]
+  A["Запрос HTML"] --> B["Загрузка HTML"]
+  B --> C["Загрузка JS/CSS бандлов"]
+  C --> D["Парсинг и выполнение JS"]
+  D --> E["Запросы к API"]
+  E --> F["Рендер первого экрана"]
+  F --> G["Приложение интерактивно (TTI)"]
 ```
 
 На каждом шаге можно:
@@ -123,14 +123,14 @@ flowchart LR
 ```mermaid
 flowchart LR
   subgraph Bad["Монолитный бандл"]
-    B1[Bundle.js<br/>всё приложение сразу]
+    B1["Bundle.js<br/>всё приложение сразу"]
   end
 
   subgraph Good["Разделённые бандлы"]
-    G0[Core.js<br/>ядро + шапка]
-    G1[Dashboard.js]
-    G2[Reports.js]
-    G3[Settings.js]
+    G0["Core.js<br/>ядро + шапка"]
+    G1["Dashboard.js"]
+    G2["Reports.js"]
+    G3["Settings.js"]
   end
 ```
 

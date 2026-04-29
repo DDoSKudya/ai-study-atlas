@@ -69,15 +69,15 @@
 
 ```mermaid
 flowchart TB
-    B[Broker] --> M[Worker master/consumer]
-    M -->|submit| C[Child process / pool worker]
+    B["Broker"] --> M["Worker master/consumer"]
+    M -->|submit| C["Child process / pool worker"]
     C -->|exception/return| M
-    M --> R[(Result backend)]
+    M --> R["(Result backend)"]
 
     subgraph Where logs come from
-      LM[Master logs: reserve/ack/control/pool mgmt]
-      LC[Child logs: task code, stack trace]
-      LB[Kombu logs: connect/reconnect/channel errors]
+      LM["Master logs: reserve/ack/control/pool mgmt"]
+      LC["Child logs: task code, stack trace"]
+      LB["Kombu logs: connect/reconnect/channel errors"]
     end
     M -.-> LM
     C -.-> LC
@@ -146,15 +146,15 @@ Symptom -> Layer -> Evidence -> Fix
 
 ```mermaid
 flowchart LR
-    S[Symptom] --> L{Which layer?}
-    L --> T[Transport/Broker]
-    L --> C[Consumer/Master]
-    L --> P[Pool/Child]
-    L --> B[Backend/Chord]
-    T --> ET[Evidence: kombu logs, reconnects, queue lag]
-    C --> EC[Evidence: reserved/active, strategy, ack/reject]
-    P --> EP[Evidence: child trace, timeouts, OOM]
-    B --> EB[Evidence: state TTL, backend errors, chord unlock]
+    S["Symptom"] --> L{"Which layer?"}
+    L --> T["Transport/Broker"]
+    L --> C["Consumer/Master"]
+    L --> P["Pool/Child"]
+    L --> B["Backend/Chord"]
+    T --> ET["Evidence: kombu logs, reconnects, queue lag"]
+    C --> EC["Evidence: reserved/active, strategy, ack/reject"]
+    P --> EP["Evidence: child trace, timeouts, OOM"]
+    B --> EB["Evidence: state TTL, backend errors, chord unlock"]
 ```
 
 ### Как запомнить

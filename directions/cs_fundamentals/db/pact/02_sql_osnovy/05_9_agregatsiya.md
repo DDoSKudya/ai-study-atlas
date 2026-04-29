@@ -6,9 +6,9 @@
 
 ```mermaid
 flowchart TB
-  Rows[Много строк] -->|GROUP BY| Groups[Группы по ключу]
-  Groups -->|COUNT/SUM/AVG...| Agg[Агрегаты по группе]
-  Agg --> Out[Одна строка на группу]
+  Rows["Много строк"] -->|GROUP BY| Groups["Группы по ключу"]
+  Groups -->|COUNT/SUM/AVG...| Agg["Агрегаты по группе"]
+  Agg --> Out["Одна строка на группу"]
 ```
 
 ---
@@ -30,9 +30,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  G[Одна группа] --> C[COUNT(*)]
-  G --> S[SUM(total_amount)]
-  G --> A[AVG(total_amount)]
+  G["Одна группа"] --> C["COUNT("*")"]
+  G --> S["SUM("total_amount")"]
+  G --> A["AVG("total_amount")"]
 ```
 
 **Итог:** GROUP BY превращает «много строк» в «мало строк» — по одной на каждое уникальное значение группировочного столбца (или комбинации столбцов), а агрегаты (COUNT, SUM, AVG...) дают сводные числа по каждой группе.
@@ -172,10 +172,10 @@ FROM users;
 
 ```mermaid
 flowchart TB
-  From[FROM] --> Where[WHERE\nфильтр строк]
-  Where --> Group[GROUP BY\nгруппы]
-  Group --> Having[HAVING\nфильтр групп\n(агрегаты)]
-  Having --> Out[Результат]
+  From["FROM"] --> Where["WHERE\nфильтр строк"]
+  Where --> Group["GROUP BY\nгруппы"]
+  Group --> Having["HAVING\nфильтр групп\n("агрегаты")"]
+  Having --> Out["Результат"]
 ```
 
 ---
@@ -271,10 +271,10 @@ GROUP BY status;
 
 ```mermaid
 flowchart TB
-  Group2[Одна группа (user_id=...)] --> All[COUNT(*)\nвсе строки]
-  Group2 --> Paid[COUNT(*) FILTER\nstatus='paid']
-  Group2 --> Canc[COUNT(*) FILTER\nstatus='cancelled']
-  Group2 --> Rev[SUM(amount) FILTER\nstatus='paid']
+  Group2["Одна группа (user_id=...)"] --> All["COUNT("*")\nвсе строки"]
+  Group2 --> Paid["COUNT("*") FILTER\nstatus='paid'"]
+  Group2 --> Canc["COUNT("*") FILTER\nstatus='cancelled'"]
+  Group2 --> Rev["SUM("amount") FILTER\nstatus='paid'"]
 ```
 
 ---
@@ -353,10 +353,10 @@ ORDER BY day;
 
 ```mermaid
 flowchart TB
-  Base[(sales)] --> One[GROUP BY (region, product)]
-  Base --> Reg[GROUP BY (region)]
-  Base --> All[GROUP BY ()\nобщий итог]
-  Note[GROUPING SETS/ROLLUP/CUBE\nделают это за один проход] --- Base
+  Base["(sales)"] --> One["GROUP BY (region, product)"]
+  Base --> Reg["GROUP BY (region)"]
+  Base --> All["GROUP BY ()\nобщий итог"]
+  Note["GROUPING SETS/ROLLUP/CUBE\nделают это за один проход"] --- Base
 ```
 
 ---
@@ -422,10 +422,10 @@ ORDER BY year NULLS LAST, quarter NULLS LAST, month NULLS LAST;
 
 ```mermaid
 flowchart TB
-  R1[(year, quarter, month)] --> R2[(year, quarter)]
-  R2 --> R3[(year)]
-  R3 --> R4[()]
-  NoteR[ROLLUP: "сворачиваем" справа налево] --- R1
+  R1["(year, quarter, month)"] --> R2["(year, quarter)"]
+  R2 --> R3["(year)"]
+  R3 --> R4["()"]
+  NoteR["ROLLUP: #quot;сворачиваем#quot; справа налево"] --- R1
 ```
 
 ##### CUBE
@@ -445,10 +445,10 @@ ORDER BY region NULLS LAST, category NULLS LAST;
 
 ```mermaid
 flowchart TB
-  C0[(region, category)] --> C1[(region)]
-  C0 --> C2[(category)]
-  C0 --> C3[()]
-  NoteC[CUBE: все комбинации размерностей] --- C0
+  C0["(region, category)"] --> C1["(region)"]
+  C0 --> C2["(category)"]
+  C0 --> C3["()"]
+  NoteC["CUBE: все комбинации размерностей"] --- C0
 ```
 
 ##### GROUPING() — отличить суперитог от NULL в данных

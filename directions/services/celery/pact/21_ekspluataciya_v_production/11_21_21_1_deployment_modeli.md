@@ -81,14 +81,14 @@
 ```mermaid
 flowchart LR
   subgraph Pod["Celery Worker Pod"]
-    W[Celery Worker Container]
-    S[Metrics/Logs Sidecar]
-    A[Secret/Security Agent]
+    W["Celery Worker Container"]
+    S["Metrics/Logs Sidecar"]
+    A["Secret/Security Agent"]
   end
   W --> S
   A --> W
-  S --> O[Observability Stack]
-  A --> K[Secrets/Security Control Plane]
+  S --> O["Observability Stack"]
+  A --> K["Secrets/Security Control Plane"]
 ```
 
 #### Проверь себя (sidecar/agent)

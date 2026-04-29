@@ -36,8 +36,8 @@ Kafka/stream processing:
 
 ```mermaid
 flowchart LR
-    A[Task request] --> B[Celery queue] --> C[Execute and finish]
-    D[Event stream] --> E[Kafka topic log] --> F[Continuous consumers / stream jobs]
+    A["Task request"] --> B["Celery queue"] --> C["Execute and finish"]
+    D["Event stream"] --> E["Kafka topic log"] --> F["Continuous consumers / stream jobs"]
 ```
 
 ### Практический кейс

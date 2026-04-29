@@ -91,14 +91,14 @@ flowchart LR
     R["Читатель AsyncResult"]
   end
   subgraph Broker["Брокер"]
-    Q[Очередь]
+    Q["Очередь"]
   end
   subgraph Worker["Worker"]
     C["Consumer или pool"]
-    T[Тело задачи]
+    T["Тело задачи"]
   end
   subgraph Opt["Опционально"]
-    RB[Result backend]
+    RB["Result backend"]
     BT["Beat публикует в broker"]
   end
   P -->|message| Q
@@ -266,22 +266,22 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  subgraph Input[Вход]
-    R[Прочитал часть N]
+  subgraph Input["Вход"]
+    R["Прочитал часть N"]
   end
-  subgraph Check[42.1 чеклист]
-    T[5 терминов]
-    S[1 схема]
-    X[3 нельзя]
-    E[1 edge case]
-    C[2 ключа 36 или 1 cmd 37]
+  subgraph Check["42.1 чеклист"]
+    T["5 терминов"]
+    S["1 схема"]
+    X["3 нельзя"]
+    E["1 edge case"]
+    C["2 ключа 36 или 1 cmd 37"]
   end
-  subgraph Out[Выход]
-    G{Всё «зачётно»?}
+  subgraph Out["Выход"]
+    G{"Всё «зачётно»?"}
   end
   R --> T --> S --> X --> E --> C --> G
-  G -->|нет| L[Лаба 42.2 или дочитать раздел]
-  G -->|да| M[Запись в журнал обучения]
+  G -->|нет| L["Лаба 42.2 или дочитать раздел"]
+  G -->|да| M["Запись в журнал обучения"]
 ```
 
 #### Проверь себя: диаграмма цикла после главы

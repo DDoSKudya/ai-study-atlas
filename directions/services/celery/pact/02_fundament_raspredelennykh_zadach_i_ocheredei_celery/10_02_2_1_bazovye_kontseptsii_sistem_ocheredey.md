@@ -100,10 +100,10 @@ Push-like поведение (когда производитель «вытал
 
 ```mermaid
 flowchart LR
-  A[Producer: публикует сообщение] --> Q[Broker/Queue: хранит и выдаёт]
-  Q --> W[Worker/Consumer: обрабатывает]
-  W --> R[(Эффект: БД/HTTP/внешний сервис)]
-  Q -.-> M[Метрики: depth/lag/throughput/service time]
+  A["Producer: публикует сообщение"] --> Q["Broker/Queue: хранит и выдаёт"]
+  Q --> W["Worker/Consumer: обрабатывает"]
+  W --> R["(Эффект: БД/HTTP/внешний сервис)"]
+  Q -.-> M["Метрики: depth/lag/throughput/service time"]
 ```
 
 ### Как запомнить

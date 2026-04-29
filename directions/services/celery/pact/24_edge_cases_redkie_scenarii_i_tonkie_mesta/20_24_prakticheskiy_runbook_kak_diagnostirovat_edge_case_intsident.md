@@ -42,17 +42,17 @@
 
 ```mermaid
 flowchart TD
-    A[Есть всплеск ошибок/latency] --> B{Есть OOM/SIGKILL?}
-    B -- Да --> C[Идти в 24.8: memory limits, queues, node pressure]
-    B -- Нет --> D{Есть массовые retries/429/5xx?}
-    D -- Да --> E[Идти в 24.5: breaker, backoff, disable path]
-    D -- Нет --> F{Есть ранние/поздние ETA?}
-    F -- Да --> G[Идти в 24.9 и 24.4: clock skew + timezone]
-    F -- Нет --> H{Есть not found/stale reads?}
-    H -- Да --> I[Идти в 24.6: publish vs commit, outbox]
-    H -- Нет --> J{Проблемы после upgrade?}
-    J -- Да --> K[Идти в 24.3: compatibility matrix, legacy replay]
-    J -- Нет --> L[Проверить 24.1/24.2/24.7 по профилю нагрузки]
+    A["Есть всплеск ошибок/latency"] --> B{"Есть OOM/SIGKILL?"}
+    B -- Да --> C["Идти в 24.8: memory limits, queues, node pressure"]
+    B -- Нет --> D{"Есть массовые retries/429/5xx?"}
+    D -- Да --> E["Идти в 24.5: breaker, backoff, disable path"]
+    D -- Нет --> F{"Есть ранние/поздние ETA?"}
+    F -- Да --> G["Идти в 24.9 и 24.4: clock skew + timezone"]
+    F -- Нет --> H{"Есть not found/stale reads?"}
+    H -- Да --> I["Идти в 24.6: publish vs commit, outbox"]
+    H -- Нет --> J{"Проблемы после upgrade?"}
+    J -- Да --> K["Идти в 24.3: compatibility matrix, legacy replay"]
+    J -- Нет --> L["Проверить 24.1/24.2/24.7 по профилю нагрузки"]
 ```
 
 Эта схема помогает не тратить первые минуты инцидента на хаотичный поиск.

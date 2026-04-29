@@ -65,14 +65,14 @@
 
 ```mermaid
 flowchart TD
-    A[Exception captured] --> B{Type?}
-    B -->|Retryable external| C[Retry with backoff/jitter]
-    B -->|Business permanent| D[Fail fast without retry]
-    B -->|ImproperlyConfigured| E[Stop rollout and fix config]
-    B -->|Reject/contract issue| F[Reject or route to quarantine]
-    B -->|Time limit| G[Cleanup and tune limits/chunk size]
-    B -->|WorkerLost| H[Investigate runtime resources]
-    B -->|Broker error| I[Transport retry + broker health checks]
+    A["Exception captured"] --> B{"Type?"}
+    B -->|Retryable external| C["Retry with backoff/jitter"]
+    B -->|Business permanent| D["Fail fast without retry"]
+    B -->|ImproperlyConfigured| E["Stop rollout and fix config"]
+    B -->|Reject/contract issue| F["Reject or route to quarantine"]
+    B -->|Time limit| G["Cleanup and tune limits/chunk size"]
+    B -->|WorkerLost| H["Investigate runtime resources"]
+    B -->|Broker error| I["Transport retry + broker health checks"]
 ```
 
 ### `Reject(requeue=...)` и poison message: как не зациклить очередь

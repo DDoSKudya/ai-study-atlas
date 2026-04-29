@@ -78,16 +78,16 @@
 
 ```mermaid
 flowchart LR
-  subgraph Outside[Снаружи кажется простым]
-    UI[UI] --> API[API]
+  subgraph Outside["Снаружи кажется простым"]
+    UI["UI"] --> API["API"]
   end
 
-  subgraph Inside[Внутри: всё связано со всем]
-    A[Модуль A] <--> B[Модуль B]
-    B <--> C[Модуль C]
-    C <--> D[Модуль D]
+  subgraph Inside["Внутри: всё связано со всем"]
+    A["Модуль A"] <--> B["Модуль B"]
+    B <--> C["Модуль C"]
+    C <--> D["Модуль D"]
     D <--> A
-    A <--> DB[(Общая БД)]
+    A <--> DB["(Общая БД)"]
     B <--> DB
     C <--> DB
     D <--> DB
@@ -191,13 +191,13 @@ Big Ball of Mud — это не “грязный код”, а **отсутст
 
 ```mermaid
 flowchart LR
-  subgraph Services[Сервисы]
-    A[Service A] --> B[Service B]
-    B --> C[Service C]
-    C --> D[Service D]
+  subgraph Services["Сервисы"]
+    A["Service A"] --> B["Service B"]
+    B --> C["Service C"]
+    C --> D["Service D"]
   end
 
-  DB[(Shared DB)]:::danger
+  DB["(Shared DB)"]:::danger
   A --- DB
   B --- DB
   C --- DB
@@ -293,17 +293,17 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  subgraph Coupling[Причины жёсткой связанности]
-    DB[(Shared DB)]
-    SH[Shared domain packages]
-    SYNC[Deep sync call chains]
-    NC[No contracts / no compatibility]
+  subgraph Coupling["Причины жёсткой связанности"]
+    DB["(Shared DB)"]
+    SH["Shared domain packages"]
+    SYNC["Deep sync call chains"]
+    NC["No contracts / no compatibility"]
   end
 
-  subgraph Effects[Эффекты]
-    R[Release train\n(релизы пачкой)]
-    I[Cascading incidents]
-    U[Unclear ownership]
+  subgraph Effects["Эффекты"]
+    R["Release train\n("релизы пачкой")"]
+    I["Cascading incidents"]
+    U["Unclear ownership"]
   end
 
   DB --> R
@@ -415,13 +415,13 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-  Q[У нас есть задача] --> A{Какая главная боль?}
-  A -->|Скорость команды| B[Границы/модульность/монолит]
-  A -->|Независимые релизы команд| C[Модули или микросервисы]
-  A -->|Много потребителей данных| D[EDA/CQRS (если приемлема eventual consistency)]
-  A -->|Разные клиенты| E[BFF/контракты]
-  A -->|SEO/контент| F[SSR/SSG/MPA/Islands]
-  A -->|Ультра‑низкая латентность| G[Edge/кэш/локализация]
+  Q["У нас есть задача"] --> A{"Какая главная боль?"}
+  A -->|Скорость команды| B["Границы/модульность/монолит"]
+  A -->|Независимые релизы команд| C["Модули или микросервисы"]
+  A -->|Много потребителей данных| D["EDA/CQRS (если приемлема eventual consistency)"]
+  A -->|Разные клиенты| E["BFF/контракты"]
+  A -->|SEO/контент| F["SSR/SSG/MPA/Islands"]
+  A -->|Ультра‑низкая латентность| G["Edge/кэш/локализация"]
 ```
 
 Это не “правильные ответы”, а напоминание: **первый вопрос — про боль и контекст**, а не про технологию.
@@ -599,11 +599,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  UI[UI] --> A[Service A]
-  UI --> B[Service B]
-  A --> DB1[(DB A)]
-  B --> DB2[(DB B)]
-  A -->|event| MQ[(Broker)]
+  UI["UI"] --> A["Service A"]
+  UI --> B["Service B"]
+  A --> DB1["(DB A)"]
+  B --> DB2["(DB B)"]
+  A -->|event| MQ["(Broker)"]
   MQ --> B
   B -->|читает старое| UI
 ```
@@ -831,12 +831,12 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  A[Нужно быстро запуститься] --> B{Managed сервис?}
-  B -->|Да| C[Выигрыш: скорость, меньше ops]
-  B -->|Нет| D[Выигрыш: контроль, переносимость]
-  C --> E[Риск: lock-in / exit cost]
-  D --> F[Риск: больше ops сейчас]
-  E --> G[Противоядие: оценка exit cost + мини-ADR + минимальный адаптер]
+  A["Нужно быстро запуститься"] --> B{"Managed сервис?"}
+  B -->|Да| C["Выигрыш: скорость, меньше ops"]
+  B -->|Нет| D["Выигрыш: контроль, переносимость"]
+  C --> E["Риск: lock-in / exit cost"]
+  D --> F["Риск: больше ops сейчас"]
+  E --> G["Противоядие: оценка exit cost + мини-ADR + минимальный адаптер"]
 ```
 
 #### Пример: lock‑in “по‑взрослому”

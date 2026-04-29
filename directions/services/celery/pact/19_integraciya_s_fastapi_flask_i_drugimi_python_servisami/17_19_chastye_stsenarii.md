@@ -95,11 +95,11 @@
 
 ```mermaid
 flowchart TD
-  A[Нужен прогресс async-операции] --> B{Требуется near-real-time<br/>обновление?}
-  B -- Нет --> C[Polling endpoint статуса]
-  B -- Да --> D{Инфраструктура готова к WS/SSE?}
-  D -- Нет --> E[Короткий polling + backoff]
-  D -- Да --> F[WebSocket/SSE + fallback на polling]
+  A["Нужен прогресс async-операции"] --> B{"Требуется near-real-time<br/>обновление?"}
+  B -- Нет --> C["Polling endpoint статуса"]
+  B -- Да --> D{"Инфраструктура готова к WS/SSE?"}
+  D -- Нет --> E["Короткий polling + backoff"]
+  D -- Да --> F["WebSocket/SSE + fallback на polling"]
 ```
 
 Практическое правило: начинать обычно проще с polling и хорошей статусной модели, а в real-time идти только когда есть реальная продуктовая потребность.

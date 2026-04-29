@@ -49,13 +49,13 @@
 
 ```mermaid
 flowchart LR
-  A[TS/JS/CSS/Assets] --> B[Граф импортов]
-  B --> C[Трансформации: TS->JS, CSS, JSX]
-  C --> D[Оптимизации: tree-shaking, minify]
-  D --> E[Разрезание на чанки]
-  E --> F[Артефакты: app.*.js, vendor.*.js, route.*.js]
-  F --> G[CDN/Static hosting + Cache headers]
-  G --> H[Browser: загрузка + runtime + prefetch]
+  A["TS/JS/CSS/Assets"] --> B["Граф импортов"]
+  B --> C["Трансформации: TS->JS, CSS, JSX"]
+  C --> D["Оптимизации: tree-shaking, minify"]
+  D --> E["Разрезание на чанки"]
+  E --> F["Артефакты: app.*.js, vendor.*.js, route.*.js"]
+  F --> G["CDN/Static hosting + Cache headers"]
+  G --> H["Browser: загрузка + runtime + prefetch"]
 ```
 
 ##### Проверь себя (1 — что такое бандлер)
@@ -555,14 +555,14 @@ export default defineConfig({
 
 ```mermaid
 flowchart LR
-  U[Пользователь] -->|запрос| H[index.html]
-  H -->|ссылается на| A[app.OLDHASH.js]
+  U["Пользователь"] -->|запрос| H["index.html"]
+  H -->|ссылается на| A["app.OLDHASH.js"]
   U -->|в кеше| A
-  H2[index.html NEW] -->|ссылается на| B[app.NEWHASH.js]
+  H2["index.html NEW"] -->|ссылается на| B["app.NEWHASH.js"]
 
   subgraph Проблема
-    U2[Пользователь получил старый index.html] --> A2[пытается загрузить старые/несовместимые чанки]
-    A2 --> E[ChunkLoadError / белый экран]
+    U2["Пользователь получил старый index.html"] --> A2["пытается загрузить старые/несовместимые чанки"]
+    A2 --> E["ChunkLoadError / белый экран"]
   end
 ```
 

@@ -20,15 +20,15 @@
 
 ```mermaid
 flowchart TD
-  S[Старт release gate] --> A{Все pass?}
-  A -->|Нет| B[Блокировать релиз]
-  B --> C[Дозаполнить артефакты и повторить gate]
+  S["Старт release gate"] --> A{"Все pass?"}
+  A -->|Нет| B["Блокировать релиз"]
+  B --> C["Дозаполнить артефакты и повторить gate"]
   C --> A
-  A -->|Да| D[Разрешить rollout]
-  D --> E[Canary мониторинг]
-  E --> F{Метрики в норме?}
-  F -->|Нет| G[Rollback по runbook]
-  F -->|Да| H[Продолжить rollout]
+  A -->|Да| D["Разрешить rollout"]
+  D --> E["Canary мониторинг"]
+  E --> F{"Метрики в норме?"}
+  F -->|Нет| G["Rollback по runbook"]
+  F -->|Да| H["Продолжить rollout"]
 ```
 
 ### Что чаще всего забывают в production-gate

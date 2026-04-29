@@ -153,11 +153,11 @@ task_annotations = (PolicyAnnotation(),)
 
 ```mermaid
 flowchart TB
-    A[Task code attributes] --> B[Task annotations]
-    C[Celery config] --> B
-    B --> D[Effective runtime policy]
-    D --> E[Worker execution]
-    E --> F[Metrics and alerts]
+    A["Task code attributes"] --> B["Task annotations"]
+    C["Celery config"] --> B
+    B --> D["Effective runtime policy"]
+    D --> E["Worker execution"]
+    E --> F["Metrics and alerts"]
 ```
 
 ### Практика / реальные сценарии

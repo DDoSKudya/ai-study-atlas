@@ -71,11 +71,11 @@ celery -A app.celery_app beat \
 
 ```mermaid
 flowchart LR
-    B1[Beat instance A] --> L{Distributed lock}
-    B2[Beat instance B] --> L
-    L -->|owner| PUB[Publish schedule entries]
-    L -->|non-owner| WAIT[Standby mode]
-    PUB --> BR[(Broker)]
+    B1["Beat instance A"] --> L{"Distributed lock"}
+    B2["Beat instance B"] --> L
+    L -->|owner| PUB["Publish schedule entries"]
+    L -->|non-owner| WAIT["Standby mode"]
+    PUB --> BR["(Broker)"]
 ```
 
 Интуиция: HA для beat — это не «два активных планировщика», а «два кандидата, но публикует только владелец блокировки».

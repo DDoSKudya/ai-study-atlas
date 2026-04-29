@@ -149,14 +149,14 @@ def install_bootsteps(app):
 
 ```mermaid
 flowchart TD
-    A[Инцидент: деградация/ошибки задач] --> B{Есть корреляция с новым extension?}
-    B -->|Да| C[Отключить extension флагом]
-    B -->|Нет| D[Проверить базовый pipeline Celery]
-    C --> E{Система стабилизировалась?}
-    E -->|Да| F[Root cause в signal/bootstep]
+    A["Инцидент: деградация/ошибки задач"] --> B{"Есть корреляция с новым extension?"}
+    B -->|Да| C["Отключить extension флагом"]
+    B -->|Нет| D["Проверить базовый pipeline Celery"]
+    C --> E{"Система стабилизировалась?"}
+    E -->|Да| F["Root cause в signal/bootstep"]
     E -->|Нет| D
-    F --> G[Собрать тайминги, исключения, порядок вызовов]
-    G --> H[Исправить + добавить тест + обновить runbook]
+    F --> G["Собрать тайминги, исключения, порядок вызовов"]
+    G --> H["Исправить + добавить тест + обновить runbook"]
 ```
 
 ### Anti-pattern vs Best practice (signals/bootsteps)
@@ -171,23 +171,23 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A[Worker стартует] --> B[Bootstep __init__]
-    B --> C[Bootstep start]
-    C --> D[Worker принимает задачи]
-    D --> E[Shutdown signal]
-    E --> F[Bootstep stop]
-    F --> G[Ресурсы освобождены]
+    A["Worker стартует"] --> B["Bootstep __init__"]
+    B --> C["Bootstep start"]
+    C --> D["Worker принимает задачи"]
+    D --> E["Shutdown signal"]
+    E --> F["Bootstep stop"]
+    F --> G["Ресурсы освобождены"]
 ```
 
 ### Диаграмма: где лучше signals, а где bootsteps
 
 ```mermaid
 flowchart LR
-    A[Нужно расширение] --> B{Локальная реакция на событие?}
-    B -->|Да| C[Используй signal]
-    B -->|Нет| D{Нужен lifecycle-компонент worker?}
-    D -->|Да| E[Используй bootstep]
-    D -->|Нет| F[Проверь дизайн задачи/архитектуры]
+    A["Нужно расширение"] --> B{"Локальная реакция на событие?"}
+    B -->|Да| C["Используй signal"]
+    B -->|Нет| D{"Нужен lifecycle-компонент worker?"}
+    D -->|Да| E["Используй bootstep"]
+    D -->|Нет| F["Проверь дизайн задачи/архитектуры"]
 ```
 
 ### Таблица выбора: signal vs bootstep vs task code

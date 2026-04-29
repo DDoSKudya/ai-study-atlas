@@ -127,10 +127,10 @@ Broker разделяет **доставку/маршрутизацию сооб
 
 ```mermaid
 flowchart LR
-  P[Producer/beat\n(publish task)] --> B[Broker\n(storage + routing)]
-  B --> W[Worker\n(reserve + execute)]
-  W --> R[Result backend\n(status/result)]
-  W --> M[Events/Logs\n(monitoring)]
+  P["Producer/beat\n("publish task")"] --> B["Broker\n("storage + routing")"]
+  B --> W["Worker\n("reserve + execute")"]
+  W --> R["Result backend\n("status/result")"]
+  W --> M["Events/Logs\n("monitoring")"]
 ```
 
 ### Как запомнить

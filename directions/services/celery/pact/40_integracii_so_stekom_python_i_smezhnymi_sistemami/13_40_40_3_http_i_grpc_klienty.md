@@ -154,10 +154,10 @@ def get_session() -> requests.Session:
 
 ```mermaid
 flowchart LR
-    A[Worker parent starts] --> B[Fork child process]
-    B --> C[Child initializes gRPC channel lazily]
-    C --> D[Task uses child-local stub]
-    D --> E[Process exits/restarts -> channel recreated]
+    A["Worker parent starts"] --> B["Fork child process"]
+    B --> C["Child initializes gRPC channel lazily"]
+    C --> D["Task uses child-local stub"]
+    D --> E["Process exits/restarts -> channel recreated"]
 ```
 
 ### Практика / реальные сценарии

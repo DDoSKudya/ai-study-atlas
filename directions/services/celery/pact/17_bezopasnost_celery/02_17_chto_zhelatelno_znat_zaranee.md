@@ -18,20 +18,20 @@
 ```mermaid
 flowchart LR
   subgraph flow["Легитимный поток данных"]
-    API[Producer: API / Beat / CLI]
-    BR[(Broker)]
-    W[Worker]
-    RB[(Result backend)]
+    API["Producer: API / Beat / CLI"]
+    BR["(Broker)"]
+    W["Worker"]
+    RB["(Result backend)"]
   end
   API -->|publish| BR
   BR -->|consume| W
   W -->|статус / результат| RB
-  RC[Remote control] -.->|опционально| W
+  RC["Remote control"] -.->|опционально| W
   subgraph atk["Типичные цели атаки / утечки"]
-    A1[Подмена сообщения]
-    A2[Утечка URL с паролем]
-    A3[Флуд задач / chord bomb]
-    A4[Pickle / небезопасный парсер]
+    A1["Подмена сообщения"]
+    A2["Утечка URL с паролем"]
+    A3["Флуд задач / chord bomb"]
+    A4["Pickle / небезопасный парсер"]
   end
   A1 -.-> BR
   A2 -.-> API

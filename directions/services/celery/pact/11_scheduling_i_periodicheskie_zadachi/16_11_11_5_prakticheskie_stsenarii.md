@@ -240,24 +240,24 @@ def build_daily_report(self, business_date: str):
 ```mermaid
 flowchart TB
     subgraph reports["Ежедневные отчёты"]
-        R1[граница суток / TZ]
-        R2[overlap / дубль beat]
+        R1["граница суток / TZ"]
+        R2["overlap / дубль beat"]
     end
     subgraph clean["Cleanup"]
-        C1[длинная транзакция]
-        C2[индекс не тот]
+        C1["длинная транзакция"]
+        C2["индекс не тот"]
     end
     subgraph agg["Агрегаты"]
-        A1[конкуренция с OLTP]
-        A2[полный пересчёт]
+        A1["конкуренция с OLTP"]
+        A2["полный пересчёт"]
     end
     subgraph sync["Sync внешних систем"]
-        S1[cursor / дыры]
-        S2[дубли id]
+        S1["cursor / дыры"]
+        S2["дубли id"]
     end
     subgraph poll["Polling API"]
-        P1[429 / Retry-After]
-        P2[catch-up шторм]
+        P1["429 / Retry-After"]
+        P2["catch-up шторм"]
     end
 ```
 

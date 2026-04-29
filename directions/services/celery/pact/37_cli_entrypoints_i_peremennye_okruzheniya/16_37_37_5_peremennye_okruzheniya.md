@@ -127,13 +127,13 @@ Code defaults
 
 ```mermaid
 flowchart TD
-    A[Запустили celery команду] --> B{Есть CLI override?}
-    B -->|Да| C[Берем CLI значение]
-    B -->|Нет| D{Есть CELERY_* env?}
-    D -->|Да| E[Берем env значение]
-    D -->|Нет| F{Есть значение в config module?}
-    F -->|Да| G[Берем config значение]
-    F -->|Нет| H[Падает на Celery default]
+    A["Запустили celery команду"] --> B{"Есть CLI override?"}
+    B -->|Да| C["Берем CLI значение"]
+    B -->|Нет| D{"Есть CELERY_* env?"}
+    D -->|Да| E["Берем env значение"]
+    D -->|Нет| F{"Есть значение в config module?"}
+    F -->|Да| G["Берем config значение"]
+    F -->|Нет| H["Падает на Celery default"]
 ```
 
 ### Таблица: какие `CELERY_*` где уместны

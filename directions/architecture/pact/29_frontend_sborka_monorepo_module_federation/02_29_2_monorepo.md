@@ -47,16 +47,16 @@
 ```mermaid
 flowchart TD
   subgraph Apps
-    A[apps/web]
-    B[apps/admin]
-    C[apps/mobile-web]
+    A["apps/web"]
+    B["apps/admin"]
+    C["apps/mobile-web"]
   end
 
   subgraph Packages
-    DS[packages/design-system]
-    U[packages/utils]
-    CFG[packages/config]
-    SDK[packages/analytics-sdk]
+    DS["packages/design-system"]
+    U["packages/utils"]
+    CFG["packages/config"]
+    SDK["packages/analytics-sdk"]
   end
 
   A --> DS
@@ -215,10 +215,10 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  Dev[Разработчик] -->|импортирует внутрь| Deep["@acme/ui/src/button"]
-  Deep -->|переименовали файл| Break[ломается 20 пакетов]
-  Dev2[Разработчик] -->|импортирует через API| Pub["@acme/ui"]
-  Pub -->|внутренности меняем| Ok[потребители не ломаются]
+  Dev["Разработчик"] -->|импортирует внутрь| Deep["@acme/ui/src/button"]
+  Deep -->|переименовали файл| Break["ломается 20 пакетов"]
+  Dev2["Разработчик"] -->|импортирует через API| Pub["@acme/ui"]
+  Pub -->|внутренности меняем| Ok["потребители не ломаются"]
 ```
 
 Важно:

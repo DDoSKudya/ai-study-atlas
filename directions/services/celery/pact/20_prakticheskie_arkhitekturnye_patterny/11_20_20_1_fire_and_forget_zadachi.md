@@ -43,11 +43,11 @@ Fire-and-forget плох для:
 
 ```mermaid
 flowchart LR
-  U[Пользователь] --> API[HTTP API]
-  API --> CORE[(Критичный бизнес-коммит)]
-  API -->|fire-and-forget task| Q[(Queue)]
-  Q --> W[Worker]
-  W --> SIDE[Вторичный эффект: email/log/integration]
+  U["Пользователь"] --> API["HTTP API"]
+  API --> CORE["(Критичный бизнес-коммит)"]
+  API -->|fire-and-forget task| Q["(Queue)"]
+  Q --> W["Worker"]
+  W --> SIDE["Вторичный эффект: email/log/integration"]
 ```
 
 ### Пошагово

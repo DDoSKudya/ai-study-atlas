@@ -5,12 +5,12 @@
 
 ```mermaid
 flowchart LR
-    A[Редкий триггер] --> B[Локальный сбой]
-    B --> C[Неправильная реакция системы]
-    C --> D[Каскад: retries, queue growth, latency]
-    D --> E[Инцидент уровня сервиса]
-    E --> F[Долгий recovery и побочные потери]
-    G[Готовность: limits, policies, runbooks] --> C
+    A["Редкий триггер"] --> B["Локальный сбой"]
+    B --> C["Неправильная реакция системы"]
+    C --> D["Каскад: retries, queue growth, latency"]
+    D --> E["Инцидент уровня сервиса"]
+    E --> F["Долгий recovery и побочные потери"]
+    G["Готовность: limits, policies, runbooks"] --> C
     G --> D
 ```
 
@@ -25,11 +25,11 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph Layers["Слои системы"]
-        L1[Producer и DB]
-        L2[Broker и Transport]
-        L3[Worker Runtime]
-        L4[External Dependencies]
-        L5[Infra Time и Container]
+        L1["Producer и DB"]
+        L2["Broker и Transport"]
+        L3["Worker Runtime"]
+        L4["External Dependencies"]
+        L5["Infra Time и Container"]
     end
 
     E1["24.1"] --> L3

@@ -47,11 +47,11 @@
 ```mermaid
 flowchart TB
     subgraph K8s Cluster
-      A[Deployment: critical-workers] --> A1[HPA/KEDA by critical queue]
-      B[Deployment: bulk-workers] --> B1[HPA/KEDA by bulk queue]
-      C[Deployment: io-workers] --> C1[HPA/KEDA by io queue]
+      A["Deployment: critical-workers"] --> A1["HPA/KEDA by critical queue"]
+      B["Deployment: bulk-workers"] --> B1["HPA/KEDA by bulk queue"]
+      C["Deployment: io-workers"] --> C1["HPA/KEDA by io queue"]
     end
-    Q[(Broker queues)] --> A
+    Q["(Broker queues)"] --> A
     Q --> B
     Q --> C
 ```

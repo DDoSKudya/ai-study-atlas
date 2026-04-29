@@ -5,16 +5,16 @@
 
 ```mermaid
 flowchart LR
-    A0[Frontend / Client] --> A[Web/API layer]
-    A[Web/API layer] -->|publish task after commit| B[Broker]
-    B --> C[Celery Worker Process]
-    C --> D[Task code]
-    D --> E[(DB/ORM)]
-    D --> F[HTTP/gRPC services]
-    D --> G[Object storage / ETL sink]
-    D --> H[Model memory / GPU]
-    D --> I[(Checkpoint store)]
-    D --> J[(Result backend optional)]
+    A0["Frontend / Client"] --> A["Web/API layer"]
+    A["Web/API layer"] -->|publish task after commit| B["Broker"]
+    B --> C["Celery Worker Process"]
+    C --> D["Task code"]
+    D --> E["(DB/ORM)"]
+    D --> F["HTTP/gRPC services"]
+    D --> G["Object storage / ETL sink"]
+    D --> H["Model memory / GPU"]
+    D --> I["(Checkpoint store)"]
+    D --> J["(Result backend optional)"]
 ```
 
 ASCII-образ для "картинки в голове":

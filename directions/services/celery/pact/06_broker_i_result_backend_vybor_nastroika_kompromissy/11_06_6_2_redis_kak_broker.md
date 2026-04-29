@@ -126,8 +126,8 @@ Redis — это как “блокнот, который хранится в п
 
 ```mermaid
 flowchart LR
-  P[Producer] --> R[Redis broker queues]
-  R --> W[Worker]
+  P["Producer"] --> R["Redis broker queues"]
+  R --> W["Worker"]
   W -. ack/not ack .-> R
   R -->|visibility timeout истек| R
 ```

@@ -7,15 +7,15 @@
 
 ```mermaid
 flowchart LR
-    A[Producer<br/>формирует logical job] --> B[Broker / Queue]
-    B --> C[Worker execution]
-    C --> D{Класс ошибки?}
-    D -- Transient --> E[Retry policy<br/>backoff+jitter+budget]
+    A["Producer<br/>формирует logical job"] --> B["Broker / Queue"]
+    B --> C["Worker execution"]
+    C --> D{"Класс ошибки?"}
+    D -- Transient --> E["Retry policy<br/>backoff+jitter+budget"]
     E --> B
-    D -- Data/Business/Config --> F[Fail-fast / Quarantine / DLQ]
-    C --> G[Side effects]
-    G --> H[Idempotency + step-state + compensation]
-    H --> I[Consistent final state]
+    D -- Data/Business/Config --> F["Fail-fast / Quarantine / DLQ"]
+    C --> G["Side effects"]
+    G --> H["Idempotency + step-state + compensation"]
+    H --> I["Consistent final state"]
 ```
 
 Как читать схему:

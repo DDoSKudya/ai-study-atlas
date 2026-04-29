@@ -123,10 +123,10 @@ Backpressure — это когда ты перестаёшь «наливать 
 
 ```mermaid
 flowchart TB
-  A[Публикация заявок] --> B[Broker/Queue]
-  B --> C[Worker]
-  B -.-> D[Метрики: depth/lag]
-  D -->|depth растёт| E[Backpressure: throttle/refuse/separate queues]
+  A["Публикация заявок"] --> B["Broker/Queue"]
+  B --> C["Worker"]
+  B -.-> D["Метрики: depth/lag"]
+  D -->|depth растёт| E["Backpressure: throttle/refuse/separate queues"]
   E -.-> A
 ```
 

@@ -38,14 +38,14 @@
 
 ```mermaid
 flowchart TD
-    A[Config ready] --> B[Effective config inventory]
-    B --> C[Category validation 36.1-36.10]
-    C --> D[SLO/alerts + rollback readiness]
-    D --> E[Canary]
-    E --> F{Стабильно?}
-    F -- Да --> G[Staged rollout]
-    F -- Нет --> H[Rollback + fix]
-    G --> I[Post-release documentation]
+    A["Config ready"] --> B["Effective config inventory"]
+    B --> C["Category validation 36.1-36.10"]
+    C --> D["SLO/alerts + rollback readiness"]
+    D --> E["Canary"]
+    E --> F{"Стабильно?"}
+    F -- Да --> G["Staged rollout"]
+    F -- Нет --> H["Rollback + fix"]
+    G --> I["Post-release documentation"]
     H --> I
 ```
 

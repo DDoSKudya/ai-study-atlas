@@ -56,13 +56,13 @@
 ```mermaid
 flowchart TB
   subgraph django_init["Старт Django"]
-    I[__init__.py импортирует celery_app]
-    S[settings.py → CELERY_*]
+    I["__init__.py импортирует celery_app"]
+    S["settings.py → CELERY_*"]
   end
   subgraph celery_mod["myproject/celery.py"]
-    A[Celery app]
-    C[config_from_object]
-    D[autodiscover_tasks]
+    A["Celery app"]
+    C["config_from_object"]
+    D["autodiscover_tasks"]
   end
   I --> A
   S --> C
@@ -156,14 +156,14 @@ CELERY_TASK_ROUTES = {
 ```mermaid
 flowchart TB
   subgraph django["Django web"]
-    V[View / сервис]
+    V["View / сервис"]
   end
-  BR[(Broker)]
+  BR["(Broker)"]
   subgraph w_def["Worker A: -Q default"]
-    L[Быстрые задачи]
+    L["Быстрые задачи"]
   end
   subgraph w_rep["Worker B: -Q reports"]
-    H[PDF / тяжёлый CPU]
+    H["PDF / тяжёлый CPU"]
   end
   V -->|delay / default| BR
   V -->|apply_async queue=reports| BR
@@ -612,12 +612,12 @@ CELERY_TASK_IGNORE_RESULT = True
 ```mermaid
 flowchart TB
   subgraph need["Нужен result backend"]
-    R1[chord / canvas ждут результаты]
-    R2[AsyncResult.get в коде]
+    R1["chord / canvas ждут результаты"]
+    R2["AsyncResult.get в коде"]
   end
-  S1[Письмо / webhook / фон без return]
-  S2[Статус только в модели Job]
-  IR[ignore_result=True]
+  S1["Письмо / webhook / фон без return"]
+  S2["Статус только в модели Job"]
+  IR["ignore_result=True"]
   S1 --> IR
   S2 --> IR
 ```
@@ -691,17 +691,17 @@ services:
 ```mermaid
 flowchart LR
   subgraph processes["Три процесса — один кодовый образ"]
-    WEB[web: Gunicorn/uWSGI/ASGI]
-    WK[worker: celery worker]
-    BT[beat: celery beat]
+    WEB["web: Gunicorn/uWSGI/ASGI"]
+    WK["worker: celery worker"]
+    BT["beat: celery beat"]
   end
-  IMG[(Docker image)]
+  IMG["(Docker image)"]
   IMG --> WEB
   IMG --> WK
   IMG --> BT
-  WEB --> DB[(Postgres)]
+  WEB --> DB["(Postgres)"]
   WK --> DB
-  WEB --> R[(Redis broker)]
+  WEB --> R["(Redis broker)"]
   WK --> R
   BT --> R
 ```

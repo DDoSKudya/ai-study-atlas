@@ -25,15 +25,15 @@
 ```mermaid
 flowchart TB
   subgraph "Упрощённая модель cost"
-    P[Оценить страницы и строки по статистике] --> IO[Cost I/O = pages_seq*seq_page_cost + pages_rand*random_page_cost]
-    P --> CPU[Cost CPU = rows * cpu_tuple_cost]
-    IO --> Sum[Total cost узла ≈ I/O + CPU + спец.затраты (Sort/Join/...)]
+    P["Оценить страницы и строки по статистике"] --> IO["Cost I/O = pages_seq*seq_page_cost + pages_rand*random_page_cost"]
+    P --> CPU["Cost CPU = rows * cpu_tuple_cost"]
+    IO --> Sum["Total cost узла ≈ I/O + CPU + спец.затраты (Sort/Join/...)"]
     CPU --> Sum
   end
 
-  Sum --> Choose[Выбрать план с минимальным total cost (корень)]
-  SSD[random_page_cost ↓ на SSD] -. делает индекс "дешевле" .-> Choose
-  Cache[effective_cache_size ↑] -. увеличивает шанс cache-hit .-> Choose
+  Sum --> Choose["Выбрать план с минимальным total cost (корень)"]
+  SSD["random_page_cost ↓ на SSD"] -. делает индекс "дешевле" .-> Choose
+  Cache["effective_cache_size ↑"] -. увеличивает шанс cache-hit .-> Choose
 ```
 
 #### Пошагово: как складывается cost узла (с числами)
@@ -115,10 +115,10 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  T[Таблицы: A, B, C, ...] --> S1[Посчитать лучшие планы для пар (A⋈B), (A⋈C), ...]
-  S1 --> S2[Расширять подпланы:\n(лучший для A⋈B) ⋈ C,\n(лучший для A⋈C) ⋈ B, ...]
-  S2 --> Best[Выбрать порядок с минимальным cost]
-  Note1[Идея DP: не перебирать n! порядков\nв лоб, а строить оптимум по подмножествам] --- S1
+  T["Таблицы: A, B, C, ..."] --> S1["Посчитать лучшие планы для пар (A⋈B), (A⋈C), ..."]
+  S1 --> S2["Расширять подпланы:\n("лучший для A⋈B") ⋈ C,\n("лучший для A⋈C") ⋈ B, ..."]
+  S2 --> Best["Выбрать порядок с минимальным cost"]
+  Note1["Идея DP: не перебирать n! порядков\nв лоб, а строить оптимум по подмножествам"] --- S1
 ```
 
 #### Пошагово: как порядок JOIN влияет на cost (с числами)

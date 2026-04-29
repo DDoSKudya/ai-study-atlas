@@ -52,14 +52,14 @@
 ```mermaid
 flowchart LR
     subgraph code["Код: beat_schedule"]
-        G[Git commit] --> D[Deploy]
-        D --> B1[Beat читает конфиг]
+        G["Git commit"] --> D["Deploy"]
+        D --> B1["Beat читает конфиг"]
     end
     subgraph db["БД: PeriodicTask"]
-        A[Админ / API] --> T[(Таблицы)]
-        T --> B2[Beat DatabaseScheduler]
+        A["Админ / API"] --> T["(Таблицы)"]
+        T --> B2["Beat DatabaseScheduler"]
     end
-    B1 --> Q[Broker]
+    B1 --> Q["Broker"]
     B2 --> Q
 ```
 

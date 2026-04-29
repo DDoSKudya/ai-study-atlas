@@ -426,18 +426,18 @@ ctx.bus.addEventListener("cart:add", (e: Event) => {
 
 ```mermaid
 flowchart TB
-  U[Пользователь] --> H[Shell/Host]
-  H --> A[MF Catalog]
-  H --> B[MF Checkout]
+  U["Пользователь"] --> H["Shell/Host"]
+  H --> A["MF Catalog"]
+  H --> B["MF Checkout"]
 
-  A -->|API calls| BFF1[BFF (общий или доменный)]
+  A -->|API calls| BFF1["BFF (общий или доменный)"]
   B -->|API calls| BFF1
 
-  BFF1 --> S1[Service: Catalog]
-  BFF1 --> S2[Service: Cart]
-  BFF1 --> S3[Service: Payments]
-  S1 --> DB1[(DB)]
-  S2 --> DB2[(DB)]
+  BFF1 --> S1["Service: Catalog"]
+  BFF1 --> S2["Service: Cart"]
+  BFF1 --> S3["Service: Payments"]
+  S1 --> DB1["(DB)"]
+  S2 --> DB2["(DB)"]
 ```
 
 Практическое правило про данные:
@@ -565,13 +565,13 @@ URL / Навигация / История
 
 ```mermaid
 flowchart TB
-  U[Пользователь] -->|клик / URL| H[Shell / Host]
+  U["Пользователь"] -->|клик / URL| H["Shell / Host"]
 
-  subgraph Shell[Shell / Host]
-    R[Router верхнего уровня]
-    L[Layout + общие UI-обвязки]
-    S[Shared: дизайн-система, i18n, аналитика]
-    E[Error boundaries + fallback]
+  subgraph Shell["Shell / Host"]
+    R["Router верхнего уровня"]
+    L["Layout + общие UI-обвязки"]
+    S["Shared: дизайн-система, i18n, аналитика"]
+    E["Error boundaries + fallback"]
   end
 
   H --> R
@@ -579,9 +579,9 @@ flowchart TB
   H --> S
   H --> E
 
-  H -->|mount(container, context)| A[MF A: Catalog]
-  H -->|mount(container, context)| B[MF B: Checkout]
-  H -->|mount(container, context)| C[MF C: Profile]
+  H -->|mount("container, context")| A["MF A: Catalog"]
+  H -->|mount("container, context")| B["MF B: Checkout"]
+  H -->|mount("container, context")| C["MF C: Profile"]
 
   A -->|events: mf:navigate / mf:data| H
   B -->|events: mf:navigate / mf:error| H

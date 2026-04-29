@@ -56,9 +56,9 @@
 
 ```mermaid
 flowchart LR
-  U[Пользователь] --> E[Edge]
-  E -->|cache hit| R[HTML/JSON из кеша]
-  E -->|cache miss| O[Origin]
+  U["Пользователь"] --> E["Edge"]
+  E -->|cache hit| R["HTML/JSON из кеша"]
+  E -->|cache miss| O["Origin"]
   O --> E
 ```
 

@@ -37,16 +37,16 @@
 
 ```mermaid
 flowchart TB
-  subgraph Bad[Плохо: разрез по слоям]
-    UI1[UI] --> API1[API Service]
-    API1 --> VAL[Validation Service]
-    VAL --> DATA[Data Service]
-    DATA --> DB[(DB)]
+  subgraph Bad["Плохо: разрез по слоям"]
+    UI1["UI"] --> API1["API Service"]
+    API1 --> VAL["Validation Service"]
+    VAL --> DATA["Data Service"]
+    DATA --> DB["(DB)"]
   end
 
-  subgraph Good[Лучше: vertical slice по домену]
-    UI2[UI] --> ORD[Orders Service]
-    ORD --> ODB[(Orders DB)]
+  subgraph Good["Лучше: vertical slice по домену"]
+    UI2["UI"] --> ORD["Orders Service"]
+    ORD --> ODB["(Orders DB)"]
   end
 ```
 
@@ -123,10 +123,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  S[Микросервисы обещают\nнезависимость] --> P{Есть дисциплина?}
-  P -->|Да| G[Выигрыш: независимые релизы,\nмасштабирование, ownership]
-  P -->|Нет| B[Плата: хаос,\nинциденты, release train]
-  B --> H[Частый исход: distributed monolith]
+  S["Микросервисы обещают\nнезависимость"] --> P{"Есть дисциплина?"}
+  P -->|Да| G["Выигрыш: независимые релизы,\nмасштабирование, ownership"]
+  P -->|Нет| B["Плата: хаос,\nинциденты, release train"]
+  B --> H["Частый исход: distributed monolith"]
 ```
 
 #### Проверь себя
@@ -207,18 +207,18 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  subgraph Consumer[Потребитель]
-    CCode[Код] --> CExpect[Ожидания/контракт]
+  subgraph Consumer["Потребитель"]
+    CCode["Код"] --> CExpect["Ожидания/контракт"]
   end
 
-  subgraph Provider[Провайдер]
-    PCode[Код] --> PImpl[Реализация API]
+  subgraph Provider["Провайдер"]
+    PCode["Код"] --> PImpl["Реализация API"]
   end
 
-  CExpect --> Verify[Автопроверка совместимости]
+  CExpect --> Verify["Автопроверка совместимости"]
   PImpl --> Verify
-  Verify -->|OK| Merge[Разрешить релиз/мерж]
-  Verify -->|FAIL| Block[Блокировать: breaking change]
+  Verify -->|OK| Merge["Разрешить релиз/мерж"]
+  Verify -->|FAIL| Block["Блокировать: breaking change"]
 ```
 
 #### Пример 1: “удалили поле” — как выглядит безопасная эволюция (OpenAPI/JSON)
@@ -348,10 +348,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  A[Service A] -->|читает/пишет| DB[(DB)]
-  B[Service B] -->|читает/пишет| DB
-  C[Service C] -->|читает/пишет| DB
-  DB -->|breaking schema change| X[Инцидент\nв неожиданном месте]
+  A["Service A"] -->|читает/пишет| DB["(DB)"]
+  B["Service B"] -->|читает/пишет| DB
+  C["Service C"] -->|читает/пишет| DB
+  DB -->|breaking schema change| X["Инцидент\nв неожиданном месте"]
 ```
 
 #### Пример граничного случая: “мы не вызываем друг друга, значит независимы”
@@ -553,9 +553,9 @@ CREATE TABLE idempotency_keys (
 
 ```mermaid
 flowchart LR
-  A[Add: вводим новое\n(совместимо)] --> B[Deprecate: помечаем старое\n+ migration guide]
-  B --> C[Migrate: потребители переходят\n(видим метриками)]
-  C --> D[Remove: удаляем старое\n(major/новая версия)]
+  A["Add: вводим новое\n("совместимо")"] --> B["Deprecate: помечаем старое\n+ migration guide"]
+  B --> C["Migrate: потребители переходят\n("видим метриками")"]
+  C --> D["Remove: удаляем старое\n("major/новая версия")"]
 ```
 
 #### Пример 1: REST/OpenAPI — как выглядят безопасные изменения

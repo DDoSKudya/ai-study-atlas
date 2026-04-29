@@ -65,17 +65,17 @@
 
 ```mermaid
 flowchart LR
-    subgraph EC[E-commerce]
-      EC1[Order events] --> EC2[Priority queues]
-      EC2 --> EC3[Fast notifications]
+    subgraph EC["E-commerce"]
+      EC1["Order events"] --> EC2["Priority queues"]
+      EC2 --> EC3["Fast notifications"]
     end
-    subgraph FT[Fintech]
-      FT1[Payment events] --> FT2[Strict idempotency + audit]
-      FT2 --> FT3[Controlled retries]
+    subgraph FT["Fintech"]
+      FT1["Payment events"] --> FT2["Strict idempotency + audit"]
+      FT2 --> FT3["Controlled retries"]
     end
-    subgraph MD[Media]
-      MD1[Media ingest] --> MD2[CPU/GPU staged queues]
-      MD2 --> MD3[Long pipeline orchestration]
+    subgraph MD["Media"]
+      MD1["Media ingest"] --> MD2["CPU/GPU staged queues"]
+      MD2 --> MD3["Long pipeline orchestration"]
     end
 ```
 

@@ -43,17 +43,17 @@
 
 ```mermaid
 flowchart LR
-  U[Пользователь / Браузер] -->|HTTPS| CDN[CDN / WAF]
-  CDN -->|HTTPS| ENTRY[Entry point: BFF / API Gateway]
+  U["Пользователь / Браузер"] -->|HTTPS| CDN["CDN / WAF"]
+  CDN -->|HTTPS| ENTRY["Entry point: BFF / API Gateway"]
 
-  subgraph TRUST[Внутренняя зона: сервисы]
-    ENTRY --> S1[Service A]
-    ENTRY --> S2[Service B]
-    S1 --> DB[(DB)]
-    S2 --> MQ[(Queue)]
+  subgraph TRUST["Внутренняя зона: сервисы"]
+    ENTRY --> S1["Service A"]
+    ENTRY --> S2["Service B"]
+    S1 --> DB["(DB)"]
+    S2 --> MQ["(Queue)"]
   end
 
-  EXT[Внешний API] <-->|HTTPS| S2
+  EXT["Внешний API"] <-->|HTTPS| S2
 
   classDef boundary stroke:#555,stroke-width:2px,fill:#fff;
   class ENTRY boundary;

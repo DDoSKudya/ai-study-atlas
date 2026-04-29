@@ -35,14 +35,14 @@
 ```mermaid
 flowchart TB
     subgraph OnPrem
-        OP1[Producer API]
-        OB[(Broker A)]
-        OW[Workers A]
+        OP1["Producer API"]
+        OB["(Broker A)"]
+        OW["Workers A"]
     end
     subgraph Cloud
-        CP[Cloud Trigger]
-        CB[(Broker B)]
-        CW[Workers B]
+        CP["Cloud Trigger"]
+        CB["(Broker B)"]
+        CW["Workers B"]
     end
     OP1 --> OB --> OW
     CP --> CB --> CW
@@ -85,12 +85,12 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    A[Новая очередь задач] --> B{Latency до primary broker приемлема?}
-    B -- Да --> C[Оставить в primary зоне]
-    B -- Нет --> D{Данные можно обработать локально?}
-    D -- Да --> E[Локальный broker/worker домен]
-    D -- Нет --> F[Оставить central broker + снизить fan-out]
-    E --> G[Настроить fallback и тесты частичных отказов]
+    A["Новая очередь задач"] --> B{"Latency до primary broker приемлема?"}
+    B -- Да --> C["Оставить в primary зоне"]
+    B -- Нет --> D{"Данные можно обработать локально?"}
+    D -- Да --> E["Локальный broker/worker домен"]
+    D -- Нет --> F["Оставить central broker + снизить fan-out"]
+    E --> G["Настроить fallback и тесты частичных отказов"]
     F --> G
 ```
 

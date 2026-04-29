@@ -97,11 +97,11 @@ sequenceDiagram
 ```mermaid
 flowchart LR
   subgraph Browser["Браузер пользователя"]
-    A[SPA-приложение<br/>JS + компоненты + роутер + состояние]
+    A["SPA-приложение<br/>JS + компоненты + роутер + состояние"]
   end
 
   subgraph Backend["Бекенд и API"]
-    B[(Сервисы / BFF)] --> C[(БД, очереди, внешние сервисы)]
+    B["(Сервисы / BFF)"] --> C["(БД, очереди, внешние сервисы)"]
   end
 
   A <--> B
@@ -186,14 +186,14 @@ SPA — это **интерактивный инструмент внутри б
 ```mermaid
 flowchart TB
   subgraph OneHTML["index.html (один раз)"]
-    App[SPA-приложение]
+    App["SPA-приложение"]
   end
 
   subgraph Routes["Маршруты внутри SPA"]
-    R1[/ /dashboard /]
-    R2[/ /users /]
-    R3[/ /users/:id /]
-    R4[/ /settings /]
+    R1["/ /dashboard /"]
+    R2["/ /users /"]
+    R3["/ /users/:id /"]
+    R4["/ /settings /"]
   end
 
   App --> R1
@@ -201,10 +201,10 @@ flowchart TB
   App --> R3
   App --> R4
 
-  R1 -->|запросы| API1[(API: /api/dashboard)]
-  R2 -->|запросы| API2[(API: /api/users)]
-  R3 -->|запросы| API3[(API: /api/users/:id)]
-  R4 -->|запросы| API4[(API: /api/settings)]
+  R1 -->|запросы| API1["(API: /api/dashboard)"]
+  R2 -->|запросы| API2["(API: /api/users)"]
+  R3 -->|запросы| API3["(API: /api/users/:id)"]
+  R4 -->|запросы| API4["(API: /api/settings)"]
 ```
 
 Ты видишь:

@@ -36,12 +36,12 @@
 
 ```mermaid
 flowchart TD
-    A[Бизнес-задача] --> B{Класс проблемы}
-    B -->|Фоновые задачи| C[Task Queue]
-    B -->|Долгие процессы с состоянием| D[Workflow Engine]
-    B -->|Поток событий| E[Stream Platform]
-    B -->|Периодический запуск| F[Scheduler]
-    C --> G[Проверка надежности и эксплуатации]
+    A["Бизнес-задача"] --> B{"Класс проблемы"}
+    B -->|Фоновые задачи| C["Task Queue"]
+    B -->|Долгие процессы с состоянием| D["Workflow Engine"]
+    B -->|Поток событий| E["Stream Platform"]
+    B -->|Периодический запуск| F["Scheduler"]
+    C --> G["Проверка надежности и эксплуатации"]
     D --> G
     E --> G
     F --> G
@@ -61,17 +61,17 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Новая архитектурная задача] --> B{Основная единица работы}
-    B -->|Команда/фоновая операция| C[Task Queue ветка]
-    B -->|Поток событий| D[Stream ветка]
-    B -->|Долгий бизнес-процесс| E[Workflow ветка]
-    B -->|Только расписание| F[Scheduler ветка]
-    C --> C1{Нужна гибкая production-надежность?}
-    C1 -->|Да| C2[Celery/Dramatiq]
-    C1 -->|Нет| C3[RQ/Huey]
-    D --> D1[Kafka + stream processing]
-    E --> E1[Temporal или DAG engine]
-    F --> F1[cron/systemd timers]
+    A["Новая архитектурная задача"] --> B{"Основная единица работы"}
+    B -->|Команда/фоновая операция| C["Task Queue ветка"]
+    B -->|Поток событий| D["Stream ветка"]
+    B -->|Долгий бизнес-процесс| E["Workflow ветка"]
+    B -->|Только расписание| F["Scheduler ветка"]
+    C --> C1{"Нужна гибкая production-надежность?"}
+    C1 -->|Да| C2["Celery/Dramatiq"]
+    C1 -->|Нет| C3["RQ/Huey"]
+    D --> D1["Kafka + stream processing"]
+    E --> E1["Temporal или DAG engine"]
+    F --> F1["cron/systemd timers"]
 ```
 
 ### Проверь себя: дерево выбора

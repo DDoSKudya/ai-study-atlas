@@ -22,12 +22,12 @@
 
 ```mermaid
 flowchart TB
-    A[Celery App and Task Registry] --> B[Kombu Transport Layer]
-    B --> C[Broker-specific client libs]
-    A --> D[Billiard Worker Pools]
-    A --> E[Dependency policy and lockfile]
-    E --> F[Docker build and artifact]
-    F --> G[Runtime environment]
+    A["Celery App and Task Registry"] --> B["Kombu Transport Layer"]
+    B --> C["Broker-specific client libs"]
+    A --> D["Billiard Worker Pools"]
+    A --> E["Dependency policy and lockfile"]
+    E --> F["Docker build and artifact"]
+    F --> G["Runtime environment"]
 ```
 
 ### Простыми словами

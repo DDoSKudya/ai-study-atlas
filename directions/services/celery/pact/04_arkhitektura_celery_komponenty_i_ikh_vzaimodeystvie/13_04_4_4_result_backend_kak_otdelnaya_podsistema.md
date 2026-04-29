@@ -179,10 +179,10 @@ UI-поллинг требует **персонального состояния
 
 ```mermaid
 flowchart LR
-  A[Worker завершил задачу\nи пытается записать state/result] --> B[Запись в backend\n(табло свежих данных)]
-  B --> C[Ожидаемое время жизни (TTL)\nданные доступны по task_id]
-  C --> D[Cleanup/истечение TTL\nзаписи удалены/не доступны]
-  note1[Симптом: AsyncResult долго PENDING/не находит запись,\nесли backend уже почистили или не успели записать финальное состояние] -.-> D
+  A["Worker завершил задачу\nи пытается записать state/result"] --> B["Запись в backend\n("табло свежих данных")"]
+  B --> C["Ожидаемое время жизни (TTL)\nданные доступны по task_id"]
+  C --> D["Cleanup/истечение TTL\nзаписи удалены/не доступны"]
+  note1["Симптом: AsyncResult долго PENDING/не находит запись,\nесли backend уже почистили или не успели записать финальное состояние"] -.-> D
 ```
 
 #### Нагрузка и стоимость хранения
@@ -231,11 +231,11 @@ Result backend — это “табло результатов”.
 
 ```mermaid
 flowchart TD
-  W[Worker] -->|execute| W2[Run task code]
-  W2 -->|write state| B[(Result backend)]
-  W2 -->|emit event| E[(Events stream)]
-  B --> C[Client polls AsyncResult]
-  E --> F[Flower / observers]
+  W["Worker"] -->|execute| W2["Run task code"]
+  W2 -->|write state| B["(Result backend)"]
+  W2 -->|emit event| E["(Events stream)"]
+  B --> C["Client polls AsyncResult"]
+  E --> F["Flower / observers"]
 ```
 
 ### Как запомнить

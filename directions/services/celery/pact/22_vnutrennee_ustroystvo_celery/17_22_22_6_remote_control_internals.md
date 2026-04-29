@@ -59,11 +59,11 @@
 
 ```mermaid
 flowchart LR
-    OP[Operator/CLI] --> EX[Broadcast Exchange/Pidbox]
-    EX --> W1[Worker A]
-    EX --> W2[Worker B]
-    EX --> W3[Worker C]
-    W1 --> RP[Reply Queue]
+    OP["Operator/CLI"] --> EX["Broadcast Exchange/Pidbox"]
+    EX --> W1["Worker A"]
+    EX --> W2["Worker B"]
+    EX --> W3["Worker C"]
+    W1 --> RP["Reply Queue"]
     W2 --> RP
     W3 --> RP
     RP --> OP

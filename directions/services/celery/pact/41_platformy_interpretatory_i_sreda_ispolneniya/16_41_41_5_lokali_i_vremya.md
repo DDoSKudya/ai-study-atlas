@@ -113,11 +113,11 @@
 
 ```mermaid
 flowchart TD
-  A[Container TZ env] --> X{Same policy?}
-  B[Celery timezone/enable_utc] --> X
-  C[Django USE_TZ/TIME_ZONE] --> X
-  X -- no --> D[Inconsistent schedule and ETA]
-  X -- yes --> E[Consistent time model]
+  A["Container TZ env"] --> X{"Same policy?"}
+  B["Celery timezone/enable_utc"] --> X
+  C["Django USE_TZ/TIME_ZONE"] --> X
+  X -- no --> D["Inconsistent schedule and ETA"]
+  X -- yes --> E["Consistent time model"]
 ```
 
 #### Проверь себя: три источника времени (mermaid)
@@ -183,9 +183,9 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    B1[Beat instance A] --> Q[Broker queue]
-    B2[Beat instance B] --> Q
-    Q --> W[Worker]
+    B1["Beat instance A"] --> Q["Broker queue"]
+    B2["Beat instance B"] --> Q
+    Q --> W["Worker"]
     B1 -.same schedule.-> B2
 ```
 
@@ -209,11 +209,11 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Task scheduled at local time] --> B{TZ/DST configured?}
-    B -- no --> C[Ambiguous datetime]
-    C --> D[Wrong execution window]
-    B -- yes --> E[UTC normalized schedule]
-    E --> F[Predictable execution]
+    A["Task scheduled at local time"] --> B{"TZ/DST configured?"}
+    B -- no --> C["Ambiguous datetime"]
+    C --> D["Wrong execution window"]
+    B -- yes --> E["UTC normalized schedule"]
+    E --> F["Predictable execution"]
 ```
 
 #### Проверь себя: naive vs normalized schedule

@@ -98,9 +98,9 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-  Q[WHERE / JOIN по col] --> I{Есть индекс по col?}
-  I -->|Нет| Seq[Seq Scan\nчитать всю таблицу]
-  I -->|Да| Idx[Index Scan/Bitmap\nчитать нужные страницы]
+  Q["WHERE / JOIN по col"] --> I{"Есть индекс по col?"}
+  I -->|Нет| Seq["Seq Scan\nчитать всю таблицу"]
+  I -->|Да| Idx["Index Scan/Bitmap\nчитать нужные страницы"]
 ```
 
 #### Термины (расшифровка)
@@ -176,12 +176,12 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  Star[SELECT *] --> Net[Лишние данные по сети/памяти]
-  Star --> Heap[Нет index-only scan\n→ heap fetch]
-  BigIN[IN (50k значений)] --> Plan[Долго планировать/большой план]
-  BigIN --> Limit[Ограничения по параметрам]
-  BigIN --> Fix1[Batch IN (500–1000)]
-  BigIN --> Fix2[Temp table + JOIN]
+  Star["SELECT *"] --> Net["Лишние данные по сети/памяти"]
+  Star --> Heap["Нет index-only scan\n→ heap fetch"]
+  BigIN["IN (50k значений)"] --> Plan["Долго планировать/большой план"]
+  BigIN --> Limit["Ограничения по параметрам"]
+  BigIN --> Fix1["Batch IN (500–1000)"]
+  BigIN --> Fix2["Temp table + JOIN"]
 ```
 
 #### Термины (расшифровка)
@@ -252,9 +252,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  Bad[WHERE col::text = $1] --> NoIdx[Индекс по col не подходит]
-  Good[WHERE col = $1::int] --> UseIdx[Индекс по col используется]
-  Alt[CREATE INDEX ON t ((col::text))] --> UseExpr[Условие col::text = $1\nиспользует индекс по выражению]
+  Bad["WHERE col::text = $1"] --> NoIdx["Индекс по col не подходит"]
+  Good["WHERE col = $1::int"] --> UseIdx["Индекс по col используется"]
+  Alt["CREATE INDEX ON t ((col::text))"] --> UseExpr["Условие col::text = $1\nиспользует индекс по выражению"]
 ```
 
 #### Термины (расшифровка)

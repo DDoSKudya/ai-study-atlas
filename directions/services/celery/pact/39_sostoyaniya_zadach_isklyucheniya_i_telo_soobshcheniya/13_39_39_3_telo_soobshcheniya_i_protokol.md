@@ -200,12 +200,12 @@ Release-gate checklist для `task_protocol` и message compatibility:
 
 ```mermaid
 flowchart LR
-    A[Design backward-compatible payload v2] --> B[Deploy workers: can read v1 and v2]
-    B --> C[Canary producer writes v2 for small traffic]
-    C --> D{Reject/deserialization errors stable?}
-    D -->|No| E[Rollback producer to v1 and inspect contracts]
-    D -->|Yes| F[Increase v2 traffic gradually]
-    F --> G[After full rollout tighten accept_content/policy]
+    A["Design backward-compatible payload v2"] --> B["Deploy workers: can read v1 and v2"]
+    B --> C["Canary producer writes v2 for small traffic"]
+    C --> D{"Reject/deserialization errors stable?"}
+    D -->|No| E["Rollback producer to v1 and inspect contracts"]
+    D -->|Yes| F["Increase v2 traffic gradually"]
+    F --> G["After full rollout tighten accept_content/policy"]
 ```
 
 ### Проверь себя

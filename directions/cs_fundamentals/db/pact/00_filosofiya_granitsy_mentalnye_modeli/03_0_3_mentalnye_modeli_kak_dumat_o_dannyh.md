@@ -10,10 +10,10 @@
 
 ```mermaid
 flowchart LR
-  Domain[Интернет-магазин] --> Rel[Реляционная\nтаблицы + связи]
-  Domain --> Doc[Документная\nагрегаты JSON]
-  Domain --> Graph[Графовая\nузлы/рёбра]
-  Domain --> KV[Key-Value\nключ → значение]
+  Domain["Интернет-магазин"] --> Rel["Реляционная\nтаблицы + связи"]
+  Domain --> Doc["Документная\nагрегаты JSON"]
+  Domain --> Graph["Графовая\nузлы/рёбра"]
+  Domain --> KV["Key-Value\nключ → значение"]
 ```
 
 ##### Табличная (реляционная) модель
@@ -293,17 +293,17 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  PG[(PostgreSQL\nOLTP + source of truth)]
-  Redis[(Redis\ncache/sessions)]
-  ES[(Elasticsearch\nsearch)]
-  CH[(ClickHouse\nanalytics)]
-  VDB[(Vector DB\nsimilarity)]
+  PG["(PostgreSQL\nOLTP + source of truth)"]
+  Redis["(Redis\ncache/sessions)"]
+  ES["(Elasticsearch\nsearch)"]
+  CH["(ClickHouse\nanalytics)"]
+  VDB["(Vector DB\nsimilarity)"]
 
-  App[Приложение] --> PG
+  App["Приложение"] --> PG
   App --> Redis
   App --> ES
-  BI[BI/ML] --> CH
-  Reco[Рекомендации/RAG] --> VDB
+  BI["BI/ML"] --> CH
+  Reco["Рекомендации/RAG"] --> VDB
 
   PG -->|CDC/ETL| ES
   PG -->|ETL/ELT| CH
@@ -427,29 +427,29 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  Start[Новая подсистема/продукт] --> T{Критичные транзакции?}
-  T -->|Да| R[Реляционная/NewSQL]
-  T -->|Нет| Next1[Дальше по требованиям]
+  Start["Новая подсистема/продукт"] --> T{"Критичные транзакции?"}
+  T -->|Да| R["Реляционная/NewSQL"]
+  T -->|Нет| Next1["Дальше по требованиям"]
   R --> Next1
-  Next1 --> S{Нужен полнотекстовый поиск?}
-  S -->|Да| Search[Поисковый движок]
-  S -->|Нет| Next2[ ]
+  Next1 --> S{"Нужен полнотекстовый поиск?"}
+  S -->|Да| Search["Поисковый движок"]
+  S -->|Нет| Next2[" "]
   Search --> Next2
-  Next2 --> A{Нужна аналитика\nпо большим данным?}
-  A -->|Да| Olap[Аналитическое хранилище]
-  A -->|Нет| Next3[ ]
+  Next2 --> A{"Нужна аналитика\nпо большим данным?"}
+  A -->|Да| Olap["Аналитическое хранилище"]
+  A -->|Нет| Next3[" "]
   Olap --> Next3
-  Next3 --> G{Главное — связи/обходы?}
-  G -->|Да| GDB[Графовая БД/слой]
-  G -->|Нет| Next4[ ]
+  Next3 --> G{"Главное — связи/обходы?"}
+  G -->|Да| GDB["Графовая БД/слой"]
+  G -->|Нет| Next4[" "]
   GDB --> Next4
-  Next4 --> C{Нужен кэш/сессии\nсчётчики?}
-  C -->|Да| Cache[Redis/in-memory]
-  C -->|Нет| Next5[ ]
+  Next4 --> C{"Нужен кэш/сессии\nсчётчики?"}
+  C -->|Да| Cache["Redis/in-memory"]
+  C -->|Нет| Next5[" "]
   Cache --> Next5
-  Next5 --> V{Нужен поиск похожести\nпо эмбеддингам?}
-  V -->|Да| Vec[Векторная БД/индексы]
-  V -->|Нет| Done[Готово]
+  Next5 --> V{"Нужен поиск похожести\nпо эмбеддингам?"}
+  V -->|Да| Vec["Векторная БД/индексы"]
+  V -->|Нет| Done["Готово"]
   Vec --> Done
 ```
 

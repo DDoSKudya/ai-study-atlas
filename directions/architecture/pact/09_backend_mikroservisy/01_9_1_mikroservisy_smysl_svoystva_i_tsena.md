@@ -139,30 +139,30 @@
 
 ```mermaid
 graph LR
-  subgraph Monolith[Модульный монолит (один деплой)]
-    UI[API / Controllers]
-    OrdersM[Orders module]
-    PaymentsM[Payments module]
-    CatalogM[Catalog module]
+  subgraph Monolith["Модульный монолит (один деплой)"]
+    UI["API / Controllers"]
+    OrdersM["Orders module"]
+    PaymentsM["Payments module"]
+    CatalogM["Catalog module"]
     UI --> OrdersM
     UI --> PaymentsM
     UI --> CatalogM
-    OrdersM --> DB[(Одна БД\n(схемы/таблицы общие))]
+    OrdersM --> DB["(Одна БД\n("схемы/таблицы общие"))"]
     PaymentsM --> DB
     CatalogM --> DB
   end
 
-  subgraph Micro[Микросервисы (несколько деплоев)]
-    GW[API Gateway]
-    OrdersS[Orders service]
-    PaymentsS[Payments service]
-    CatalogS[Catalog service]
+  subgraph Micro["Микросервисы (несколько деплоев)"]
+    GW["API Gateway"]
+    OrdersS["Orders service"]
+    PaymentsS["Payments service"]
+    CatalogS["Catalog service"]
     GW --> OrdersS
     GW --> PaymentsS
     GW --> CatalogS
-    OrdersS --> ODB[(Orders DB)]
-    PaymentsS --> PDB[(Payments DB)]
-    CatalogS --> CDB[(Catalog DB)]
+    OrdersS --> ODB["(Orders DB)"]
+    PaymentsS --> PDB["(Payments DB)"]
+    CatalogS --> CDB["(Catalog DB)"]
   end
 ```
 
@@ -219,11 +219,11 @@ graph LR
 
 ```mermaid
 graph LR
-  FE[Frontend (web)] --> GW[API Gateway]
-  GW --> BFF[BFF (web)]
-  BFF --> O[Orders]
-  BFF --> C[Catalog]
-  BFF --> P[Payments]
+  FE["Frontend (web)"] --> GW["API Gateway"]
+  GW --> BFF["BFF (web)"]
+  BFF --> O["Orders"]
+  BFF --> C["Catalog"]
+  BFF --> P["Payments"]
 ```
 
 Мы подробно разбираем BFF в части 30, но уже здесь важно понимать: в микросервисах «удобство API для клиентов» — отдельная архитектурная задача.

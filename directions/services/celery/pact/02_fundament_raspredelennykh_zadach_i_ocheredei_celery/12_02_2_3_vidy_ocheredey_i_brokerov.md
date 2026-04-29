@@ -108,17 +108,17 @@ Ordering и priority зависят от типа очереди (standard/FIFO)
 
 ```mermaid
 flowchart LR
-  P[Producer] --> Q1[RabbitMQ]
-  P --> Q2[Redis]
-  P --> Q3[SQS]
+  P["Producer"] --> Q1["RabbitMQ"]
+  P --> Q2["Redis"]
+  P --> Q3["SQS"]
 
-  Q1 --> W1[Worker]
-  Q2 --> W2[Worker]
-  Q3 --> W3[Worker]
+  Q1 --> W1["Worker"]
+  Q2 --> W2["Worker"]
+  Q3 --> W3["Worker"]
 
-  Q1 -.-> A1[ack/redelivery + durable/persistent при настройке]
-  Q2 -.-> A2[быстро, но persistence/ordering зависят от режима и контуров]
-  Q3 -.-> A3[visibility timeout => redelivery без подтверждения]
+  Q1 -.-> A1["ack/redelivery + durable/persistent при настройке"]
+  Q2 -.-> A2["быстро, но persistence/ordering зависят от режима и контуров"]
+  Q3 -.-> A3["visibility timeout => redelivery без подтверждения"]
 ```
 
 ### Как запомнить

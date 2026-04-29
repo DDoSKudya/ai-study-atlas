@@ -32,14 +32,14 @@
 
 ```mermaid
 flowchart TD
-  CMS[Headless CMS] --> Build[SSG/CI]
-  Repo[Код + шаблоны] --> Build
-  Build --> CDN[CDN/Static hosting]
+  CMS["Headless CMS"] --> Build["SSG/CI"]
+  Repo["Код + шаблоны"] --> Build
+  Build --> CDN["CDN/Static hosting"]
 
-  User[Браузер] --> CDN
+  User["Браузер"] --> CDN
   CDN -->|HTML/CSS/JS| User
 
-  User --> API[Backend/BaaS/BFF]
+  User --> API["Backend/BaaS/BFF"]
 ```
 
 #### 2) Где здесь Islands и PWA
@@ -114,7 +114,7 @@ flowchart TD
 
   CMS --> Pages
   Pages --> CDN
-  CDN --> Browser[Браузер]
+  CDN --> Browser["Браузер"]
   Browser --> Islands
   Islands --> BFF
   SW --> Browser

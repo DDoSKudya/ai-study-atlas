@@ -81,14 +81,14 @@
 
 ```mermaid
 flowchart LR
-  FE[Frontend] -->|контракт| API[API/BFF]
-  API --> BE[Backend]
+  FE["Frontend"] -->|контракт| API["API/BFF"]
+  API --> BE["Backend"]
 
-  FE -.ожидания.-> C[Contract\n(OpenAPI/GraphQL/proto)]
+  FE -.ожидания.-> C["Contract\n("OpenAPI/GraphQL/proto")"]
   BE -.реализация.-> C
-  C --> V[Verification/CDC]
-  V -->|OK| R[Release]
-  V -->|FAIL| Block[Stop: breaking change]
+  C --> V["Verification/CDC"]
+  V -->|OK| R["Release"]
+  V -->|FAIL| Block["Stop: breaking change"]
 ```
 
 #### Практический план “за неделю” (минимально достатимый)

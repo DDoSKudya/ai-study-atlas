@@ -95,12 +95,12 @@ celery -A app.celery_app report
 
 ```mermaid
 flowchart TD
-    S[Incident detected] --> D{Can fix without destructive action?}
-    D -->|yes| R[Use revoke/scoped control]
-    D -->|no| P{Business approves loss?}
-    P -->|no| ALT[Alternative mitigation + backlog replay plan]
-    P -->|yes| PURGE[Execute purge with audit]
-    R --> CHK[Post-check and document]
+    S["Incident detected"] --> D{"Can fix without destructive action?"}
+    D -->|yes| R["Use revoke/scoped control"]
+    D -->|no| P{"Business approves loss?"}
+    P -->|no| ALT["Alternative mitigation + backlog replay plan"]
+    P -->|yes| PURGE["Execute purge with audit"]
+    R --> CHK["Post-check and document"]
     PURGE --> CHK
     ALT --> CHK
 ```

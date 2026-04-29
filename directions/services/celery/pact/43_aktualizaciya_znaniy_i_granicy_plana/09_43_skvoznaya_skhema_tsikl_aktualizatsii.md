@@ -8,19 +8,19 @@
 ```mermaid
 flowchart LR
   subgraph inputs["Входы"]
-    V[Версии в lock и образах]
-    R[Release notes Celery/Kombu/Billiard/vine]
-    B[Дока брокера по used features]
-    I[Issues известных багов]
+    V["Версии в lock и образах"]
+    R["Release notes Celery/Kombu/Billiard/vine"]
+    B["Дока брокера по used features"]
+    I["Issues известных багов"]
   end
   subgraph process["Процесс"]
-    A[Актуализация чеклистов]
-    T[Тесты и canary]
-    D[ADR / runbook update]
+    A["Актуализация чеклистов"]
+    T["Тесты и canary"]
+    D["ADR / runbook update"]
   end
   subgraph outputs["Выходы"]
-    C[Решения по рискам]
-    M[Метрики и алерты]
+    C["Решения по рискам"]
+    M["Метрики и алерты"]
   end
   V --> A
   R --> A

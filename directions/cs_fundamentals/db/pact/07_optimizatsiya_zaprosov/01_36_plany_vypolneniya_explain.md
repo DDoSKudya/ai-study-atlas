@@ -11,15 +11,15 @@
 
 ```mermaid
 flowchart TB
-  A[Нужно понять план?] --> B{Нужны фактические времена/строки?}
-  B -->|Нет| E[EXPLAIN\nплан + cost/rows (оценки)]
-  B -->|Да| EA[EXPLAIN (ANALYZE)\nплан + actual time/rows]
-  EA --> Buf{Нужно понять I/O и кэш?}
-  Buf -->|Да| EAB[EXPLAIN (ANALYZE, BUFFERS)\nshared hit/read, temp]
-  Buf -->|Нет| Done[Достаточно ANALYZE]
-  EAB --> Mut{Запрос меняет данные?}
-  Mut -->|Да| Tx[BEGIN → EXPLAIN ANALYZE → ROLLBACK]
-  Mut -->|Нет| Ok[Можно без ROLLBACK]
+  A["Нужно понять план?"] --> B{"Нужны фактические времена/строки?"}
+  B -->|Нет| E["EXPLAIN\nплан + cost/rows (оценки)"]
+  B -->|Да| EA["EXPLAIN (ANALYZE)\nплан + actual time/rows"]
+  EA --> Buf{"Нужно понять I/O и кэш?"}
+  Buf -->|Да| EAB["EXPLAIN (ANALYZE, BUFFERS)\nshared hit/read, temp"]
+  Buf -->|Нет| Done["Достаточно ANALYZE"]
+  EAB --> Mut{"Запрос меняет данные?"}
+  Mut -->|Да| Tx["BEGIN → EXPLAIN ANALYZE → ROLLBACK"]
+  Mut -->|Нет| Ok["Можно без ROLLBACK"]
 ```
 
 #### Термины (расшифровка)
@@ -124,20 +124,20 @@ EXPLAIN — как **чертёж маршрута** без поездки: ви
 
 ```mermaid
 flowchart LR
-  subgraph S[Seq Scan]
-    S1[Читаем все страницы heap подряд] --> S2[Фильтр WHERE на каждой строке]
+  subgraph S["Seq Scan"]
+    S1["Читаем все страницы heap подряд"] --> S2["Фильтр WHERE на каждой строке"]
   end
 
-  subgraph I[Index Scan]
-    I1[Индекс: key -> TID] --> I2[Heap fetch по TID (случайные чтения)]
+  subgraph I["Index Scan"]
+    I1["Индекс: key -> TID"] --> I2["Heap fetch по TID (случайные чтения)"]
   end
 
-  subgraph IO[Index Only Scan]
-    IO1[Читаем только индекс] --> IO2[Heap fetch = 0\n(если visibility map позволяет)]
+  subgraph IO["Index Only Scan"]
+    IO1["Читаем только индекс"] --> IO2["Heap fetch = 0\n("если visibility map позволяет")"]
   end
 
-  subgraph Bm[Bitmap Scan]
-    B1[Индекс: собрать bitmap страниц/TID] --> B2[Heap scan страниц по порядку]
+  subgraph Bm["Bitmap Scan"]
+    B1["Индекс: собрать bitmap страниц/TID"] --> B2["Heap scan страниц по порядку"]
   end
 ```
 
@@ -305,11 +305,11 @@ Index Only Scan using idx_orders_covering on orders  (cost=0.28..4.29 rows=1 wid
 
 ```mermaid
 flowchart TB
-  Q[JOIN двух таблиц] --> NL{Внешняя маленькая? \n+ внутри есть индекс?}
-  NL -->|Да| N1[Nested Loop\nN раз искать по индексу]
-  NL -->|Нет| Hm{Есть порядок по ключу\nили нужен ORDER BY?}
-  Hm -->|Да| M1[Merge Join\nслияние двух отсортированных потоков]
-  Hm -->|Нет| H1[Hash Join\nпостроить hash (work_mem)\nи пробить вторую сторону]
+  Q["JOIN двух таблиц"] --> NL{"Внешняя маленькая? \n+ внутри есть индекс?"}
+  NL -->|Да| N1["Nested Loop\nN раз искать по индексу"]
+  NL -->|Нет| Hm{"Есть порядок по ключу\nили нужен ORDER BY?"}
+  Hm -->|Да| M1["Merge Join\nслияние двух отсортированных потоков"]
+  Hm -->|Нет| H1["Hash Join\nпостроить hash (work_mem)\nи пробить вторую сторону"]
 ```
 
 #### Что будет, если выбрать не тот тип JOIN

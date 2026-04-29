@@ -91,15 +91,15 @@
 ```mermaid
 flowchart LR
   subgraph SPA["SPA (CSR)"]
-    H[Почти пустой HTML<br/>+ bundle.js]
+    H["Почти пустой HTML<br/>+ bundle.js"]
   end
 
   subgraph Bot["Поисковый бот"]
-    B1[Без исполнения JS<br/>видит пустой div]
+    B1["Без исполнения JS<br/>видит пустой div"]
   end
 
   subgraph Prerender/SSR
-    P[Готовый HTML<br/>с контентом]
+    P["Готовый HTML<br/>с контентом"]
   end
 
   B1 -->|плохо индексируется| SPA

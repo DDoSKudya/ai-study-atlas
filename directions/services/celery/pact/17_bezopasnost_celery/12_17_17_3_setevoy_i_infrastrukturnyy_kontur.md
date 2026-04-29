@@ -142,18 +142,18 @@ Firewall режет **кто подключается**, но не **что де
 ```mermaid
 flowchart TB
   subgraph L1["Слой 1: сеть"]
-    FW[Firewall / SG]
+    FW["Firewall / SG"]
   end
   subgraph L2["Слой 2: транспорт"]
-    TLS[TLS / mTLS]
+    TLS["TLS / mTLS"]
   end
   subgraph L3["Слой 3: брокер"]
-    VH[vhost / ACL]
-    Q[Имена очередей + права]
+    VH["vhost / ACL"]
+    Q["Имена очередей + права"]
   end
   subgraph L4["Слой 4: приложение"]
-    AC[accept_content + JSON]
-    VAL[Валидация payload]
+    AC["accept_content + JSON"]
+    VAL["Валидация payload"]
   end
   FW --> TLS
   TLS --> VH
@@ -167,11 +167,11 @@ flowchart TB
 ```mermaid
 flowchart TB
   subgraph clients["Процессы с клиентом Celery"]
-    API[API / Beat / скрипты]
-    WK[Worker]
+    API["API / Beat / скрипты"]
+    WK["Worker"]
   end
-  BR[(Broker)]
-  RB[(Result backend)]
+  BR["(Broker)"]
+  RB["(Result backend)"]
   API -->|TLS к брокеру| BR
   WK -->|TLS к брокеру| BR
   API -->|TLS к backend| RB
@@ -253,13 +253,13 @@ Flower/exporter часто добавляют **второй HTTP/UI** к дан
 ```mermaid
 flowchart TB
   subgraph dmz["Публичный слой"]
-    LB[Load balancer]
-    API[API pods]
+    LB["Load balancer"]
+    API["API pods"]
   end
   subgraph internal["Внутренняя сеть"]
-    BR[(Broker TLS)]
-    RB[(Backend TLS)]
-    WK[Worker pods]
+    BR["(Broker TLS)"]
+    RB["(Backend TLS)"]
+    WK["Worker pods"]
   end
   LB --> API
   API -->|TLS least privilege user| BR
@@ -585,15 +585,15 @@ Celery/Kombu обычно принимают SSL через **URL** (`amqps://`,
 ```mermaid
 flowchart TB
   subgraph cl["Client: всё, что делает publish"]
-    API[Web API]
-    BT[Beat]
-    WK2[Worker как producer]
-    CLI[CLI / скрипты]
+    API["Web API"]
+    BT["Beat"]
+    WK2["Worker как producer"]
+    CLI["CLI / скрипты"]
   end
-  BR[(Broker)]
+  BR["(Broker)"]
   subgraph wk["Worker: исполнение"]
-    EX[Задачи в процессе ОС]
-    OUT[Исходящий трафик на уровне хоста]
+    EX["Задачи в процессе ОС"]
+    OUT["Исходящий трафик на уровне хоста"]
   end
   API --> BR
   BT --> BR

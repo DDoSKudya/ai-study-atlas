@@ -5,12 +5,12 @@
 
 ```mermaid
 flowchart LR
-    A[Shell command] --> B[Global flags\n-A --config --workdir]
-    B --> C[Celery app loading\nentrypoint + config]
-    C --> D[Subcommand parsing\nworker/beat/inspect/...]
-    D --> E[Runtime action\nstart worker / send control / inspect]
-    E --> F[Broker + Worker + Backend side effects]
-    G[Environment vars\nCELERY_*] --> C
+    A["Shell command"] --> B["Global flags\n-A --config --workdir"]
+    B --> C["Celery app loading\nentrypoint + config"]
+    C --> D["Subcommand parsing\nworker/beat/inspect/..."]
+    D --> E["Runtime action\nstart worker / send control / inspect"]
+    E --> F["Broker + Worker + Backend side effects"]
+    G["Environment vars\nCELERY_*"] --> C
     G --> D
 ```
 

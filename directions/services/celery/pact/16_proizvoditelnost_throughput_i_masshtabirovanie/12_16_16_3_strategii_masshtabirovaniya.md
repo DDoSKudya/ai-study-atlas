@@ -102,15 +102,15 @@
 ```mermaid
 flowchart TB
   subgraph rmq["RabbitMQ — чаще упираются"]
-    R1[Память брокера + flow control]
-    R2[Диск при persistence]
+    R1["Память брокера + flow control"]
+    R2["Диск при persistence"]
   end
   subgraph rds["Redis — чаще упираются"]
-    S1[Память + размер keyspace]
-    S2[Visibility / длинные задачи]
+    S1["Память + размер keyspace"]
+    S2["Visibility / длинные задачи"]
   end
-  rmq -.->|типичный симптом| X[Producer ждёт / back-pressure]
-  rds -.->|типичный симптом| Y[OOM keyspace / дубли при long tasks]
+  rmq -.->|типичный симптом| X["Producer ждёт / back-pressure"]
+  rds -.->|типичный симптом| Y["OOM keyspace / дубли при long tasks"]
 ```
 
 Смысл: это **разные классы** перегрузок и **разные** алёрты; при смене брокера **не переносить** prefetch и пороги «как было» без повторной **калибровки** на стенде.
@@ -130,14 +130,14 @@ flowchart TB
 ```mermaid
 flowchart LR
   subgraph wrong["Ловушка"]
-    M[Одна метрика / среднее по всем task.name]
+    M["Одна метрика / среднее по всем task.name"]
   end
   subgraph right["План по классам"]
-    A[Класс A: λ_A, S_A p95 → слоты_A]
-    B[Класс B: λ_B, S_B p95 → слоты_B]
+    A["Класс A: λ_A, S_A p95 → слоты_A"]
+    B["Класс B: λ_B, S_B p95 → слоты_B"]
   end
-  M -.->|скрывает| H[Хвост и пики класса B]
-  A --> T[Суммарная ёмкость = сумма решений по классам + broker + DB]
+  M -.->|скрывает| H["Хвост и пики класса B"]
+  A --> T["Суммарная ёмкость = сумма решений по классам + broker + DB"]
   B --> T
 ```
 
@@ -148,18 +148,18 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph prod["Producer-ы"]
-    API[Веб API]
-    BEAT[Beat]
+    API["Веб API"]
+    BEAT["Beat"]
   end
   subgraph q["Очереди брокера"]
-    Qh[high_priority]
-    Qb[batch]
-    Qi[integrations]
+    Qh["high_priority"]
+    Qb["batch"]
+    Qi["integrations"]
   end
   subgraph pools["Специализированные worker-пулы"]
-    Wh[Workers: -Q high_priority]
-    Wb[Workers: -Q batch]
-    Wi[Workers: -Q integrations]
+    Wh["Workers: -Q high_priority"]
+    Wb["Workers: -Q batch"]
+    Wi["Workers: -Q integrations"]
   end
   API --> Qh
   API --> Qi
@@ -237,9 +237,9 @@ app.conf.task_routes = {
 ```mermaid
 flowchart LR
   subgraph chain["Порядок «потока работы» — не путать с приоритетом тюнинга"]
-    Br[(Брокер:<br/>доставка и лимиты)]
-    W[Worker-пул:<br/>параллелизм]
-    D[DB / внешние API]
+    Br["(Брокер:<br/>доставка и лимиты)"]
+    W["Worker-пул:<br/>параллелизм"]
+    D["DB / внешние API"]
   end
   Br --> W --> D
 ```
@@ -247,9 +247,9 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph levers["Три класса рычагов масштаба — выбирай по диагностике"]
-    B[Broker: память, connections, flow control]
-    WC[Workers: реплики, -c, prefetch, очереди]
-    DS[Downstream: пул БД, квоты API]
+    B["Broker: память, connections, flow control"]
+    WC["Workers: реплики, -c, prefetch, очереди"]
+    DS["Downstream: пул БД, квоты API"]
   end
 ```
 

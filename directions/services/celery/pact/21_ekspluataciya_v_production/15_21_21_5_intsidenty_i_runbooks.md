@@ -118,15 +118,15 @@
 
 ```mermaid
 flowchart TD
-  A[Alert fired] --> B{Broker reachable?}
-  B -- No --> C[Broker outage runbook]
-  B -- Yes --> D{Workers consuming?}
-  D -- No --> E[Stuck workers runbook]
-  D -- Yes --> F{Failure/retry spike?}
-  F -- Yes --> G[Runaway retries runbook]
-  F -- No --> H{Queue lag exploding?}
-  H -- Yes --> I[Backlog/hot queue runbook]
-  H -- No --> J[Backend/scheduler diagnostics]
+  A["Alert fired"] --> B{"Broker reachable?"}
+  B -- No --> C["Broker outage runbook"]
+  B -- Yes --> D{"Workers consuming?"}
+  D -- No --> E["Stuck workers runbook"]
+  D -- Yes --> F{"Failure/retry spike?"}
+  F -- Yes --> G["Runaway retries runbook"]
+  F -- No --> H{"Queue lag exploding?"}
+  H -- Yes --> I["Backlog/hot queue runbook"]
+  H -- No --> J["Backend/scheduler diagnostics"]
 ```
 
 ### Простыми словами

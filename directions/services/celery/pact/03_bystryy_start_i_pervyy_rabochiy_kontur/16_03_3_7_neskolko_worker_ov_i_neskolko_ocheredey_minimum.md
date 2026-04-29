@@ -93,10 +93,10 @@ sleepy_add.apply_async(args=[10, 20], queue="queue_b")
 
 ```mermaid
 flowchart LR
-    P[Producer] --> Q1[Broker queue_a]
-    P --> Q2[Broker queue_b]
-    W1[Worker A (-Q queue_a)] --> Q1
-    W2[Worker B (-Q queue_b)] --> Q2
+    P["Producer"] --> Q1["Broker queue_a"]
+    P --> Q2["Broker queue_b"]
+    W1["Worker A (-Q queue_a)"] --> Q1
+    W2["Worker B (-Q queue_b)"] --> Q2
 ```
 
 ### Как запомнить

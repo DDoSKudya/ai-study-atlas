@@ -60,10 +60,10 @@
 
    ```mermaid
    flowchart LR
-     FE[Frontend (TS)] --> C[tRPC client]
-     C --> R[tRPC router (BFF)]
-     R --> Core[Use cases / Domain]
-     Core --> DB[(DB)]
+     FE["Frontend (TS)"] --> C["tRPC client"]
+     C --> R["tRPC router (BFF)"]
+     R --> Core["Use cases / Domain"]
+     Core --> DB["(DB)"]
    ```
 
    **Где tRPC идеален**:
@@ -110,11 +110,11 @@ tRPC — это как **общий словарь, лежащий посред�
 flowchart LR
   subgraph Monorepo["Монорепо (TS)"]
     subgraph Backend["Backend (Node/TS, tRPC)"]
-      tRouter["tRPC router\n(процедуры и типы)"]
+      tRouter["tRPC router\n("процедуры и типы")"]
     end
 
     subgraph Frontend["Frontend (React/TS)"]
-      tClient["tRPC client\n(typed hooks)"]
+      tClient["tRPC client\n("typed hooks")"]
     end
   end
 

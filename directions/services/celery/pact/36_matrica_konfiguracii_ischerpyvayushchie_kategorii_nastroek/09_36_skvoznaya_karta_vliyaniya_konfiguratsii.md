@@ -5,14 +5,14 @@
 
 ```mermaid
 flowchart LR
-    A[Application settings\nimports/include/timezone] --> B[Producer publish policy\nserializer/retry/routes]
-    B --> C[Broker connection layer\nURL/SSL/heartbeat/pool]
-    C --> D[Worker runtime\npool/concurrency/prefetch/memory]
-    D --> E[Task execution semantics\nack/retry/time limits]
-    E --> F[Result backend\nexpires/retry/extended]
-    D --> G[Event/control plane\nevents/inspect/control]
-    H[Beat scheduler] --> B
-    I[Security policy\naccept_content/signing] --> B
+    A["Application settings\nimports/include/timezone"] --> B["Producer publish policy\nserializer/retry/routes"]
+    B --> C["Broker connection layer\nURL/SSL/heartbeat/pool"]
+    C --> D["Worker runtime\npool/concurrency/prefetch/memory"]
+    D --> E["Task execution semantics\nack/retry/time limits"]
+    E --> F["Result backend\nexpires/retry/extended"]
+    D --> G["Event/control plane\nevents/inspect/control"]
+    H["Beat scheduler"] --> B
+    I["Security policy\naccept_content/signing"] --> B
     I --> D
 ```
 

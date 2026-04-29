@@ -5,17 +5,17 @@
 
 ```mermaid
 flowchart LR
-    A[Producer publish] --> B[Broker queue]
-    B --> C[Worker received]
-    C --> D{Task started}
-    D -->|OK| E[SUCCESS]
-    D -->|Business error| F[FAILURE]
-    D -->|Retry policy| G[RETRY]
+    A["Producer publish"] --> B["Broker queue"]
+    B --> C["Worker received"]
+    C --> D{"Task started"}
+    D -->|OK| E["SUCCESS"]
+    D -->|Business error| F["FAILURE"]
+    D -->|Retry policy| G["RETRY"]
     G --> B
-    C -->|Revoked| H[REVOKED]
-    C -->|Rejected| I[REJECTED]
-    D -->|Worker crash/time limit| J[WorkerLost/Timeout path]
-    J --> K[Depends on ack/requeue/backend consistency]
+    C -->|Revoked| H["REVOKED"]
+    C -->|Rejected| I["REJECTED"]
+    D -->|Worker crash/time limit| J["WorkerLost/Timeout path"]
+    J --> K["Depends on ack/requeue/backend consistency"]
 ```
 
 ASCII-образ для быстрых обсуждений на инцидентах:

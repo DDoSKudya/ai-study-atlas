@@ -141,18 +141,18 @@
 
 ```mermaid
 flowchart TD
-    A[Инцидент в Celery] --> B{Есть task_id/root_id?}
-    B -->|Нет| B1[Найди идентификаторы в логах producer/worker]
-    B -->|Да| C{Где симптом?}
-    C -->|Задача не стартует| D[Проверь routing + active_queues + reserved/scheduled]
-    C -->|Задача падает| E[Проверь traceback + retries + payload contract]
-    C -->|Workflow завис| F[Проверь GroupResult/chord unlock/backend]
-    C -->|Периодика ломается| G[Проверь beat scheduler + single instance + schedule source]
-    D --> H[Временные меры через control]
+    A["Инцидент в Celery"] --> B{"Есть task_id/root_id?"}
+    B -->|Нет| B1["Найди идентификаторы в логах producer/worker"]
+    B -->|Да| C{"Где симптом?"}
+    C -->|Задача не стартует| D["Проверь routing + active_queues + reserved/scheduled"]
+    C -->|Задача падает| E["Проверь traceback + retries + payload contract"]
+    C -->|Workflow завис| F["Проверь GroupResult/chord unlock/backend"]
+    C -->|Периодика ломается| G["Проверь beat scheduler + single instance + schedule source"]
+    D --> H["Временные меры через control"]
     E --> H
     F --> H
     G --> H
-    H --> I[Постоянный фикс: конфиг/код/runbook]
+    H --> I["Постоянный фикс: конфиг/код/runbook"]
 ```
 
 #### Проверь себя: decision-flow

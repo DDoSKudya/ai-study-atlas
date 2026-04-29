@@ -217,14 +217,14 @@ DLQ и TTL — это “коробка для писем, которые нуж
 
 ```mermaid
 flowchart LR
-  P[Producer / Celery client] --> E[Exchange]
-  E -->|routing key| Q1[Queue: main]
-  E -->|routing key| Q2[Queue: priority/high]
-  Q1 --> W[Worker]
+  P["Producer / Celery client"] --> E["Exchange"]
+  E -->|routing key| Q1["Queue: main"]
+  E -->|routing key| Q2["Queue: priority/high"]
+  Q1 --> W["Worker"]
   Q2 --> W
   W -. ack/redelivery .-> Q1
-  Q1 --> D[DLX/Retry exchange]
-  D --> QR[Queue: delayed retry]
+  Q1 --> D["DLX/Retry exchange"]
+  D --> QR["Queue: delayed retry"]
   QR --> E
 ```
 

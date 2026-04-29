@@ -25,29 +25,29 @@
 ```mermaid
 flowchart LR
   subgraph Users["Пользователи"]
-    U1(Client 1)
-    U2(Client 2)
+    U1("Client 1")
+    U2("Client 2")
   end
 
-  U1 --> LB[Load Balancer]
+  U1 --> LB["Load Balancer"]
   U2 --> LB
 
-  LB --> API[API-сервис (горизонтально масштабируется)]
+  LB --> API["API-сервис (горизонтально масштабируется)"]
 
   subgraph Resilience["Устойчивость API"]
-    API --> RL[Rate Limiter]
+    API --> RL["Rate Limiter"]
     RL --> CB["Circuit Breaker + Retry<br/>+ Timeouts"]
   end
 
-  CB --> Cache[(Кэш<br/>Redis/локальный)]
-  CB --> DB[(БД / Источник истины)]
-  CB --> Q[(Очередь задач)]
+  CB --> Cache["(Кэш<br/>Redis/локальный)"]
+  CB --> DB["(БД / Источник истины)"]
+  CB --> Q["(Очередь задач)"]
 
-  Q --> W1[Worker 1]
-  Q --> W2[Worker 2]
-  Q --> DLQ[(DLQ)]
+  Q --> W1["Worker 1"]
+  Q --> W2["Worker 2"]
+  Q --> DLQ["(DLQ)"]
 
-  W1 --> Ext[Внешний сервис]
+  W1 --> Ext["Внешний сервис"]
   W2 --> Ext
 ```
 

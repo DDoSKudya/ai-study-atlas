@@ -118,7 +118,7 @@ flowchart LR
   end
 
   subgraph Broker["Broker"]
-    Q["Queue(s)"]
+    Q["Queue("s")"]
   end
 
   subgraph Workers["Workers"]

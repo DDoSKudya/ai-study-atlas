@@ -48,11 +48,11 @@
 
 ```mermaid
 flowchart LR
-  Client[Клиент] --> CDN[CDN / Edge Cache]
-  CDN --> Proxy[Reverse Proxy / API Gateway]
-  Proxy --> App[Приложение]
-  App --> Redis[(Redis Cache)]
-  App --> DB[(БД / Внешний API)]
+  Client["Клиент"] --> CDN["CDN / Edge Cache"]
+  CDN --> Proxy["Reverse Proxy / API Gateway"]
+  Proxy --> App["Приложение"]
+  App --> Redis["(Redis Cache)"]
+  App --> DB["(БД / Внешний API)"]
 ```
 
 #### 2) Кэш и согласованность
@@ -84,11 +84,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  Client[Клиенты] --> API[API сервис]
-  API --> Q[(Очередь сообщений)]
-  Q --> W1[Worker 1]
-  Q --> W2[Worker 2]
-  Q --> W3[Worker 3]
+  Client["Клиенты"] --> API["API сервис"]
+  API --> Q["(Очередь сообщений)"]
+  Q --> W1["Worker 1"]
+  Q --> W2["Worker 2"]
+  Q --> W3["Worker 3"]
 ```
 
 Производитель (API):
@@ -206,20 +206,20 @@ Backpressure отвечает на вопрос: *«что делаем, ког�
 ```mermaid
 flowchart LR
   subgraph Ingress["Граница системы"]
-    CDN[CDN / Edge Cache]
+    CDN["CDN / Edge Cache"]
   end
 
-  Client[Клиент] --> CDN
-  CDN --> API[API сервис]
-  API -->|кэш чтений| Redis[(Redis)]
-  API -->|приём задач| Queue[(Очередь)]
-  API -->|при необходимости| DB[(БД)]
+  Client["Клиент"] --> CDN
+  CDN --> API["API сервис"]
+  API -->|кэш чтений| Redis["(Redis)"]
+  API -->|приём задач| Queue["(Очередь)"]
+  API -->|при необходимости| DB["(БД)"]
 
-  Queue --> W1[Worker 1]
-  Queue --> W2[Worker 2]
-  Queue --> W3[Worker 3]
+  Queue --> W1["Worker 1"]
+  Queue --> W2["Worker 2"]
+  Queue --> W3["Worker 3"]
 
-  Queue --> DLQ[(DLQ)]
+  Queue --> DLQ["(DLQ)"]
 ```
 
 ### Как запомнить

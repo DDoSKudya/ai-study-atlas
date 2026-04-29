@@ -39,19 +39,19 @@
 
 ```mermaid
 flowchart LR
-    subgraph A[Вариант 1: chain]
-      A1[Parse] --> A2[Validate] --> A3[Store]
+    subgraph A["Вариант 1: chain"]
+      A1["Parse"] --> A2["Validate"] --> A3["Store"]
     end
-    subgraph B[Вариант 2: group]
-      B0[Input] --> B1[Task 1]
-      B0 --> B2[Task 2]
-      B0 --> B3[Task 3]
+    subgraph B["Вариант 2: group"]
+      B0["Input"] --> B1["Task 1"]
+      B0 --> B2["Task 2"]
+      B0 --> B3["Task 3"]
     end
-    subgraph C[Вариант 3: chord]
-      C0[Input] --> C1[Task 1]
-      C0 --> C2[Task 2]
-      C0 --> C3[Task 3]
-      C1 --> C4[Aggregate]
+    subgraph C["Вариант 3: chord"]
+      C0["Input"] --> C1["Task 1"]
+      C0 --> C2["Task 2"]
+      C0 --> C3["Task 3"]
+      C1 --> C4["Aggregate"]
       C2 --> C4
       C3 --> C4
     end
@@ -123,15 +123,15 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[Новый Canvas-workflow] --> B{Контракты и идемпотентность валидны?}
-    B -- нет --> Z1[Не выпускать: доработать дизайн]
-    B -- да --> C{Ошибка/partial success policy определена?}
-    C -- нет --> Z2[Не выпускать: добавить recovery policy]
-    C -- да --> D{Наблюдаемость и runbook готовы?}
-    D -- нет --> Z3[Не выпускать: добавить telemetry и runbook]
-    D -- да --> E{Нагрузка/стоимость подтверждены?}
-    E -- нет --> Z4[Не выпускать: прогнать тест под нагрузкой]
-    E -- да --> F[GO: ограниченный rollout + мониторинг]
+    A["Новый Canvas-workflow"] --> B{"Контракты и идемпотентность валидны?"}
+    B -- нет --> Z1["Не выпускать: доработать дизайн"]
+    B -- да --> C{"Ошибка/partial success policy определена?"}
+    C -- нет --> Z2["Не выпускать: добавить recovery policy"]
+    C -- да --> D{"Наблюдаемость и runbook готовы?"}
+    D -- нет --> Z3["Не выпускать: добавить telemetry и runbook"]
+    D -- да --> E{"Нагрузка/стоимость подтверждены?"}
+    E -- нет --> Z4["Не выпускать: прогнать тест под нагрузкой"]
+    E -- да --> F["GO: ограниченный rollout + мониторинг"]
 ```
 
 Почему это важно: в Canvas чаще всего ломается не «код функции», а связка из контрактов, retries, fan-in механики и наблюдаемости. Чек-лист защищает от выпуска «логически красивого», но операционно хрупкого workflow.

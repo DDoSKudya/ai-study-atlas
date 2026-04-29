@@ -16,15 +16,15 @@
 ```mermaid
 flowchart TB
   subgraph web["Django web (WSGI/ASGI)"]
-    V[View / API]
-    ORM_w[(ORM → БД)]
+    V["View / API"]
+    ORM_w["(ORM → БД)"]
   end
   subgraph q["Очередь"]
-    BR[(Broker)]
+    BR["(Broker)"]
   end
   subgraph worker["Celery worker"]
-    T[Task code]
-    ORM_c[(ORM → БД)]
+    T["Task code"]
+    ORM_c["(ORM → БД)"]
   end
   V -->|HTTP обработан| ORM_w
   V -->|apply_async / delay| BR
@@ -37,14 +37,14 @@ flowchart TB
 ```mermaid
 flowchart TB
   subgraph django_req["Процесс Django: один запрос"]
-    V[View / service]
-    AT{{transaction.atomic}}
-    CM[COMMIT успешен]
-    OC[on_commit callbacks]
+    V["View / service"]
+    AT{"{transaction.atomic"}}
+    CM["COMMIT успешен"]
+    OC["on_commit callbacks"]
     V --> AT --> CM --> OC
   end
-  OC -->|apply_async / delay| BR[(Broker)]
-  BR --> W[Celery worker: другой процесс]
+  OC -->|apply_async / delay| BR["(Broker)"]
+  BR --> W["Celery worker: другой процесс"]
 ```
 
 #### Проверь себя: предпосылки

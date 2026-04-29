@@ -117,9 +117,9 @@ celery -A app.celery_app report
 
 ```mermaid
 flowchart LR
-    A[Observe: inspect] --> B[Stabilize: scoped control]
-    B --> C[Verify: inspect/report]
-    C --> D[Record: audit + postmortem notes]
+    A["Observe: inspect"] --> B["Stabilize: scoped control"]
+    B --> C["Verify: inspect/report"]
+    C --> D["Record: audit + postmortem notes"]
 ```
 
 **Почему это важно:** в инциденте чаще ошибаются не в командах, а в порядке действий. Этот короткий цикл снижает риск «случайно ухудшить систему».

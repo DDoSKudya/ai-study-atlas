@@ -126,20 +126,20 @@
 
 ```mermaid
 flowchart TB
-  A[Сообщение опубликовано] --> B[Broker/Queue]
-  B --> C[Worker выполняет]
-  C --> D[Side effect]
-  C --> E[Ack]
+  A["Сообщение опубликовано"] --> B["Broker/Queue"]
+  B --> C["Worker выполняет"]
+  C --> D["Side effect"]
+  C --> E["Ack"]
 
   subgraph Failure modes
-    F1[Worker упал до ack]:::warn
-    F2[Worker упал после side effect, но до ack]:::danger
-    F3[Broker недоступен]:::danger
-    F4[Backend недоступен]:::warn
-    F5[Задача зависла]:::warn
-    F6[Сообщения долго ждут]:::warn
-    F7[Storm повторов]:::danger
-    F8[Backlog + SLA]:::danger
+    F1["Worker упал до ack"]:::warn
+    F2["Worker упал после side effect, но до ack"]:::danger
+    F3["Broker недоступен"]:::danger
+    F4["Backend недоступен"]:::warn
+    F5["Задача зависла"]:::warn
+    F6["Сообщения долго ждут"]:::warn
+    F7["Storm повторов"]:::danger
+    F8["Backlog + SLA"]:::danger
   end
 
   B -.-> F1

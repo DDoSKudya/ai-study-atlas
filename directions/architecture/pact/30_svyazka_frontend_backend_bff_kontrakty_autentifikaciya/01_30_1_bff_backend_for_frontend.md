@@ -80,23 +80,23 @@ BFF (официант):
 
 ```mermaid
 flowchart LR
-  subgraph Client[Клиент]
-    W[Web SPA/SSR]
-    M[Mobile App]
+  subgraph Client["Клиент"]
+    W["Web SPA/SSR"]
+    M["Mobile App"]
   end
 
-  W -->|HTTPS| BFF[BFF]
+  W -->|HTTPS| BFF["BFF"]
   M -->|HTTPS| BFF
 
-  BFF --> S1[Service: Orders]
-  BFF --> S2[Service: Catalog]
-  BFF --> S3[Service: Delivery]
-  BFF --> S4[Service: Payments]
+  BFF --> S1["Service: Orders"]
+  BFF --> S2["Service: Catalog"]
+  BFF --> S3["Service: Delivery"]
+  BFF --> S4["Service: Payments"]
 
-  S1 --> DB1[(DB Orders)]
-  S2 --> DB2[(DB Catalog)]
-  S3 --> DB3[(DB Delivery)]
-  S4 --> DB4[(DB Payments)]
+  S1 --> DB1["(DB Orders)"]
+  S2 --> DB2["(DB Catalog)"]
+  S3 --> DB3["(DB Delivery)"]
+  S4 --> DB4["(DB Payments)"]
 ```
 
 Ключевое: BFF **не должен** становиться “новым источником истины”. Источник истины — доменные сервисы/БД. BFF — **слой представления и адаптации**.
@@ -560,9 +560,9 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-  U[Пользователь] -->|GET page| FE[Frontend SSR runtime]
-  FE -->|server-to-server| BFF[BFF]
-  BFF --> S[Services]
+  U["Пользователь"] -->|GET page| FE["Frontend SSR runtime"]
+  FE -->|server-to-server| BFF["BFF"]
+  BFF --> S["Services"]
   FE -->|HTML| U
   Note over FE,BFF: SSR может агрегировать данные\nдо отдачи HTML
 ```

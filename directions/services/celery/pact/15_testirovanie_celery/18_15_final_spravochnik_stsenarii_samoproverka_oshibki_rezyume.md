@@ -54,22 +54,22 @@
 
 ```mermaid
 flowchart TD
-  A[Новая или изменённая Celery-задача] --> B{Есть чистая бизнес-логика?}
-  B -->|Да| C[Добавить/обновить unit tests]
-  B -->|Нет| D[Выделить ядро логики и покрыть unit tests]
-  C --> E{Есть контракт payload?}
+  A["Новая или изменённая Celery-задача"] --> B{"Есть чистая бизнес-логика?"}
+  B -->|Да| C["Добавить/обновить unit tests"]
+  B -->|Нет| D["Выделить ядро логики и покрыть unit tests"]
+  C --> E{"Есть контракт payload?"}
   D --> E
-  E -->|Нет| F[Зафиксировать schema/version + contract tests]
-  E -->|Да| G[Проверить совместимость v1/v2]
-  F --> H{Задача критична для бизнеса?}
+  E -->|Нет| F["Зафиксировать schema/version + contract tests"]
+  E -->|Да| G["Проверить совместимость v1/v2"]
+  F --> H{"Задача критична для бизнеса?"}
   G --> H
-  H -->|Да| I[Integration + E2E через worker]
-  H -->|Нет| J[Wrapper tests + выборочные integration]
-  I --> K{Есть retry/idempotency/workflow?}
+  H -->|Да| I["Integration + E2E через worker"]
+  H -->|Нет| J["Wrapper tests + выборочные integration"]
+  I --> K{"Есть retry/idempotency/workflow?"}
   J --> K
-  K -->|Да| L[Добавить failure tests: retry exhaustion, duplicates, partial failures]
-  K -->|Нет| M[Достаточно fast profile]
-  L --> N[Включить full profile в CI/nightly]
+  K -->|Да| L["Добавить failure tests: retry exhaustion, duplicates, partial failures"]
+  K -->|Нет| M["Достаточно fast profile"]
+  L --> N["Включить full profile в CI/nightly"]
   M --> N
 ```
 
@@ -104,20 +104,20 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  A[Developer push / PR] --> B[Fast profile]
-  B --> B1[Unit tests]
-  B --> B2[Contract tests]
-  B --> B3[Wrapper tests eager]
-  B --> C{Fast profile green?}
-  C -->|No| R1[Fix + rerun fast]
-  C -->|Yes| D[Merge / main branch]
-  D --> E[Full profile]
-  E --> E1[Integration broker/backend]
-  E --> E2[E2E with real worker]
-  E --> E3[Failure/chaos for critical flows]
-  E --> F{Full profile green?}
-  F -->|No| R2[Incident-like analysis\nadd missing tests]
-  F -->|Yes| G[Release confidence]
+  A["Developer push / PR"] --> B["Fast profile"]
+  B --> B1["Unit tests"]
+  B --> B2["Contract tests"]
+  B --> B3["Wrapper tests eager"]
+  B --> C{"Fast profile green?"}
+  C -->|No| R1["Fix + rerun fast"]
+  C -->|Yes| D["Merge / main branch"]
+  D --> E["Full profile"]
+  E --> E1["Integration broker/backend"]
+  E --> E2["E2E with real worker"]
+  E --> E3["Failure/chaos for critical flows"]
+  E --> F{"Full profile green?"}
+  F -->|No| R2["Incident-like analysis\nadd missing tests"]
+  F -->|Yes| G["Release confidence"]
 ```
 
 Практический смысл:
