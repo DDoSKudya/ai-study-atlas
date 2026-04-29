@@ -103,8 +103,8 @@ data: {"orderId":"ord_123","status":"shipped"}
 ```mermaid
 flowchart LR
   A["Client"] -->|GET /resource| B["REST read"]
-  A -->|GET /events (SSE)| C["SSE stream"]
-  A -->|GET /wait (long-poll)| D["Long-poll"]
+  A -->|"GET /events (SSE)"| C["SSE stream"]
+  A -->|"GET /wait (long-poll)"| D["Long-poll"]
   A <--> |WebSocket| E["Realtime channel"]
 ```
 

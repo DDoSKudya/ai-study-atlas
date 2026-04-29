@@ -149,7 +149,7 @@ flowchart TB
 ```mermaid
 flowchart TB
   Rg["WHERE created_at BETWEEN a AND b"] --> Hist["histogram_bounds"]
-  Hist --> Buckets["Доля корзин в [a,b"]]
+  Hist --> Buckets["Доля корзин в [a,b]"]
   Buckets --> Sel["sel ≈ доля"]
   Sel --> Rows2["rows ≈ sel * reltuples"]
 ```

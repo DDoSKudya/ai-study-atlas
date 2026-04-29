@@ -1,0 +1,51 @@
+name: Validate Mermaid Diagrams
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  mermaid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli@10.9.1
+
+      - name: Validate changed Mermaid in markdown
+        if: github.event_name == 'pull_request'
+        run: >
+          python scripts/validate_mermaid.py
+          --include directions
+          --jobs 4
+          --changed-only
+          --base-ref origin/${{ github.base_ref }}
+          --report reports/mermaid-report.txt
+
+      - name: Validate Mermaid in markdown
+        if: github.event_name != 'pull_request'
+        run: python scripts/validate_mermaid.py --include directions --jobs 4 --report reports/mermaid-report.txt
+
+      - name: Upload Mermaid validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mermaid-validation-report
+          path: reports/mermaid-report.txt
+          if-no-files-found: ignore

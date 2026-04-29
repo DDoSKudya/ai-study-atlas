@@ -153,8 +153,7 @@ graph TB
     ESB_SO --> S_Ord
     ESB_SO --> S_Bill
 
-    ---
-
+    %% Разделение на два кластера в одной схеме
     subgraph Micro["Микросервисы + BFF"]
       BFF["BFF / API Gateway"]
       MS1["ms-customers"]

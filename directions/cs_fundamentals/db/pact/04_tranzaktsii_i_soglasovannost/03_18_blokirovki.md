@@ -126,18 +126,18 @@ sequenceDiagram
 
   rect rgb(245,245,245)
     Note over A,B: Без FOR UPDATE (lost update)
-    A->>A: SELECT balance(id=1) -> 500
-    B->>B: UPDATE balance = balance - 30; COMMIT
-    A->>A: UPDATE balance = 500 - 100; COMMIT
+    A->>A: SELECT balance id=1, result 500
+    B->>B: UPDATE balance minus 30 and commit
+    A->>A: UPDATE balance minus 100 and commit
     Note over A,B: Итог: 400 вместо 370
   end
 
   rect rgb(235,248,255)
     Note over A,B: С FOR UPDATE (без потери обновлений)
-    A->>A: SELECT ... FOR UPDATE (id=1) -> 500 (lock)
-    B->>B: UPDATE/ FOR UPDATE (id=1) (wait)
-    A->>A: UPDATE balance = balance - 100; COMMIT (unlock)
-    B->>B: UPDATE balance = balance - 30; COMMIT
+    A->>A: SELECT FOR UPDATE id=1, result 500, lock
+    B->>B: UPDATE or FOR UPDATE id=1, wait
+    A->>A: UPDATE balance minus 100 and commit, unlock
+    B->>B: UPDATE balance minus 30 and commit
     Note over A,B: Итог: 370 (корректно)
   end
 ```
@@ -318,8 +318,8 @@ Advisory lock = «блокировка по своему ключу» (числ�
 
 ```mermaid
 flowchart LR
-  A["A держит lock('id=1')"] -->|ждёт lock('id=2')| B["B держит lock('id=2')"]
-  B -->|ждёт lock('id=1')| A
+  A["A держит lock('id=1')"] -->|"ждёт lock('id=2')"| B["B держит lock('id=2')"]
+  B -->|"ждёт lock('id=1')"| A
   style A fill:#fff5f5,stroke:#d33
   style B fill:#fff5f5,stroke:#d33
   Note["Цикл ожиданий = deadlock<br/>СУБД откатывает 'жертву'"] --- A

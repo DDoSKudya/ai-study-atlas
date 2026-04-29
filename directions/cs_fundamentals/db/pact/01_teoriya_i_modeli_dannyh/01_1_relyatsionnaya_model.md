@@ -229,23 +229,9 @@ CREATE TABLE orders (
   - это предотвращает появление «заказов призраков» без реального пользователя.
 
 ```mermaid
-erDiagram
-  USERS ||--o{ ORDERS : "users.id <- orders.user_id"
-  ORDERS ||--o{ ORDER_ITEMS : "orders.id <- order_items.order_id"
-  USERS {
-    bigint id PK
-    text email UNIQUE
-  }
-  ORDERS {
-    bigint id PK
-    bigint user_id FK
-    numeric total
-  }
-  ORDER_ITEMS {
-    bigint order_id PK,FK
-    int line_no PK
-    bigint product_id
-  }
+flowchart LR
+  USERS["USERS\nid, email"] -->|1:N users.id -> orders.user_id| ORDERS["ORDERS\nid, user_id, total"]
+  ORDERS -->|1:N orders.id -> order_items.order_id| ORDER_ITEMS["ORDER_ITEMS\norder_id, line_no, product_id"]
 ```
 
 **Жизненная аналогия с паспортами и ссылками.**

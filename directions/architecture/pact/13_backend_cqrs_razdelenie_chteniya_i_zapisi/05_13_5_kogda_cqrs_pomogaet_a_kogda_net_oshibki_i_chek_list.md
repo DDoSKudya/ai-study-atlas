@@ -136,11 +136,11 @@ flowchart LR
       RDB2["Read‑БД / проекции"]
     end
 
-    BFF -->|Команды (HTTP POST /commands/...)| WAPI
+    BFF -->|"Команды (HTTP POST /commands/...)"| WAPI
     WAPI --> WDB2
     WAPI -->|События| EBus2["Шина событий"]
     EBus2 --> RDB2
-    BFF -->|Запросы (HTTP GET /views/...)| RAPI
+    BFF -->|"Запросы (HTTP GET /views/...)"| RAPI
     RAPI --> RDB2
 ```
 

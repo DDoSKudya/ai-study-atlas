@@ -16,3 +16,8 @@ __pycache__/
 *.swp
 *.swo
 *~
+
+# Local validation artifacts
+.mermaid-validate-work/
+reports/
+scripts/

@@ -81,7 +81,7 @@ Lag/depth + error rate/retry rate + saturation (CPU/memory) + throughput по т
 ```mermaid
 flowchart LR
   U["Пользователь"] --> API["HTTP API"]
-  API -->|'publish task (correlation_id)'| B["Broker"]
+  API -->|"publish task (correlation_id)"| B["Broker"]
   B --> W["Worker"]
   W --> DB["DB/External systems"]
 

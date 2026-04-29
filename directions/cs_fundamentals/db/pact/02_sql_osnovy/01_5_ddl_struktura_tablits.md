@@ -436,7 +436,7 @@ SELECT name, (pos).x, (pos).y FROM landmarks;
 
 ```mermaid
 flowchart TB
-  H["CREATE TABLE name"] --> Cols["Колонки:\nname type [NOT NULL"] [DEFAULT] ...]
+  H["CREATE TABLE name"] --> Cols["Колонки: name type [NOT NULL] [DEFAULT] ..."]
   Cols --> CInline["Inline constraints\n('на 1 колонку')"]
   Cols --> CTable["Table constraints\n('PK/UNIQUE/CHECK/FK\nв конце')"]
 ```

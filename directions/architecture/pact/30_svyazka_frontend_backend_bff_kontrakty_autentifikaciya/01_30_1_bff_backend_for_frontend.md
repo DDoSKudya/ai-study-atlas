@@ -564,7 +564,7 @@ flowchart LR
   FE -->|server-to-server| BFF["BFF"]
   BFF --> S["Services"]
   FE -->|HTML| U
-  Note over FE,BFF: SSR может агрегировать данные\nдо отдачи HTML
+  NOTE_1["SSR может агрегировать данные\nдо отдачи HTML"] --- FE
 ```
 
 Что это меняет на практике:

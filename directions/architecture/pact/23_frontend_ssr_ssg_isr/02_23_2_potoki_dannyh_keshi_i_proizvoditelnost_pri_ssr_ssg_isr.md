@@ -131,7 +131,7 @@ sequenceDiagram
 ```mermaid
 flowchart TD
   U["Браузер"] --> CDN["CDN/Edge"]
-  CDN -->|Статика (SSG/ISR)| StaticPages["HTML-файлы"]
+  CDN -->|"Статика (SSG/ISR)"| StaticPages["HTML-файлы"]
   CDN -->|Динамика| SSR["BFF/SSR-ноды"]
   SSR --> API["Сервисы/БД"]
   SSR --> Cache["Кеш данных/HTML"]

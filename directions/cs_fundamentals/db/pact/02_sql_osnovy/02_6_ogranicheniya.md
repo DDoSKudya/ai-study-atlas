@@ -155,7 +155,7 @@ flowchart LR
   NN2 -->|не NULL| Check["CHECK('expr')"]
   Check --> Pass{"expr = FALSE?"}
   Pass -->|Да| ErrChk["Ошибка"]
-  Pass -->|Нет (TRUE или NULL)| Ok["OK"]
+  Pass -->|"Нет (TRUE или NULL)"| Ok["OK"]
 ```
 
 ---

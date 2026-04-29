@@ -38,7 +38,7 @@ flowchart TB
 flowchart TB
   subgraph django_req["Процесс Django: один запрос"]
     V["View / service"]
-    AT{"{transaction.atomic"}}
+    AT["transaction.atomic"]
     CM["COMMIT успешен"]
     OC["on_commit callbacks"]
     V --> AT --> CM --> OC

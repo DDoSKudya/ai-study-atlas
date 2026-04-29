@@ -112,7 +112,7 @@ flowchart LR
   X --> Q["Broker-like queue for Celery"]
   Q --> W["Worker"]
   W --> RB["Result backend"]
-  note over X,Q: delivery semantics may be adapted by bridge
+  NOTE_1["delivery semantics may be adapted by bridge"] --- X
 ```
 
 ### Как запомнить

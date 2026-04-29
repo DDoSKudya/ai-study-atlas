@@ -65,9 +65,9 @@
 ```mermaid
 graph LR
   subgraph Commands["Цепочка команд"]
-    A["Service A"] -->|CreateOrder()| B["Service B"]
-    B -->|ChargePayment()| C["Service C"]
-    C -->|SendEmail()| D["Service D"]
+    A["Service A"] -->|"CreateOrder()"| B["Service B"]
+    B -->|"ChargePayment()"| C["Service C"]
+    C -->|"SendEmail()"| D["Service D"]
   end
 
   subgraph Events["События на шине"]

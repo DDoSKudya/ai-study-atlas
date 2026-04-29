@@ -121,7 +121,7 @@ graph LR
   end
 
   subgraph GraphQL
-    C3["Client (UI)"] -->|POST /graphql\n('query (...') )| GQL["GraphQL Server\n('схема + резолверы')"]
+    C3["Client (UI)"] -->|"POST /graphql\n('query (...') )"| GQL["GraphQL Server\n('схема + резолверы')"]
     GQL --> B1["Backend services / DB"]
   end
 ```

@@ -32,7 +32,7 @@ flowchart TB
   end
 
   Sum --> Choose["Выбрать план с минимальным total cost (корень)"]
-  SSD["random_page_cost ↓ на SSD"] -. делает индекс "дешевле" .-> Choose
+  SSD["random_page_cost ↓ на SSD"] -. "делает индекс дешевле" .-> Choose
   Cache["effective_cache_size ↑"] -. увеличивает шанс cache-hit .-> Choose
 ```
 

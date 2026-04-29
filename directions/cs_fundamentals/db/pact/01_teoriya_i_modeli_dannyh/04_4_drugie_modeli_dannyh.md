@@ -132,7 +132,7 @@ flowchart LR
 ```mermaid
 flowchart TB
   Doc["orders документ"] --> Head["Обложка:\norder_id, user_id"]
-  Doc --> Body["Внутри:\nitems["], statuses[], meta]
+  Doc --> Body["Внутри: items[], statuses[], meta"]
   Read["Частый доступ"] -->|1 чтение| Doc
 ```
 

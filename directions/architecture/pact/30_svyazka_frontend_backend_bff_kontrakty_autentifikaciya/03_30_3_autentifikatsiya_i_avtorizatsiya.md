@@ -426,9 +426,9 @@ sequenceDiagram
 ```mermaid
 flowchart LR
   Br["Browser"] -->|Cookie session| BFF["BFF"]
-  BFF -->|Service auth\n('m2m токен / mTLS')| S["Services"]
-  Note over Br,BFF: user-context хранится в сессии\n("или извлекается BFF-ом")
-  Note over BFF,S: сервисы не доверяют браузеру,\nони доверяют BFF как сервису + проверяют права
+  BFF -->|"Service auth\n('m2m токен / mTLS')"| S["Services"]
+  NOTE_1["user-context хранится в сессии или извлекается BFF"] --- Br
+  NOTE_2["сервисы не доверяют браузеру; доверяют BFF и проверяют права"] --- BFF
 ```
 
 Плюсы:
@@ -560,10 +560,10 @@ CORS — это ограничение **браузера**, а не “проб
 
 ```mermaid
 flowchart LR
-  Browser["Браузер"] -->|same-origin https://app.example.com/api| BFF["BFF"]
+  Browser["Браузер"] -->|"same-origin https://app.example.com/api"| BFF["BFF"]
   BFF -->|server-to-server| S["Internal Services"]
-  Note over Browser,BFF: CORS не нужен (для браузера)
-  Note over BFF,S: CORS не применяется (не браузер)
+  NOTE_1["CORS не нужен (для браузера)"] --- Browser
+  NOTE_2["CORS не применяется (не браузер)"] --- BFF
 ```
 
 Важно: это не “обход безопасности”, а упрощение модели. Но ответственность за безопасность не исчезает: BFF должен правильно валидировать, логировать, защищаться от атак.
