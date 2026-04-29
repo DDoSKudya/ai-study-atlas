@@ -7,7 +7,7 @@ retry_wait_time = 2
 max_retries = 2
 timeout = 20
 accept = [200, 429]
-exclude_mail = true
+include_mail = false
 
 # Ignore local anchors and repository-internal relative links.
 exclude = [
