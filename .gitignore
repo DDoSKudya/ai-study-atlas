@@ -20,4 +20,4 @@ __pycache__/
 # Local validation artifacts
 .mermaid-validate-work/
 reports/
-scripts/
+
