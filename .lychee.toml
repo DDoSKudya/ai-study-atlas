@@ -1,11 +1,9 @@
 # Lychee configuration for markdown link checking.
-# Keeps CI stable for documentation-heavy repositories.
+# Compatible with lychee v0.23.x.
 
-verbose = true
+verbose = "info"
 no_progress = true
-retry_wait_time = 2
 max_retries = 2
-timeout = 20
 accept = [200, 429]
 include_mail = false
 
