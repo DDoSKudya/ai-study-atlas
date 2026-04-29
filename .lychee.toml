@@ -1,0 +1,17 @@
+# Lychee configuration for markdown link checking.
+# Keeps CI stable for documentation-heavy repositories.
+
+verbose = true
+no_progress = true
+retry_wait_time = 2
+max_retries = 2
+timeout = 20
+accept = [200, 429]
+exclude_mail = true
+
+# Ignore local anchors and repository-internal relative links.
+exclude = [
+  "^#",
+  "^\\./",
+  "^\\.\\./",
+]

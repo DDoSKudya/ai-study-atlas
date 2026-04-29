@@ -1,0 +1,18 @@
+# OS / file manager
+.DS_Store
+Thumbs.db
+
+# Editors / IDE
+.idea/
+.vscode/
+.cursor/
+
+# Python cache (can appear from local tooling)
+__pycache__/
+*.py[cod]
+
+# Temporary / backups
+*.tmp
+*.swp
+*.swo
+*~
